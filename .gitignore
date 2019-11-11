@@ -1,0 +1,6 @@
+/target/
+
+#Khong push setting
+.settings/
+.classpath
+.project
