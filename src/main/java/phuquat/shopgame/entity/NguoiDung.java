@@ -16,58 +16,58 @@ public class NguoiDung implements Serializable{
 	public static final String ROLE_QUAN_TRI = "QUAN_TRI";
     public static final String ROLE_NGUOI_DUNG = "NGUOI_DUNG";
     
-    private String tendangnhap;
-    private String matkhau;
-    private boolean kichhoat;
-    private String kieunguoidung;
-    private String tennguoidung;
+    private String tenDangNhap;
+    private String matKhau;
+    private boolean kichHoat;
+    private String kieuNguoiDung;
+    private String tenNguoiDung;
     private double tien;
     private String email;
-    private String sodienthoai;
-
+    private String soDienThoai;
+    
     @Id
     @Column(name = "Tendangnhap", length = 50, nullable = false)
-	public String getTendangnhap() {
-		return tendangnhap;
+	public String getTenDangNhap() {
+		return tenDangNhap;
 	}
-	public void setTendangnhap(String tendangnhap) {
-		this.tendangnhap = tendangnhap;
+	public void setTenDangNhap(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
 	}
 	
 	@Column(name = "Matkhau", length = 50, nullable = false)
-		public String getMatkhau() {
-		return matkhau;
+	public String getMatKhau() {
+		return matKhau;
 	}
-	public void setMatkhau(String matkhau) {
-		this.matkhau = matkhau;
-	}
-
-    @Column(name = "Kichhoat", length = 1, nullable = false)
-	public boolean isKichhoat() {
-		return kichhoat;
-	}
-	public void setKichhoat(boolean kichhoat) {
-		this.kichhoat = kichhoat;
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
 	}
 	
-    @Column(name = "Kieunguoidung", length = 50, nullable = false)
-		public String getKieunguoidung() {
-		return kieunguoidung;
+	 @Column(name = "Kichhoat", length = 1, nullable = false)
+	public boolean isKichHoat() {
+		return kichHoat;
 	}
-	public void setKieunguoidung(String kieunguoidung) {
-		this.kieunguoidung = kieunguoidung;
+	public void setKichHoat(boolean kichHoat) {
+		this.kichHoat = kichHoat;
 	}
-
+	
+	@Column(name = "Kieunguoidung", length = 50, nullable = false)
+	public String getKieuNguoiDung() {
+		return kieuNguoiDung;
+	}
+	public void setKieuNguoiDung(String kieuNguoiDung) {
+		this.kieuNguoiDung = kieuNguoiDung;
+	}
+	
 	@Column(name = "Tennguoidung", length = 255, nullable = false)
-	public String getTennguoidung() {
-		return tennguoidung;
+	public String getTenNguoiDung() {
+		return tenNguoiDung;
 	}
-	public void setTennguoidung(String tennguoidung) {
-		this.tennguoidung = tennguoidung;
+	public void setTenNguoiDung(String tenNguoiDung) {
+		this.tenNguoiDung = tenNguoiDung;
 	}
 	
 	@Column(name = "Tien", nullable = false)
-		public double getTien() {
+	public double getTien() {
 		return tien;
 	}
 	public void setTien(double tien) {
@@ -83,15 +83,11 @@ public class NguoiDung implements Serializable{
 	}
 	
 	@Column(name = "Sodienthoai", length = 50, nullable = false)
-	public String getSodienthoai() {
-		return sodienthoai;
+	public String getSoDienThoai() {
+		return soDienThoai;
 	}
-	public void setSodienthoai(String sodienthoai) {
-		this.sodienthoai = sodienthoai;
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
 	
-    @Override
-    public String toString()  {
-        return "["+ this.tendangnhap+","+ this.matkhau+","+ this.kieunguoidung+"]";
-    }
 }

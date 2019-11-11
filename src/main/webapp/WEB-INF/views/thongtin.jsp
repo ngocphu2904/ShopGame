@@ -21,8 +21,8 @@
         	<div class="container">
         		
 				<div class="c-content-title-1" style="margin-top: 30px;">
-					<h2 class="c-center c-font-bold c-font-28 c-font-white">${thongtin.tennguoidung}</h2>
-					<h2 class="c-center c-font-22 c-font-white">${thongtin.kieunguoidung}</h2>
+					<h2 class="c-center c-font-bold c-font-28 c-font-white">${thongtin.tenNguoiDung}</h2>
+					<h2 class="c-center c-font-22 c-font-white">${thongtin.kieuNguoiDung}</h2>
 					<h2 class="c-center c-font-22 c-font-yellow">
 						<fmt:formatNumber value="${thongtin.tien}" type="currency"/>
                     </h2>
@@ -39,10 +39,10 @@
                             </div>
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
-                                    <li><a href="accountInfo" class="active c-font-white"><b>Thông tin tài khoản</b></a></li>
+                                    <li><a href="thongtin" class="active c-font-white"><b>Thông tin tài khoản</b></a></li>
                                     <li><a href="changepass?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
                                     <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-                                    	<li><a href="sanpham" class="c-font-white">Thêm nick</a></li>
+                                    	<li><a href="taikhoan" class="c-font-white">Thêm nick</a></li>
                                     </security:authorize>
                                 </ul>
                             </div>
@@ -71,11 +71,11 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Tên đăng nhập:</th>
-                                <th>${thongtin.tendangnhap}</th>
+                                <th>${thongtin.tenDangNhap}</th>
                             </tr>
                             <tr>
                                 <th scope="row">Tên của bạn:</th>
-                                <td>${thongtin.tennguoidung}</td>
+                                <td>${thongtin.tenNguoiDung}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Số dư của bạn:</th>
@@ -90,11 +90,11 @@
                             </tr>
                             <tr>
                                 <th scope="row">Số điện thoại:</th>
-                                <td>${thongtin.sodienthoai}</td>
+                                <td>${thongtin.soDienThoai}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Loại tài khoản:</th>
-                                <td>${thongtin.kieunguoidung}</td>
+                                <td>${thongtin.kieuNguoiDung}</td>
                             </tr>
                             <tr>
                                 <th scope="row"></th>

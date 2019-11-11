@@ -26,7 +26,7 @@ public class PhanQuyen implements UserDetailsService{
         NguoiDung nguoiDung = nguoiDungDAO.timNguoiDung(tendangnhap);
         
         // QUAN_TRI, NGUOI_DUNG
-        String quyen = nguoiDung.getKieunguoidung();
+        String quyen = nguoiDung.getKieuNguoiDung();
  
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
  
@@ -35,13 +35,13 @@ public class PhanQuyen implements UserDetailsService{
         
         grantList.add(authority);
  
-        boolean enabled = nguoiDung.isKichhoat();
+        boolean enabled = nguoiDung.isKichHoat();
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
  
-        UserDetails thongtin = (UserDetails) new User(nguoiDung.getTendangnhap(), //
-                nguoiDung.getMatkhau(), enabled, accountNonExpired, //
+        UserDetails thongtin = (UserDetails) new User(nguoiDung.getTenDangNhap(), //
+                nguoiDung.getMatKhau(), enabled, accountNonExpired, //
                 credentialsNonExpired, accountNonLocked, grantList);
  
         return thongtin;

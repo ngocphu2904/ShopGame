@@ -23,7 +23,7 @@
 						<span class="help-block" style="text-align: center;color: #ff2c12">
 			                <strong> 
 			                	<c:if
-									test="${param.error == 'true'}">
+									test="${param.loi == 'true'}">
 									<div>
 										Tài khoản hoặc mật khẩu không đúng!!!
 									</div>

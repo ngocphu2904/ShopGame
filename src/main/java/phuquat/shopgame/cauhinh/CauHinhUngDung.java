@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import phuquat.shopgame.dao.NguoiDungDAO;
+import phuquat.shopgame.dao.TaiKhoanDAO;
 
 @Configuration
 @ComponentScan("phuquat.shopgame.*")
@@ -85,8 +86,12 @@ public class CauHinhUngDung {
 	   }
 	   
 	   @Bean(name = "nguoiDungDAO")
-	   public NguoiDungDAO getApplicantDAO() {
+	   public NguoiDungDAO getNguoiDungDAO() {
 	       return new NguoiDungDAO();
 	   }
-	
+	   
+	   @Bean(name = "taiKhoanDAO")
+	   public TaiKhoanDAO getTaiKhoanDAO() {
+	       return new TaiKhoanDAO();
+	   }
 }

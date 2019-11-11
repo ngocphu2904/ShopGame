@@ -20,7 +20,7 @@ public class NguoiDungDAO {
     public NguoiDung timNguoiDung(String tendangnhap ) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(NguoiDung.class);
-        crit.add(Restrictions.eq("tendangnhap", tendangnhap));
+        crit.add(Restrictions.eq("tenDangNhap", tendangnhap));
         return (NguoiDung) crit.uniqueResult();
     }
     
@@ -29,8 +29,8 @@ public class NguoiDungDAO {
         if (nguoidung == null) {
             return null;
         }
-        return new NguoiDungModel(nguoidung.getTendangnhap(), nguoidung.getMatkhau(), //
-        		nguoidung.isKichhoat(), nguoidung.getKieunguoidung(), nguoidung.getTennguoidung(), //
-        	  nguoidung.getTien(), nguoidung.getEmail(), nguoidung.getSodienthoai());
+        return new NguoiDungModel(nguoidung.getTenDangNhap(), nguoidung.getMatKhau(), //
+        		nguoidung.isKichHoat(), nguoidung.getKieuNguoiDung(), nguoidung.getTenNguoiDung(), //
+        	  nguoidung.getTien(), nguoidung.getEmail(), nguoidung.getSoDienThoai());
     }
 }

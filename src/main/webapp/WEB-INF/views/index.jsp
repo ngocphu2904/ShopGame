@@ -34,28 +34,28 @@
 				<div class="carousel-inner">
 
 					<div class="item active">
-						<a href="sanpham"><img src="images/slide3.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
+						<a href="taikhoan"><img src="images/slide3.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
 							<p><b>UY TÍN NHẤT</b></p>
 						</div>
 					</div>
 					
 					<div class="item">
-						<a href="sanpham"><img src="images/slide4.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
+						<a href="taikhoan"><img src="images/slide4.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
 							<p><b>CHẤT LƯỢNG NHẤT</b></p>
 						</div>
 					</div>
 					
 					<div class="item">
-						<a href="sanpham"><img src="images/slide1.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
+						<a href="taikhoan"><img src="images/slide1.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
 							<p><b>GIÁ RẺ NHẤT</b></p>
 						</div>
 					</div>
 					
 					<div class="item">
-						<a href="sanpham"><img src="images/slide5.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
+						<a href="taikhoan"><img src="images/slide5.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
 							<p><b>ĐA DẠNG NHẤT</b></p>
 						</div>

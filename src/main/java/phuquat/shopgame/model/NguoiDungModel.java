@@ -2,74 +2,74 @@ package phuquat.shopgame.model;
 
 public class NguoiDungModel {
 
-    private String tendangnhap;
-    private String matkhau;
-    private boolean kichhoat;
-    private String kieunguoidung;
-    private String tennguoidung;
+    private String tenDangNhap;
+    private String matKhau;
+    private boolean kichHoat;
+    private String kieuNguoiDung;
+    private String tenNguoiDung;
     private double tien;
     private String email;
-    private String sodienthoai;
+    private String soDienThoai;
     
-	public NguoiDungModel(String tendangnhap, String matkhau, boolean kichhoat, String kieunguoidung,
-			String tennguoidung, double tien, String email, String sodienthoai) {
-		this.tendangnhap = tendangnhap;
-		this.matkhau = matkhau;
-		this.kichhoat = kichhoat;
-		this.kieunguoidung = kieunguoidung;
-		this.tennguoidung = tennguoidung;
+	public NguoiDungModel(String tenDangNhap, String matKhau, boolean kichHoat, String kieuNguoiDung,
+			String tenNguoiDung, double tien, String email, String soDienThoai) {
+		this.tenDangNhap = tenDangNhap;
+		this.matKhau = matKhau;
+		this.kichHoat = kichHoat;
+		this.kieuNguoiDung = kieuNguoiDung;
+		this.tenNguoiDung = tenNguoiDung;
 		this.tien = tien;
 		this.email = email;
-		this.sodienthoai = sodienthoai;
+		this.soDienThoai = soDienThoai;
 	}
 
-	public NguoiDungModel(String tendangnhap, String matkhau) {
-		this.tendangnhap = tendangnhap;
-		this.matkhau = matkhau;
+	public NguoiDungModel(String tenDangNhap, String matKhau) {
+		this.tenDangNhap = tenDangNhap;
+		this.matKhau = matKhau;
 	}
 
-	public NguoiDungModel(String tendangnhap) {
-		this.tendangnhap = tendangnhap;
+	public NguoiDungModel(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
 	}
 
-	public String getTendangnhap() {
-		return tendangnhap;
+	public String getTenDangNhap() {
+		return tenDangNhap;
 	}
 
-	public void setTendangnhap(String tendangnhap) {
-		this.tendangnhap = tendangnhap;
+	public void setTenDangNhap(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
 	}
 
-	public String getMatkhau() {
-		return matkhau;
+	public String getMatKhau() {
+		return matKhau;
 	}
 
-	public void setMatkhau(String matkhau) {
-		this.matkhau = matkhau;
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
 	}
 
-	public boolean isKichhoat() {
-		return kichhoat;
+	public boolean isKichHoat() {
+		return kichHoat;
 	}
 
-	public void setKichhoat(boolean kichhoat) {
-		this.kichhoat = kichhoat;
+	public void setKichHoat(boolean kichHoat) {
+		this.kichHoat = kichHoat;
 	}
 
-	public String getKieunguoidung() {
-		return kieunguoidung;
+	public String getKieuNguoiDung() {
+		return kieuNguoiDung;
 	}
 
-	public void setKieunguoidung(String kieunguoidung) {
-		this.kieunguoidung = kieunguoidung;
+	public void setKieuNguoiDung(String kieuNguoiDung) {
+		this.kieuNguoiDung = kieuNguoiDung;
 	}
 
-	public String getTennguoidung() {
-		return tennguoidung;
+	public String getTenNguoiDung() {
+		return tenNguoiDung;
 	}
 
-	public void setTennguoidung(String tennguoidung) {
-		this.tennguoidung = tennguoidung;
+	public void setTenNguoiDung(String tenNguoiDung) {
+		this.tenNguoiDung = tenNguoiDung;
 	}
 
 	public double getTien() {
@@ -88,12 +88,12 @@ public class NguoiDungModel {
 		this.email = email;
 	}
 
-	public String getSodienthoai() {
-		return sodienthoai;
+	public String getSoDienThoai() {
+		return soDienThoai;
 	}
 
-	public void setSodienthoai(String sodienthoai) {
-		this.sodienthoai = sodienthoai;
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
     
 }
