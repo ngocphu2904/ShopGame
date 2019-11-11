@@ -39,10 +39,11 @@
                 <!-- BEGIN: BRAND -->
                 <div class="c-navbar-wrapper clearfix">
                     <div class="c-brand c-pull-left absolute_pos">
-                        <h1 style="margin: 0px;display: inline-block">
+                        <h1 style="margin: -2px 0 0 0;display: inline-block">
                             <a href="" class="c-logo">
-                                <img height="35px" src="images/Mkxf0OpR9S_1555305360.png" title="Trang chủ" class="c-desktop-logo">
-                                <img height="29px" src="images/Mkxf0OpR9S_1555305360.png" title="Trang chủ" class="c-desktop-logo-inverse">
+                                <img height="35px" src="images/logo.png" title="Trang chủ" class="c-desktop-logo">
+                                <img height="29px" src="images/logo.png" title="Trang chủ" class="c-desktop-logo-inverse">
+                        	</a>
                         </h1>
                         <style type="text/css">
 	                        @media screen and (max-width: 991px) {
@@ -176,23 +177,23 @@
                             	<a href="${pageContext.request.contextPath}/productList" class="c-link dropdown-toggle" >GAMES</a>
                             </li>
                             <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_USER')">
+                            	<security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
                             		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-link dropdown-toggle " >GIỎ NICK</a>
                             	</security:authorize>
                             </li>
                             <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_MANAGER')">
+                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
                             		<a href="${pageContext.request.contextPath}/orderList" class="c-link dropdown-toggle " >DANH SÁCH MUA</a>
                             	</security:authorize>
                             </li>
                             <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_MANAGER')">
-                            		<a href="${pageContext.request.contextPath}/product" class="c-link dropdown-toggle " >THÊM NICK</a>
+                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+                            		<a href="${pageContext.request.contextPath}/sanpham" class="c-link dropdown-toggle " >THÊM NICK</a>
                             	</security:authorize>
                             </li>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">
 	                        	<li class="float_right">
-	                            	<a href="${pageContext.request.contextPath}/login" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+	                            	<a href="${pageContext.request.contextPath}/dangnhap" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 	                                    <i class="fa fa-sign-in"></i>Đăng nhập
 	                                </a>
                                </li> 
@@ -205,12 +206,12 @@
                             
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
 	                            <li class="float_right">
-						           <a href="${pageContext.request.contextPath}/logout" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+						           <a href="${pageContext.request.contextPath}/dangxuat" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 						           		<i class="fa fa-sign-out"></i>Đăng xuất
 						           </a>
 				           		</li>
 	                            <li class="float_right">
-						           <a href="${pageContext.request.contextPath}/accountInfo" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+						           <a href="${pageContext.request.contextPath}/thongtin" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 						                <i class="fa fa-user-o"></i>${pageContext.request.userPrincipal.name}
 						           </a>
 				                </li>

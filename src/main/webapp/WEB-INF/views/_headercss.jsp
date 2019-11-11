@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
 	<meta content="text/html; charset="UTF-8">	
- 	<title>SHOP BÁN ACC GAME UY TÍN</title>
-    <link rel="shortcut icon" href="images/Mkxf0OpR9S_1555305360.png" type="image/x-icon">
+ 	<title>SHOP BÁN TÀI KHOẢN ĐỘT KÍCH UY TÍN CHẤT LƯỢNG CAO</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 
 	<!-- CSS AND JAVASCRIPT -->
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -19,16 +19,13 @@
     <link href="css/owl.carousel.css" rel="stylesheet">
     <link href="css/owl.theme.css" rel="stylesheet">
     <link href="css/owl.transitions.css" rel="stylesheet">
-    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
 
     <!-- TRANSITION THANH TRANG CHỦ -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/signup.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/jquery.cookie.js"></script>
+    <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="js/signup.js" type="text/javascript"></script>
+    <script src="js/slider.js" type="text/javascript"></script>
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/magnific.css" rel="stylesheet" type="text/css">
-    
-    
-    
 </head>

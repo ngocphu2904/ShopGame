@@ -13,7 +13,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import phuquat.shopgame.cauhinh.CauHinhUngDung;
 
-public class CaiDatUngDungShopGame implements WebApplicationInitializer{
+public class CauHinhLoc implements WebApplicationInitializer{
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -25,11 +25,9 @@ public class CaiDatUngDungShopGame implements WebApplicationInitializer{
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
          
-         
         ContextLoaderListener contextLoaderListener = new ContextLoaderListener(appContext);
  
         servletContext.addListener(contextLoaderListener);
-         
          
         // Filter.
         FilterRegistration.Dynamic fr = servletContext.addFilter("encodingFilter", CharacterEncodingFilter.class);
