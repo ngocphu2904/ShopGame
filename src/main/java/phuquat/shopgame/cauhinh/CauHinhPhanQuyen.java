@@ -30,6 +30,8 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       // Chuyen toi trang dang nhap khi muon vao 2 trang duoi (neu chua dang nhap)
 	       http.authorizeRequests().antMatchers("/thongtin", "/doimatkhau")
 			  .access("hasAnyRole('ROLE_QUAN_TRI','ROLE_NGUOI_DUNG')");
+	       
+	       http.authorizeRequests().antMatchers("/taikhoan").access("hasRole('ROLE_QUAN_TRI')");
 	  
 	       // Cau hinh trang dang nhap
 	       http.authorizeRequests().and().formLogin().loginProcessingUrl("/check")

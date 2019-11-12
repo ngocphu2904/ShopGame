@@ -23,6 +23,8 @@ public class TaiKhoan implements Serializable{
     private boolean mua;
     private String tenTaiKhoan;
     private String matKhauTaiKhoan;
+    private String cauHoiBaoMat;
+    private String cauTraLoiBaoMat;
     
     public TaiKhoan() {}
     
@@ -82,7 +84,7 @@ public class TaiKhoan implements Serializable{
 		this.mua = mua;
 	}
 
-    @Column(name = "Tentaikhoan", length = 255, nullable = true)
+    @Column(name = "Tentaikhoan", length = 255, nullable = false)
 	public String getTenTaiKhoan() {
 		return tenTaiKhoan;
 	}
@@ -91,7 +93,7 @@ public class TaiKhoan implements Serializable{
 		this.tenTaiKhoan = tenTaiKhoan;
 	}
 
-    @Column(name = "Matkhautaikhoan", length = 255, nullable = true)
+    @Column(name = "Matkhautaikhoan", length = 255, nullable = false)
 	public String getMatKhauTaiKhoan() {
 		return matKhauTaiKhoan;
 	}
@@ -99,5 +101,25 @@ public class TaiKhoan implements Serializable{
 	public void setMatKhauTaiKhoan(String matKhauTaiKhoan) {
 		this.matKhauTaiKhoan = matKhauTaiKhoan;
 	}
+
+	@Column(name = "Cauhoibaomat", length = 255, nullable = true)
+	public String getCauHoiBaoMat() {
+		return cauHoiBaoMat;
+	}
+
+	public void setCauHoiBaoMat(String cauHoiBaoMat) {
+		this.cauHoiBaoMat = cauHoiBaoMat;
+	}
+
+	@Column(name = "Cautraloibaomat", length = 255, nullable = true)
+	public String getCauTraLoiBaoMat() {
+		return cauTraLoiBaoMat;
+	}
+
+	public void setCauTraLoiBaoMat(String cauTraLoiBaoMat) {
+		this.cauTraLoiBaoMat = cauTraLoiBaoMat;
+	}
+	
+	
     
 }

@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -19,12 +20,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.dao.TaiKhoanDAO;
+import phuquat.shopgame.service.NguoiDungService;
+import phuquat.shopgame.service.TaiKhoanService;
 
 @Configuration
 @ComponentScan("phuquat.shopgame.*")
 @EnableTransactionManagement
 //Dung o bien Environment.
-@PropertySource("classpath:hibernate.properties")
+@PropertySource("classpath:database.properties")
 public class CauHinhUngDung {
 
 	   // Luu cac gia tri o @PropertySource vao moitruong.
@@ -76,6 +79,14 @@ public class CauHinhUngDung {
 	       System.out.println("## getSessionFactory: " + sf);
 	       return sf;
 	   }
+	   
+	    @Autowired
+	    @Bean(name = "template")
+	    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+	        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+	        jdbcTemplate.setResultsMapCaseInsensitive(true);
+	        return jdbcTemplate;
+	    }
 	 
 	   @Autowired
 	   @Bean(name = "transactionManager")
@@ -86,12 +97,22 @@ public class CauHinhUngDung {
 	   }
 	   
 	   @Bean(name = "nguoiDungDAO")
-	   public NguoiDungDAO getNguoiDungDAO() {
-	       return new NguoiDungDAO();
+	   public NguoiDungDAO getNguoiDungDAO(){
+		   return new NguoiDungDAO();
 	   }
 	   
 	   @Bean(name = "taiKhoanDAO")
-	   public TaiKhoanDAO getTaiKhoanDAO() {
-	       return new TaiKhoanDAO();
+	   public TaiKhoanDAO getTaiKhoanDAO(){
+		   return new TaiKhoanDAO();
+	   }
+	   
+	   @Bean(name = "taiKhoanService")
+	   public TaiKhoanService getTaiKhoanService(){
+		   return new TaiKhoanService();
+	   }
+	   
+	   @Bean(name = "nguoiDungService")
+	   public NguoiDungService getNguoiDungService(){
+		   return new NguoiDungService();
 	   }
 }

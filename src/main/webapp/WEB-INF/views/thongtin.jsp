@@ -42,7 +42,7 @@
                                     <li><a href="thongtin" class="active c-font-white"><b>Thông tin tài khoản</b></a></li>
                                     <li><a href="changepass?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
                                     <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-                                    	<li><a href="taikhoan" class="c-font-white">Thêm nick</a></li>
+                                    	<li><a href="themtaikhoan" class="c-font-white">Thêm nick</a></li>
                                     </security:authorize>
                                 </ul>
                             </div>

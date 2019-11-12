@@ -8,13 +8,12 @@ import org.springframework.stereotype.Service;
 import phuquat.shopgame.dao.TaiKhoanDAO;
 import phuquat.shopgame.entity.TaiKhoan;
 
-@Service
+@Transactional
 public class TaiKhoanService {
 
 	@Autowired
 	private TaiKhoanDAO taiKhoanDAO;
 	
-	@Transactional
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanDAO.luuTaiKhoan(taiKhoan);
 	}

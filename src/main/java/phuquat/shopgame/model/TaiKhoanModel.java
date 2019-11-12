@@ -14,35 +14,14 @@ public class TaiKhoanModel {
     private boolean mua;
     private String tenTaiKhoan;
     private String matKhauTaiKhoan;
+    private String cauHoiBaoMat;
+    private String cauTraLoiBaoMat;
     private String maHinhAnh;
     private MultipartFile duLieuHinhAnh;
     
     private boolean taoMoiTaiKhoan = false;
 
     public TaiKhoanModel() {}
-    
-    public TaiKhoanModel(TaiKhoan taiKhoan) {
-    	this.ma = taiKhoan.getMa();
-    	this.loai = taiKhoan.getLoai();
-    	this.gia = taiKhoan.getGia();
-    	this.thongTin = taiKhoan.getThongTin();
-    	this.vip = taiKhoan.getVip();
-    	this.tenTaiKhoan = taiKhoan.getTenTaiKhoan();
-    	this.matKhauTaiKhoan = taiKhoan.getMatKhauTaiKhoan();
-    }
-
-	public TaiKhoanModel(String maHinhAnh, String ma, String loai, double gia, int vip, String thongTin,
-			boolean mua, String tenTaiKhoan, String matKhauTaiKhoan) {
-		this.maHinhAnh = maHinhAnh;
-		this.ma = ma;
-		this.loai = loai;
-		this.gia = gia;
-		this.vip = vip;
-		this.thongTin = thongTin;
-		this.mua = mua;
-		this.tenTaiKhoan = tenTaiKhoan;
-		this.matKhauTaiKhoan = matKhauTaiKhoan;
-	}
 
 	public String getMa() {
 		return ma;
@@ -130,6 +109,22 @@ public class TaiKhoanModel {
 
 	public void setTaoMoiTaiKhoan(boolean taoMoiTaiKhoan) {
 		this.taoMoiTaiKhoan = taoMoiTaiKhoan;
+	}
+
+	public String getCauHoiBaoMat() {
+		return cauHoiBaoMat;
+	}
+
+	public void setCauHoiBaoMat(String cauHoiBaoMat) {
+		this.cauHoiBaoMat = cauHoiBaoMat;
+	}
+
+	public String getCauTraLoiBaoMat() {
+		return cauTraLoiBaoMat;
+	}
+
+	public void setCauTraLoiBaoMat(String cauTraLoiBaoMat) {
+		this.cauTraLoiBaoMat = cauTraLoiBaoMat;
 	}
     
     

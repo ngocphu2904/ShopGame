@@ -188,7 +188,7 @@
                             </li>
                             <li class="c-menu-type-classic">
                             	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-                            		<a href="${pageContext.request.contextPath}/taikhoan" class="c-link dropdown-toggle " >THÊM NICK</a>
+                            		<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-link dropdown-toggle " >THÊM NICK</a>
                             	</security:authorize>
                             </li>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">

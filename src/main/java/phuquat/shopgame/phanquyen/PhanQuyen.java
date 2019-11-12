@@ -12,18 +12,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.service.NguoiDungService;
 
 @Service
 public class PhanQuyen implements UserDetailsService{
 	
 	@Autowired
-	private NguoiDungDAO nguoiDungDAO;
+	private NguoiDungService nguoiDungService;
 	
 	@Override
     public UserDetails loadUserByUsername(String tendangnhap) throws UsernameNotFoundException {
-        NguoiDung nguoiDung = nguoiDungDAO.timNguoiDung(tendangnhap);
+        NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tendangnhap);
         
         // QUAN_TRI, NGUOI_DUNG
         String quyen = nguoiDung.getKieuNguoiDung();

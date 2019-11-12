@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
  
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
                                     <li><a href="thongtin" class="c-font-white">Thông tin tài khoản</a></li>
                                     <li><a href="doimatkhau" class="c-font-white">Đổi mật khẩu</b></a></li>
-                                    <li><a href="taikhoan" class="active c-font-white"><b>Thêm nick</b></a></li>
+                                    <li><a href="themtaikhoan" class="active c-font-white"><b>Thêm nick</b></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -53,17 +53,18 @@
                     <div class="c-content-title-1" style="margin-left: 180px;">
                         <h3 class="c-font-uppercase c-font-bold c-font-white">Thêm nick</h3>
                     </div>
-					<form:form action="luuTaiKhoan" modelAttribute="taikhoan" method="POST" enctype="multipart/form-data" class="form-horizontal form-charge">
-                        <form:hidden path="ma"/>
+					
+                    <form:form modelAttribute="formTaiKhoan" method="post" class="form-horizontal form-charge">
+                  
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Loại tài khoản:</label>
                             <div class="col-md-6">
-                                <form:select class="form-control c-square c-theme" path="loai">
-                                    <form:option value="TẤT CẢ" label="TẤT CẢ"/>
-                                    <form:option value="ZOMBIE" label="CHUYÊN ZOMBIE"/>
-                                    <form:option value="SNIPER" label="CHUYÊN SNIPER"/>
-                                    <form:option value="ĐẶT BOOM C4" label="ĐẶT BOOM C4"/>
-                                    <form:option value="CẬN CHIẾN" label="CẬN CHIẾN"/>
+                                <form:select path="loai" class="form-control c-square c-theme">
+                                	<form:option value="TẤT CẢ">TẤT CẢ</form:option>
+                                	<form:option value="CHUYÊN ZOMBIE">CHUYÊN ZOMBIE</form:option>
+                                	<form:option value="CHUYÊN SNIPER">CHUYÊN SNIPER</form:option>
+                                	<form:option value="CẬN CHIẾN">CẬN CHIẾN</form:option>
+                                	<form:option value="ĐẶT BOOM C4">ĐẶT BOOM C4</form:option>
                                 </form:select>
                             </div>
                         </div>
@@ -71,27 +72,66 @@
 						<div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Giá:</label>
                             <div class="col-md-6">
-                                <form:input class="form-control c-square c-theme" path="gia" 
+                                <form:input path="gia" class="form-control c-square c-theme"
                                 type="number" required="true" placeholder="Nhập giá tài khoản"/>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="col-md-3 control-label c-font-white">Thông tin:</label>
-                            <div class="col-md-6">
-                                <form:select class="form-control  c-square c-theme" path="thongTin" name="type" id="type">
-                                    <form:option value="Trắng thông tin" label="Trắng thông tin"/>
-                                </form:select>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">VIP:</label>
                             <div class="col-md-6">
-                                <form:input class="form-control c-square c-theme" path="vip" 
+                                <form:input path="vip" class="form-control c-square c-theme"
                                 type="number" required="true" placeholder="Nhập số lượng vip của tài khoản"/>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Tên đăng nhập:</label>
+                            <div class="col-md-6">
+                                 <form:input path="tenTaiKhoan" class="form-control c-square c-theme"
+                                 required="true" placeholder="Nhập tên đăng nhập của tài khoản"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Mật khẩu tài khoản:</label>
+                            <div class="col-md-6">
+                                <form:input path="matKhauTaiKhoan" class="form-control c-square c-theme"
+                                required="true" placeholder="Nhập mật khẩu của tài khoản"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Thông tin:</label>
+                            <div class="col-md-6">
+                                <form:select path="thongTin" id="cauhoi" class="form-control c-square c-theme">
+                                	<form:option value="Trắng thông tin" selected="selected">Trắng thông tin</form:option>         
+                                	<form:option value="Full TT chưa SĐT (đổi được hết)">Full TT chưa SĐT (đổi được hết)</form:option>                  	
+                                </form:select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Câu hỏi bảo mật:</label>
+                            <div class="col-md-6">
+                                <form:select path="cauHoiBaoMat" id="traloi" class="form-control c-square c-theme">
+                                	<%-- <form:option value="1">Con vật mà bạn yêu thích?</form:option>
+                                	<form:option value="2">Con vật mà bạn ghét nhất?</form:option>
+                                	<form:option value="3">Bộ phim mà bạn yêu thích?</form:option>
+                                	<form:option value="4">Đội bóng bạn thích nhất?</form:option>
+                                	<form:option value="5">Người bạn yêu quý nhất tên là gì?</form:option> --%>
+                                </form:select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Câu trả lời bảo mật:</label>
+                            <div class="col-md-6">
+                                <form:input path="cauTraLoiBaoMat" class="form-control c-square c-theme"
+                                 placeholder="Nhập câu trả lời của câu hỏi bảo mật"/>
+                            </div>
+                        </div>
+                        
                         <%-- <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Hình ảnh:</label>
                             <div class="col-md-6">
@@ -107,7 +147,24 @@
                             </div>
                         </div> --%>
 
-						<style tyle="text/css">
+						<script type="text/javascript">
+							$(document).ready(function() {							  
+								$("#cauhoi").change(function() {						    
+									var el = $(this) ;						    
+									if(el.val() === "Full TT chưa SĐT (đổi được hết)" ) {
+										$("#traloi").append("<option value='Con vật mà bạn yêu thích?'>Con vật mà bạn yêu thích?</option>");
+										$("#traloi").append("<option value='Con vật mà bạn ghét thích?'>Con vật mà bạn ghét thích?</option>");
+										$("#traloi").append("<option value='Bộ phim mà bạn yêu thích?'>Bộ phim mà bạn yêu thích?</option>");
+										$("#traloi").append("<option value='Đội bóng bạn thích nhất?'>Đội bóng bạn thích nhất?</option>");
+										$("#traloi").append("<option value='Người bạn yêu quý nhất tên là gì?'>Người bạn yêu quý nhất tên là gì?</option>");
+									}
+									else if(el.val() === "Trắng thông tin" ) {
+										$("#traloi option").remove() ; }
+								});						  
+							});
+						</script>
+						
+						<style type="text/css">
 							.custom-file {
 								position: relative;
 								display: inline-block;
@@ -165,16 +222,16 @@
 
 						<div class="form-group c-margin-t-40">
                             <div class="col-md-offset-3 col-md-6">
-                            	<%-- <c:if test="${productForm.code == null}"> --%>
+                            	<c:if test="${formTaiKhoan.ma == null}">
 	                                <button type="submit" value="Submit" class="btn btn-submit 
 	                                c-theme-btn c-btn-square c-btn-uppercase c-btn-bold btn-block">
 	                                Thêm</button>
-                                <%-- </c:if>
-                                <c:if test="${productForm.code != null}">
+                                </c:if>
+                                <c:if test="${formTaiKhoan.ma != null}">
 	                                <button type="submit" value="Submit" class="btn btn-submit 
 	                                c-theme-btn c-btn-square c-btn-uppercase c-btn-bold btn-block">
 	                                Cập nhật</button>
-                                </c:if> --%>
+                                </c:if>
                             </div>
                         </div>  
                     </form:form>

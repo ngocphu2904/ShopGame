@@ -4,24 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import phuquat.shopgame.dao.NguoiDungDAO;
-import phuquat.shopgame.model.NguoiDungModel;
+import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.service.NguoiDungService;
 
 @Controller
-//Cho Hibernate Transaction.
-@Transactional
-//Su dung RedirectAttributes
-@EnableWebMvc
 public class TrangNguoiDung {
 	
 	@Autowired
-    private NguoiDungDAO nguoiDungDAO;
+    private NguoiDungService nguoiDungService;
 	
 	@RequestMapping("/")
 	public String home() {
@@ -38,9 +33,9 @@ public class TrangNguoiDung {
  
         UserDetails nguoiDung = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         
-        NguoiDungModel thongtin = null;
+        NguoiDung thongtin = null;
         if (nguoiDung.getUsername() != null) {
-        	thongtin = nguoiDungDAO.getThongTinNguoiDung(nguoiDung.getUsername());
+        	thongtin = nguoiDungService.timNguoiDung(nguoiDung.getUsername());
         }
         if (thongtin == null) {
             return "redirect:/login";
