@@ -51,7 +51,7 @@
 			
 			            <div class="social-auth-links text-center c-font-white">
 			                <p style="margin-top: 10px">- HOẶC -</p>  
-			                <a href="Register" class="btn btn-danger btn-block btn-flat"><i class="fa fa-key"></i>Tạo tài khoản</a>
+			                <a href="dangky" class="btn btn-danger btn-block btn-flat"><i class="fa fa-key"></i>Tạo tài khoản</a>
 			            </div>
 			            <!-- /.social-auth-links -->
 			        </div>

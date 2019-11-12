@@ -23,6 +23,10 @@ public class NguoiDungModel {
 		this.soDienThoai = soDienThoai;
 	}
 
+	public NguoiDungModel() {
+
+	}
+	
 	public NguoiDungModel(String tenDangNhap, String matKhau) {
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;

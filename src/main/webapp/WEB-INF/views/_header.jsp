@@ -198,7 +198,7 @@
 	                                </a>
                                </li> 
 	                        	<li class="float_right">
-	                                <a href="${pageContext.request.contextPath}/Register" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+	                                <a href="${pageContext.request.contextPath}/dangky" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 	                                    <i class="fa fa-key"></i>Đăng ký
 	                                 </a>
                                  </li>

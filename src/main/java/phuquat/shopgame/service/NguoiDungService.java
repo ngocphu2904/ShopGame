@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.model.NguoiDungModel;
 
 @Transactional
 public class NguoiDungService {
@@ -15,5 +16,13 @@ public class NguoiDungService {
 	
 	public NguoiDung timNguoiDung(String tenDangNhap) {
 		return nguoiDungDAO.timNguoiDung(tenDangNhap);
+	}
+	public void luunguoidung(NguoiDung nguoidung) {
+		nguoiDungDAO.luuNguoiDung(nguoidung);
+	}
+	public boolean checkuser(NguoiDung nguoidung) {
+		boolean kq=nguoiDungDAO.checkuser(nguoidung);
+		if(kq==true)return true;
+		return false;
 	}
 }
