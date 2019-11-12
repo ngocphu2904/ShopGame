@@ -54,7 +54,7 @@
                         <h3 class="c-font-uppercase c-font-bold c-font-white">Thêm nick</h3>
                     </div>
 					
-                    <form:form modelAttribute="formTaiKhoan" method="post" class="form-horizontal form-charge">
+                    <form:form modelAttribute="formTaiKhoan" method="post" class="form-horizontal form-charge" enctype="multipart/form-data">
                   
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Loại tài khoản:</label>
@@ -104,8 +104,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Thông tin:</label>
                             <div class="col-md-6">
-                                <form:select path="thongTin" id="cauhoi" class="form-control c-square c-theme">
-                                	<form:option value="Trắng thông tin" selected="selected">Trắng thông tin</form:option>         
+                                <form:select path="thongTin" id="cauhoi" class="form-control c-square c-theme"> 
                                 	<form:option value="Full TT chưa SĐT (đổi được hết)">Full TT chưa SĐT (đổi được hết)</form:option>                  	
                                 </form:select>
                             </div>
@@ -114,25 +113,25 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Câu hỏi bảo mật:</label>
                             <div class="col-md-6">
-                                <form:select path="cauHoiBaoMat" id="traloi" class="form-control c-square c-theme">
-                                	<%-- <form:option value="1">Con vật mà bạn yêu thích?</form:option>
-                                	<form:option value="2">Con vật mà bạn ghét nhất?</form:option>
-                                	<form:option value="3">Bộ phim mà bạn yêu thích?</form:option>
-                                	<form:option value="4">Đội bóng bạn thích nhất?</form:option>
-                                	<form:option value="5">Người bạn yêu quý nhất tên là gì?</form:option> --%>
+                                <form:select path="cauHoiBaoMat" class="form-control c-square c-theme">
+                                	<option value="Con vật mà bạn yêu thích?">Con vật mà bạn yêu thích?</option>
+                                	<option value="Con vật mà bạn ghét thích?">Con vật mà bạn ghét thích?</option>
+                                	<option value="Bộ phim mà bạn yêu thích?">Bộ phim mà bạn yêu thích?</option>
+                                	<option value="Đội bóng bạn thích nhất?">Đội bóng bạn thích nhất?</option>
+                                	<option value="Người bạn yêu quý nhất tên là gì?">Người bạn yêu quý nhất tên là gì?</option>
                                 </form:select>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Câu trả lời bảo mật:</label>
-                            <div class="col-md-6">
-                                <form:input path="cauTraLoiBaoMat" class="form-control c-square c-theme"
+                            <div class="col-md-6" id="cauTraLoi">
+                                <form:input path="cauTraLoiBaoMat" id="cauTraLoi" class="form-control c-square c-theme"
                                  placeholder="Nhập câu trả lời của câu hỏi bảo mật"/>
                             </div>
                         </div>
                         
-                        <%-- <div class="form-group">
+                        <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Hình ảnh:</label>
                             <div class="col-md-6">
                                 <img src="#" width="100"/>
@@ -142,27 +141,12 @@
                             <label class="col-md-3 control-label c-font-white">Tải ảnh lên:</label>
                             <div class="col-md-6">
                                 <form:input class="custom-file-input" id="customFile" name="files"
-                                	type="file" path="" required="true" multiple="multiple"/>
+                                	type="file" path="" multiple="multiple"/>
 	                                <label class="custom-file-label" for="customFile" >Nhấn chọn hình ảnh...</label>
                             </div>
-                        </div> --%>
+                        </div>
 
-						<script type="text/javascript">
-							$(document).ready(function() {							  
-								$("#cauhoi").change(function() {						    
-									var el = $(this) ;						    
-									if(el.val() === "Full TT chưa SĐT (đổi được hết)" ) {
-										$("#traloi").append("<option value='Con vật mà bạn yêu thích?'>Con vật mà bạn yêu thích?</option>");
-										$("#traloi").append("<option value='Con vật mà bạn ghét thích?'>Con vật mà bạn ghét thích?</option>");
-										$("#traloi").append("<option value='Bộ phim mà bạn yêu thích?'>Bộ phim mà bạn yêu thích?</option>");
-										$("#traloi").append("<option value='Đội bóng bạn thích nhất?'>Đội bóng bạn thích nhất?</option>");
-										$("#traloi").append("<option value='Người bạn yêu quý nhất tên là gì?'>Người bạn yêu quý nhất tên là gì?</option>");
-									}
-									else if(el.val() === "Trắng thông tin" ) {
-										$("#traloi option").remove() ; }
-								});						  
-							});
-						</script>
+						
 						
 						<style type="text/css">
 							.custom-file {

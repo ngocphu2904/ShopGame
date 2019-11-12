@@ -16,10 +16,13 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import phuquat.shopgame.dao.HinhAnhDAO;
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.dao.TaiKhoanDAO;
+import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
 
@@ -96,9 +99,21 @@ public class CauHinhUngDung {
 	       return transactionManager;
 	   }
 	   
+	   @Bean(name = "multipartResolver")
+	   public CommonsMultipartResolver multipartResolver() {
+		    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	    	multipartResolver.setMaxUploadSize(20971520);
+		    return multipartResolver;
+	   }
+	   
 	   @Bean(name = "nguoiDungDAO")
 	   public NguoiDungDAO getNguoiDungDAO(){
 		   return new NguoiDungDAO();
+	   }
+	   
+	   @Bean(name = "nguoiDungService")
+	   public NguoiDungService getNguoiDungService(){
+		   return new NguoiDungService();
 	   }
 	   
 	   @Bean(name = "taiKhoanDAO")
@@ -111,8 +126,14 @@ public class CauHinhUngDung {
 		   return new TaiKhoanService();
 	   }
 	   
-	   @Bean(name = "nguoiDungService")
-	   public NguoiDungService getNguoiDungService(){
-		   return new NguoiDungService();
+	   @Bean(name="hinhAnhDAO")
+	   public HinhAnhDAO getHinhAnhDAO() {
+		   return new HinhAnhDAO();
 	   }
+	   
+	   @Bean(name="hinhAnhService")
+	   public HinhAnhService getHinhAnhService() {
+		   return new HinhAnhService();
+	   }
+   
 }
