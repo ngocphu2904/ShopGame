@@ -25,4 +25,14 @@ public class NguoiDungService {
 		if(kq==true)return true;
 		return false;
 	}
+	public boolean checkuserdoimatkhau(String matkhau) {
+		boolean kq=nguoiDungDAO.checkuserdoimatkhau(matkhau);
+		if(kq==true)return true;
+		return false;
+	}
+	public boolean doimatkhau(String pass,String userName) {
+		boolean kq=nguoiDungDAO.doimatkhau(pass, userName);
+		if(kq==true)return true;
+		return false;
+	}
 }

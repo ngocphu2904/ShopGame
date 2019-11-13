@@ -40,7 +40,7 @@
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
                                     <li><a href="thongtin" class="active c-font-white"><b>Thông tin tài khoản</b></a></li>
-                                    <li><a href="changepass?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
+                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
                                     <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
                                     	<li><a href="themtaikhoan" class="c-font-white">Thêm nick</a></li>
                                     </security:authorize>
