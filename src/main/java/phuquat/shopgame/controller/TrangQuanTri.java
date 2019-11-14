@@ -81,4 +81,12 @@ public class TrangQuanTri {
     	return "redirect:/danhsachtaikhoan";
     	
     }
+    
+    @RequestMapping(value= {"/xoataikhoan"})
+    public String xoaTaiKhoan(@RequestParam(value="ma") String ma) {
+    	
+    	taiKhoanService.xoaTaiKhoan(ma);
+    	return "redirect:/danhsachtaikhoan";
+    	
+    }
 }

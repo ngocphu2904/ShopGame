@@ -38,7 +38,7 @@ public class HinhAnhDAO {
 	public void xoaHinhAnhTheoTaiKhoan(TaiKhoan taiKhoan) {
 		Session session = this.sessionFactory.getCurrentSession();	
 		String sql = "DELETE " + HinhAnh.class.getName() + " h WHERE h.taiKhoan.ma = :ma";
-		Query<HinhAnh> query = session.createQuery(sql);
+		Query<?> query = session.createQuery(sql);
 		query.setParameter("ma", taiKhoan.getMa());
 		query.executeUpdate();
 	}

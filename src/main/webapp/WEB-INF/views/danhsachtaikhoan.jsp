@@ -64,7 +64,7 @@
 											<div class="col-xs-6 ">
 												<div class="view">
 													<security:authorize access="hasRole('ROLE_QUAN_TRI')">
-														<a href="deleteProduct?code=${ds.ma}" 
+														<a href="xoataikhoan?ma=${ds.ma}" 
 														title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
 													</security:authorize>
 													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">

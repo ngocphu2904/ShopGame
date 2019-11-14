@@ -37,4 +37,8 @@ public class TaiKhoanService {
 	public List<TaiKhoanModel> dsTaiKhoan(){
 		return taiKhoanDAO.dsTaiKhoan();
 	}
+	
+	public void xoaTaiKhoan(String ma) {
+		taiKhoanDAO.xoaTaiKhoan(ma);
+	}
 }

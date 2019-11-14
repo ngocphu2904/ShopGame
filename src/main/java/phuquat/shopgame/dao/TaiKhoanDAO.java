@@ -42,4 +42,12 @@ public class TaiKhoanDAO {
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
+	
+	public void xoaTaiKhoan(String ma) {
+		Session session = this.sessionFactory.getCurrentSession();	
+		String sql = "DELETE " + TaiKhoan.class.getName() + " t WHERE t.ma = :ma";
+		Query<?> query = session.createQuery(sql);
+		query.setParameter("ma", ma);
+		query.executeUpdate();
+	}
 }
