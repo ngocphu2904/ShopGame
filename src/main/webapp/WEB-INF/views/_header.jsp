@@ -174,7 +174,7 @@
                             	<a href="#" class="c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
                             </li>
                             <li class="c-menu-type-classic">
-                            	<a href="${pageContext.request.contextPath}/productList" class="c-link dropdown-toggle" >GAMES</a>
+                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-link dropdown-toggle" >GAMES</a>
                             </li>
                             <li class="c-menu-type-classic">
                             	<security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">

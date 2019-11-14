@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.entity.NguoiDung;
-import phuquat.shopgame.model.NguoiDungModel;
 
 @Transactional
 public class NguoiDungService {

@@ -96,7 +96,7 @@
 			                <div class="form-group c-margin-t-40">
 			                	<div class="col-md-offset-3 col-md-6">
 			                        <button type="submit" value="update" style="margin-top:-25px"
-				                        class="btn btn-danger btn-block btn-flat" 
+				                        class="btn btn-primary btn-block btn-flat" 
 				                        style="margin: 0px 0 0 0;"><i class="fa fa-key"></i>Đổi mật khẩu
 			                        </button>
 			                    </div>

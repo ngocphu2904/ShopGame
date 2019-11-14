@@ -28,7 +28,7 @@ public class NguoiDungDAO {
 	}
 	public boolean checkUser (NguoiDung nguoiDung) {
 		
-		Session session = sessionFactory.getCurrentSession();//
+		Session session = this.sessionFactory.getCurrentSession();//
 		String sql = "FROM "+NguoiDung.class.getName()+" E WHERE E.tenDangNhap = :tendangnhap";
 		
 		Query<?> query = session.createQuery(sql);
@@ -40,7 +40,7 @@ public class NguoiDungDAO {
 
 	public boolean checkUserDoiMatKhau(String matKhau) {
 
-		Session session = sessionFactory.getCurrentSession();//
+		Session session = this.sessionFactory.getCurrentSession();//
 		String sql = "FROM " + NguoiDung.class.getName() + " E WHERE E.matKhau = :matKhau";
 
 		Query<?> query = session.createQuery(sql);
@@ -51,14 +51,13 @@ public class NguoiDungDAO {
 	}
 	
 	public boolean doiMatKhau(String pass, String userName) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 		String hql = "UPDATE "+NguoiDung.class.getName()+ " e set e.matKhau = :matKhau where e.tenDangNhap = :tendangnhap";
-		Query query = session.createQuery(hql);
+		Query<?> query = session.createQuery(hql);
 		query.setParameter("matKhau", pass);
 		query.setParameter("tendangnhap", userName);
 		int result = query.executeUpdate();
 		if (result >=1) {
-			System.out.println("Rows affected: " + result);
 			return true;
 		}
 		return false;

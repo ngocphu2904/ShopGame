@@ -1,6 +1,10 @@
 package phuquat.shopgame.controller;
 
+import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,19 +16,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
-import phuquat.shopgame.model.NguoiDungModel;
 import phuquat.shopgame.model.TaiKhoanModel;
+import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
+import phuquat.shopgame.service.TaiKhoanService;
 
 @Controller
 public class TrangNguoiDung {
 
 	@Autowired
 	private NguoiDungService nguoiDungService;
+	
+	@Autowired
+	private TaiKhoanService taiKhoanService;
+	
+	@Autowired
+	private HinhAnhService hinhAnhService;
 
 	@RequestMapping("/")
 	public String home() {
@@ -38,13 +49,13 @@ public class TrangNguoiDung {
 
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.GET)
 	public String dangky(Model model) {
-		model.addAttribute("formnguoidung", new NguoiDungModel());
+		model.addAttribute("formnguoidung", new NguoiDung());
 		return "dangky";
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.GET)
 	public String doimatkhau(Model model) {
-		model.addAttribute("formdoimatkhau", new NguoiDungModel());
+		model.addAttribute("formdoimatkhau", new NguoiDung());
 		return "doimatkhau";
 	}
 
@@ -125,5 +136,30 @@ public class TrangNguoiDung {
 			}
 		}
 		return "doimatkhau";
+	}
+	
+	@RequestMapping(value= {"/danhsachtaikhoan"}, method = RequestMethod.GET)
+	public String dsTaiKhoan(Model model) {
+		
+		List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
+		
+		model.addAttribute("ds", ds);
+		
+		return "danhsachtaikhoan";
+	}
+	
+	@RequestMapping(value= {"/hinhAnhTaiKhoan"}, method = RequestMethod.GET)
+	public void hinhAnhTaiKhoan(@RequestParam("maHinhAnh") String maHinhAnh,
+			HttpServletResponse res) throws IOException{
+		
+		HinhAnh hinhAnh;
+		hinhAnh = hinhAnhService.layHinhAnhTheoMa(maHinhAnh);
+
+		if(hinhAnh.getHinhAnh() != null)
+		{
+			res.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+			res.getOutputStream().write(hinhAnh.getHinhAnh());
+		}
+		res.getOutputStream().close();
 	}
 }
