@@ -170,27 +170,29 @@
                             <li class="c-menu-type-classic">
                             	<a href="${pageContext.request.contextPath}" class="c-link dropdown-toggle ">TRANG CHỦ</a>
                             </li>
+                            <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
+	                            <li class="c-menu-type-classic">
+	                            	<a href="#" class="c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
+	                            </li>
+                            </security:authorize>
                             <li class="c-menu-type-classic">
-                            	<a href="#" class="c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
+                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-link dropdown-toggle" >ĐỘT KÍCH</a>
                             </li>
-                            <li class="c-menu-type-classic">
-                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-link dropdown-toggle" >GAMES</a>
-                            </li>
-                            <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
-                            		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-link dropdown-toggle " >GIỎ NICK</a>
-                            	</security:authorize>
-                            </li>
-                            <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-                            		<a href="${pageContext.request.contextPath}/orderList" class="c-link dropdown-toggle " >DANH SÁCH MUA</a>
-                            	</security:authorize>
-                            </li>
-                            <li class="c-menu-type-classic">
-                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-                            		<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-link dropdown-toggle " >THÊM NICK</a>
-                            	</security:authorize>
-                            </li>
+                            <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
+	                            <li class="c-menu-type-classic">
+	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-link dropdown-toggle " >GIỎ NICK</a>
+	                            </li>
+                            </security:authorize>
+                           	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+	                            <li class="c-menu-type-classic">
+	                           		<a href="${pageContext.request.contextPath}/orderList" class="c-link dropdown-toggle " >DANH SÁCH MUA</a>
+	                            </li>
+                            </security:authorize>
+                            <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+	                            <li class="c-menu-type-classic">
+	                            	<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-link dropdown-toggle " >THÊM NICK</a>
+	                            </li>
+                            </security:authorize>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">
 	                        	<li class="float_right">
 	                            	<a href="${pageContext.request.contextPath}/dangnhap" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
