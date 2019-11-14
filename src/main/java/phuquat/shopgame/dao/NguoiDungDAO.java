@@ -18,27 +18,27 @@ public class NguoiDungDAO {
 		return session.get(NguoiDung.class, tenDangNhap);
 	}
 	
-	public void luuNguoiDung(NguoiDung nguoidung) {
+	public void luuNguoiDung(NguoiDung nguoiDung) {
 		
-		nguoidung.setKichHoat(true);
-		nguoidung.setKieuNguoiDung("NGUOI_DUNG");
-		nguoidung.setTien(0);
+		nguoiDung.setKichHoat(true);
+		nguoiDung.setKieuNguoiDung("NGUOI_DUNG");
+		nguoiDung.setTien(0);
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(nguoidung);
+		session.save(nguoiDung);
 	}
-	public boolean checkuser (NguoiDung nguoidung) {
+	public boolean checkUser (NguoiDung nguoiDung) {
 		
 		Session session = sessionFactory.getCurrentSession();//
 		String sql = "FROM "+NguoiDung.class.getName()+" E WHERE E.tenDangNhap = :tendangnhap";
 		
 		Query<?> query = session.createQuery(sql);
-		query.setParameter("tendangnhap", nguoidung.getTenDangNhap());
+		query.setParameter("tendangnhap", nguoiDung.getTenDangNhap());
 		if(query.list().size() >= 1)
 		return true;
 		return false;
 	}
 
-	public boolean checkuserdoimatkhau(String matKhau) {
+	public boolean checkUserDoiMatKhau(String matKhau) {
 
 		Session session = sessionFactory.getCurrentSession();//
 		String sql = "FROM " + NguoiDung.class.getName() + " E WHERE E.matKhau = :matKhau";
@@ -50,7 +50,7 @@ public class NguoiDungDAO {
 		return false;
 	}
 	
-	public boolean doimatkhau(String pass, String userName) {
+	public boolean doiMatKhau(String pass, String userName) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "UPDATE "+NguoiDung.class.getName()+ " e set e.matKhau = :matKhau where e.tenDangNhap = :tendangnhap";
 		Query query = session.createQuery(hql);

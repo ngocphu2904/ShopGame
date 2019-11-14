@@ -69,18 +69,26 @@ public class TrangNguoiDung {
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.POST)
 	public String luunguoidung(Model model, @ModelAttribute("formnguoidung") NguoiDung nguoidung,
 			BindingResult theBindingResult, HttpServletRequest req) {
+		
 		String confirm_password = req.getParameter("confirm_password");
-		if (theBindingResult.hasErrors()) {
+		
+		if (theBindingResult.hasErrors()) 
+		{
 			model.addAttribute("checkuser", "Đăng ký không thành công");
 		}
 
-		boolean kq = nguoiDungService.checkuser(nguoidung);
-		if (kq == true) {
+		boolean kq = nguoiDungService.checkUser(nguoidung);
+		if (kq == true) 
+		{
 			model.addAttribute("checkuser", "Tên đăng nhập đã tồn tại");
-		} else if (nguoidung.getMatKhau().equals(confirm_password) == false) {
-			model.addAttribute("checkuser", "Mật khẩu không trùng");
-		} else {
-			nguoiDungService.luunguoidung(nguoidung);
+		} 
+		else if (nguoidung.getMatKhau().equals(confirm_password) == false) 
+		{
+			model.addAttribute("checkuser", "Nhập lại mật khẩu không đúng");
+		} 
+		else 
+		{
+			nguoiDungService.luuNguoiDung(nguoidung);
 
 			model.addAttribute("checkuser", "Đăng ký thành công");
 			model.addAttribute("formnguoidung", nguoidung);
@@ -89,22 +97,30 @@ public class TrangNguoiDung {
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.POST)
-	public String doimatkhau(Model model, @ModelAttribute("formdoimatkhau") NguoiDung nguoidung,
+	public String doimatkhau(Model model, @ModelAttribute("formdoimatkhau") NguoiDung nguoiDung,
 			BindingResult theBindingResult, HttpServletRequest req,
 			@RequestParam(value = "userName", defaultValue = "") String userName) {
-		String mkc = req.getParameter("matKhauhientai");
-		String mkm_nl = req.getParameter("nhaplaimatkhaumoi");
+		
+		String mkc = req.getParameter("matKhauHienTai");
+		String mkm_nl = req.getParameter("nhapLaiMatKhauMoi");
 
-		boolean kq = nguoiDungService.checkuserdoimatkhau(mkc);
-		if (kq == false) {
-			req.setAttribute("checkuser", "Mật khẫu hiện tại không đúng");
-		} else if (nguoidung.getMatKhau().equals(mkm_nl) == false) {
-			req.setAttribute("checkuser", "Mật khẫu nhập lại không trùng với mật khẩu mới");
-		} else {
-			boolean doimatkhau = nguoiDungService.doimatkhau(nguoidung.getMatKhau(), userName);
+		boolean kq = nguoiDungService.checkUserDoiMatKhau(mkc);
+		if (kq == false) 
+		{
+			req.setAttribute("checkuser", "Mật khẩu hiện tại không đúng");
+		} 
+		else if (nguoiDung.getMatKhau().equals(mkm_nl) == false) 
+		{
+			req.setAttribute("checkuser", "Mật khẩu nhập lại không trùng với mật khẩu mới");
+		} 
+		else 
+		{
+			boolean doimatkhau = nguoiDungService.doiMatKhau(nguoiDung.getMatKhau(), userName);
+			
 			if (doimatkhau == true)
 				req.setAttribute("checkuser", "Đổi mật khẩu thành công");
-			else {
+			else 
+			{
 				req.setAttribute("checkuser", "Đổi mật khẩu thất bại");
 			}
 		}
