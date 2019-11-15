@@ -19,15 +19,24 @@ import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.NguoiDungModel;
 import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.service.NguoiDungService;
+import phuquat.shopgame.service.TaiKhoanService;
 
 @Controller
 public class TrangNguoiDung {
 
 	@Autowired
 	private NguoiDungService nguoiDungService;
+	
+	@Autowired
+	private TaiKhoanService taikhoanservice;
 
 	@RequestMapping("/")
-	public String home() {
+	public String home(Model model) {
+		
+		int demtaikhoan = taikhoanservice.demtaikhoan();
+		model.addAttribute("sotaikhoan", demtaikhoan);
+		int mua = taikhoanservice.demtaikhoanmua();
+		model.addAttribute("mua", mua);
 		return "index";
 	}
 
@@ -43,8 +52,9 @@ public class TrangNguoiDung {
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.GET)
-	public String doimatkhau(Model model) {
-		model.addAttribute("formdoimatkhau", new NguoiDungModel());
+	public String doimatkhau(Model model,@RequestParam(value = "userName", defaultValue = "") String tenDangNhap) {
+		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDangNhap);
+		model.addAttribute("formdoimatkhau", nguoidung);
 		return "doimatkhau";
 	}
 
@@ -107,6 +117,8 @@ public class TrangNguoiDung {
 			else {
 				req.setAttribute("checkuser", "Đổi mật khẩu thất bại");
 			}
+//			nguoiDungService.doimatkhau1(nguoidung);
+//			req.setAttribute("checkuser", "Đổi mật khẩu thành công");
 		}
 		return "doimatkhau";
 	}

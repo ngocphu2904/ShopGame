@@ -17,4 +17,12 @@ public class TaiKhoanService {
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanDAO.luuTaiKhoan(taiKhoan);
 	}
+	public int demtaikhoan() {
+		int count = taiKhoanDAO.demtaikhoan();
+		return count;
+	}
+	public int demtaikhoanmua() {
+		int countmua = taiKhoanDAO.demtaikhoanmua();
+		return countmua;
+	}
 }

@@ -5,7 +5,7 @@
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
  		id="WebApp_ID" version="3.0">
  		
-	<display-name>Shop Account Game</display-name>
+	<display-name>Shop Game</display-name>
 	
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/pages/index.jsp</welcome-file>

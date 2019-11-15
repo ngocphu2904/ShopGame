@@ -63,5 +63,8 @@ public class NguoiDungDAO {
 		}
 		return false;
 	}
-
+	/*public void doimatkhau1(NguoiDung nguoidung) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(nguoidung);
+	}*/
 }

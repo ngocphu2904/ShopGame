@@ -137,6 +137,14 @@
 										<a href="productList" title="Đột Kích (CF)">Đột Kích (CF)</a>
 									</h2>
 								</div>
+								<div class="news_description">
+                                    <p>
+                                        Số tài khoản: ${sotaikhoan }
+                                    </p>
+                                    <p>
+                                        Đã bán: ${mua }
+                                    </p>
+                                </div>
 								<div class="a-more">
 									<div class="row">
 										<div class="col-xs-12">
@@ -160,6 +168,14 @@
 										<a href="#" title="Liên Quân Mobile">Liên Quân Mobile</a>
 									</h2>
 								</div>
+								<div class="news_description">
+                                    <p>
+                                        Số tài khoản: 710
+                                    </p>
+                                    <p>
+                                        Đã bán: 515
+                                    </p>
+                                </div>
 								<div class="a-more">
 									<div class="row">
 										<div class="col-xs-12">
