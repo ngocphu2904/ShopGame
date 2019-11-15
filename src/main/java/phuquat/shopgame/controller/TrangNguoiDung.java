@@ -148,6 +148,16 @@ public class TrangNguoiDung {
 		return "danhsachtaikhoan";
 	}
 	
+	@RequestMapping(value = {"/chitiettaikhoan"}, method = RequestMethod.GET)
+	public String chiTietTaiKhoan(Model model, @RequestParam("ma") String ma) {
+		
+		List<TaiKhoanModel> chitiet = taiKhoanService.chiTietTaiKhoan(ma);
+		
+		model.addAttribute("chitiettaikhoan", chitiet);
+		
+		return "chitiettaikhoan";
+	}
+	
 	@RequestMapping(value= {"/hinhAnhTaiKhoan"}, method = RequestMethod.GET)
 	public void hinhAnhTaiKhoan(@RequestParam("maHinhAnh") String maHinhAnh,
 			HttpServletResponse res) throws IOException{

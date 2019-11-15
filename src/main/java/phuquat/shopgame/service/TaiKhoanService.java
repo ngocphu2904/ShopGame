@@ -38,6 +38,10 @@ public class TaiKhoanService {
 		return taiKhoanDAO.dsTaiKhoan();
 	}
 	
+	public List<TaiKhoanModel> chiTietTaiKhoan(String ma){
+		return taiKhoanDAO.chiTietTaiKhoan(ma);
+	}
+	
 	public void xoaTaiKhoan(String ma) {
 		taiKhoanDAO.xoaTaiKhoan(ma);
 	}

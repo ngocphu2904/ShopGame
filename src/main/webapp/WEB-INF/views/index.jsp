@@ -82,7 +82,7 @@
 					data-slider="owl">
 					<!-- Begin: Title 1 component -->
 					<div class="c-content-title-1">
-						<h3 class="c-center c-font-uppercase c-font-bold">Tài khoản</h3>
+						<h3 class="c-center c-font-uppercase c-font-bold c-font-white">Tài khoản</h3>
 						<div class="c-line-center c-theme-bg"></div>
 					</div>
 					<div class="row row-flex-safari game-list">
@@ -119,7 +119,7 @@
 					data-slider="owl">
 					<!-- Begin: Title 1 component -->
 					<div class="c-content-title-1">
-						<h3 class="c-center c-font-uppercase c-font-bold">Danh mục
+						<h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh mục
 							game</h3>
 						<div class="c-line-center c-theme-bg"></div>
 					</div>
@@ -128,20 +128,20 @@
 						<div class="col-sm-3 p-5">
 							<div class="classWithPad" style="height: 300px;">
 								<div class="news_image">
-									<a href="productList" title="Đột Kích (CF)"> <img
+									<a href="danhsachtaikhoan" title="Đột Kích (CF)"> <img
 										src="images/gifdotkich.gif">
 									</a>
 								</div>
 								<div class="news_title">
 									<h2>
-										<a href="productList" title="Đột Kích (CF)">Đột Kích (CF)</a>
+										<a href="danhsachtaikhoan" class="c-font-yellow" title="Đột Kích (CF)">Đột Kích (CF)</a>
 									</h2>
 								</div>
 								<div class="a-more">
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="view">
-												<a href="productList" title="Đột Kích (CF)">Xem tất cả</a>
+												<a href="danhsachtaikhoan" class="c-font-bold" title="Đột Kích (CF)">Xem tất cả</a>
 											</div>
 										</div>
 									</div>
@@ -157,14 +157,14 @@
 								</div>
 								<div class="news_title">
 									<h2>
-										<a href="#" title="Liên Quân Mobile">Liên Quân Mobile</a>
+										<a href="#" class="c-font-yellow" title="Liên Quân Mobile">Liên Quân Mobile</a>
 									</h2>
 								</div>
 								<div class="a-more">
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="view">
-												<a href="#" title="Liên Quân Mobile">Xem tất cả</a>
+												<a href="#" class="c-font-bold" title="Liên Quân Mobile">Xem tất cả</a>
 											</div>
 										</div>
 									</div>

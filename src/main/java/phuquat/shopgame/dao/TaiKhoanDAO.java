@@ -43,6 +43,17 @@ public class TaiKhoanDAO {
 		return query.getResultList();
 	}
 	
+	public List<TaiKhoanModel> chiTietTaiKhoan(String ma){
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
+		Query<TaiKhoanModel> query = session.createQuery(sql);
+		return query.getResultList();
+	}
+	
 	public void xoaTaiKhoan(String ma) {
 		Session session = this.sessionFactory.getCurrentSession();	
 		String sql = "DELETE " + TaiKhoan.class.getName() + " t WHERE t.ma = :ma";

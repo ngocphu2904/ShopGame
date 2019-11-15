@@ -168,39 +168,39 @@
                     <nav class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold d-none hidden-xs hidden-sm">
                         <ul class="nav navbar-nav c-theme-nav ">
                             <li class="c-menu-type-classic">
-                            	<a href="${pageContext.request.contextPath}" class="c-link dropdown-toggle ">TRANG CHỦ</a>
+                            	<a href="${pageContext.request.contextPath}" class="c-font-white c-link dropdown-toggle ">TRANG CHỦ</a>
                             </li>
                             <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
 	                            <li class="c-menu-type-classic">
-	                            	<a href="#" class="c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
+	                            	<a href="#" class="c-font-white c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
 	                            </li>
                             </security:authorize>
                             <li class="c-menu-type-classic">
-                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-link dropdown-toggle" >ĐỘT KÍCH</a>
+                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-font-white c-link dropdown-toggle" >ĐỘT KÍCH</a>
                             </li>
                             <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
 	                            <li class="c-menu-type-classic">
-	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-link dropdown-toggle " >GIỎ NICK</a>
+	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-font-white c-link dropdown-toggle " >GIỎ NICK</a>
 	                            </li>
                             </security:authorize>
                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
 	                            <li class="c-menu-type-classic">
-	                           		<a href="${pageContext.request.contextPath}/orderList" class="c-link dropdown-toggle " >DANH SÁCH MUA</a>
+	                           		<a href="${pageContext.request.contextPath}/orderList" class="c-font-white c-link dropdown-toggle " >DANH SÁCH MUA</a>
 	                            </li>
                             </security:authorize>
                             <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
 	                            <li class="c-menu-type-classic">
-	                            	<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-link dropdown-toggle " >THÊM NICK</a>
+	                            	<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-font-white c-link dropdown-toggle " >THÊM NICK</a>
 	                            </li>
                             </security:authorize>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">
 	                        	<li class="float_right">
-	                            	<a href="${pageContext.request.contextPath}/dangnhap" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+	                            	<a href="${pageContext.request.contextPath}/dangnhap" class="c-font-white c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 	                                    <i class="fa fa-sign-in"></i>Đăng nhập
 	                                </a>
                                </li> 
 	                        	<li class="float_right">
-	                                <a href="${pageContext.request.contextPath}/dangky" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+	                                <a href="${pageContext.request.contextPath}/dangky" class="c-font-white c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 	                                    <i class="fa fa-key"></i>Đăng ký
 	                                 </a>
                                  </li>
@@ -208,12 +208,12 @@
                             
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
 	                            <li class="float_right">
-						           <a href="${pageContext.request.contextPath}/dangxuat" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+						           <a href="${pageContext.request.contextPath}/dangxuat" class="c-font-white c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 						           		<i class="fa fa-sign-out"></i>Đăng xuất
 						           </a>
 				           		</li>
 	                            <li class="float_right">
-						           <a href="${pageContext.request.contextPath}/thongtin" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+						           <a href="${pageContext.request.contextPath}/thongtin" class="c-font-white c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
 						                <i class="fa fa-user-o"></i>${pageContext.request.userPrincipal.name}
 						           </a>
 				                </li>

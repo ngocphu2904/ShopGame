@@ -31,10 +31,10 @@
 		                <!-- Duyet danh sach -->
 	               		<c:forEach items="${ds}" var="ds">
 
-							<div class="col-sm-6 col-md-3">
+							<div class="col-sm-6 col-md-3" style="margin-bottom: 30px">
 								<div class="classWithPad">
 									<div class="image">
-										<a href="productDetail?code=${ds.ma}" title="Chi tiết tài khoản CF-${ds.ma}">
+										<a href="chitiettaikhoan?ma=${ds.ma}" title="Chi tiết tài khoản CF-${ds.ma}">
 											<img src="hinhAnhTaiKhoan?maHinhAnh=${ds.maHinhAnh}">
 											<span class="ms">MS: CF-${ds.ma}</span>
 										</a>
@@ -53,7 +53,7 @@
 									<div class="a-more" style="margin-top: -35px;">
 										<div class="row">
 											<div class="col-xs-12">
-												<div class="price_item" style="border: 1px solid #ffff00;color: #ffff00;">
+												<div class="price_item c-font-bold" style="border: 1px solid #ffff00;color: #ffff00;">
 													<fmt:formatNumber value="${ds.gia}" type="currency"/>
 												</div>
 											</div>
@@ -68,7 +68,7 @@
 														title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
 													</security:authorize>
 													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
-														<a href="productDetail?code=${ds.ma}" 
+														<a href="chitiettaikhoan?ma=${ds.ma}" 
 														title="Chi tiết tài khoản CF-${ds.ma}">Chi tiết</a>
 													</security:authorize>
 												</div>
