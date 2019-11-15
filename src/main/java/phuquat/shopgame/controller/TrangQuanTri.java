@@ -3,7 +3,6 @@ package phuquat.shopgame.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,27 +40,53 @@ public class TrangQuanTri {
         }
     }
     
-    @RequestMapping(value= {"/themtaikhoan"}, method = RequestMethod.GET)
-    public String taiKhoan(Model model) {
+    @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.GET)
+    public String luuTaiKhoan(Model model) {
     	
     	model.addAttribute("formTaiKhoan", new TaiKhoan());
     	return "taikhoan";
     }
     
-    @RequestMapping(value= {"/themtaikhoan"}, method = RequestMethod.POST)
-	public String luuTaiKhoan(Model model, @ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
-			@RequestParam(value = "files") MultipartFile[] files,
-			BindingResult theBindingResult) {
-		
-    	if(theBindingResult.hasErrors()) {
-			return "taikhoan";
-		}
+    @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.POST)
+	public String luuTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
+			@RequestParam(value = "files") MultipartFile[] files) {
 
 		taiKhoanService.luuTaiKhoan(taiKhoan);
+		
 		hinhAnhService.luuHinhAnh(taiKhoan,files);
 		
-		model.addAttribute("formTaiKhoan", taiKhoan);
-		return "taikhoan";
-
+		return "redirect:/danhsachtaikhoan";
+    }
+    
+    @RequestMapping(value = {"/suataikhoan"}, method = RequestMethod.GET)
+    public String suaTaiKhoan(Model model, @RequestParam(value="ma") String ma) {
+    	
+    	TaiKhoan taiKhoan;
+    	
+    	taiKhoan = taiKhoanService.timTaiKhoan(ma);
+    	
+    	model.addAttribute("formTaiKhoan", taiKhoan);
+    	
+    	return "taikhoan";
+    }
+    
+    @RequestMapping(value = {"/suataikhoan"}, method = RequestMethod.POST)
+    public String suaTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
+    		@RequestParam(value = "files") MultipartFile[] files) {
+  
+    	taiKhoanService.suaTaiKhoan(taiKhoan);
+    	
+    	hinhAnhService.luuHinhAnh(taiKhoan, files);
+    	
+    	return "redirect:/danhsachtaikhoan";
+    	
+    }
+    
+    @RequestMapping(value= {"/xoataikhoan"})
+    public String xoaTaiKhoan(@RequestParam(value="ma") String ma) {
+    	
+    	taiKhoanService.xoaTaiKhoan(ma);
+    	return "redirect:/danhsachtaikhoan";
+    	
     }
 }

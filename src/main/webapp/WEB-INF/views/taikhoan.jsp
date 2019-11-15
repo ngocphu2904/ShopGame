@@ -127,7 +127,7 @@
                             <label class="col-md-3 control-label c-font-white">Câu trả lời bảo mật:</label>
                             <div class="col-md-6" id="cauTraLoi">
                                 <form:input path="cauTraLoiBaoMat" id="cauTraLoi" class="form-control c-square c-theme"
-                                 placeholder="Nhập câu trả lời của câu hỏi bảo mật"/>
+                                 placeholder="Nhập câu trả lời của câu hỏi bảo mật" required="true"/>
                             </div>
                         </div>
                         
@@ -141,7 +141,7 @@
                             <label class="col-md-3 control-label c-font-white">Tải ảnh lên:</label>
                             <div class="col-md-6">
                                 <form:input class="custom-file-input" id="customFile" name="files"
-                                	type="file" path="" multiple="multiple"/>
+                                	type="file" path="" multiple="multiple" required="true"/>
 	                                <label class="custom-file-label" for="customFile" >Nhấn chọn hình ảnh...</label>
                             </div>
                         </div>

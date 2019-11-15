@@ -1,6 +1,10 @@
 package phuquat.shopgame.controller;
 
+import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,12 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
-import phuquat.shopgame.model.NguoiDungModel;
 import phuquat.shopgame.model.TaiKhoanModel;
+import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
 
@@ -28,7 +32,14 @@ public class TrangNguoiDung {
 	private NguoiDungService nguoiDungService;
 	
 	@Autowired
+<<<<<<< HEAD
 	private TaiKhoanService taikhoanservice;
+=======
+	private TaiKhoanService taiKhoanService;
+	
+	@Autowired
+	private HinhAnhService hinhAnhService;
+>>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -47,14 +58,19 @@ public class TrangNguoiDung {
 
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.GET)
 	public String dangky(Model model) {
-		model.addAttribute("formnguoidung", new NguoiDungModel());
+		model.addAttribute("formnguoidung", new NguoiDung());
 		return "dangky";
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.GET)
+<<<<<<< HEAD
 	public String doimatkhau(Model model,@RequestParam(value = "userName", defaultValue = "") String tenDangNhap) {
 		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDangNhap);
 		model.addAttribute("formdoimatkhau", nguoidung);
+=======
+	public String doimatkhau(Model model) {
+		model.addAttribute("formdoimatkhau", new NguoiDung());
+>>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
 		return "doimatkhau";
 	}
 
@@ -79,18 +95,26 @@ public class TrangNguoiDung {
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.POST)
 	public String luunguoidung(Model model, @ModelAttribute("formnguoidung") NguoiDung nguoidung,
 			BindingResult theBindingResult, HttpServletRequest req) {
+		
 		String confirm_password = req.getParameter("confirm_password");
-		if (theBindingResult.hasErrors()) {
+		
+		if (theBindingResult.hasErrors()) 
+		{
 			model.addAttribute("checkuser", "Đăng ký không thành công");
 		}
 
-		boolean kq = nguoiDungService.checkuser(nguoidung);
-		if (kq == true) {
+		boolean kq = nguoiDungService.checkUser(nguoidung);
+		if (kq == true) 
+		{
 			model.addAttribute("checkuser", "Tên đăng nhập đã tồn tại");
-		} else if (nguoidung.getMatKhau().equals(confirm_password) == false) {
-			model.addAttribute("checkuser", "Mật khẩu không trùng");
-		} else {
-			nguoiDungService.luunguoidung(nguoidung);
+		} 
+		else if (nguoidung.getMatKhau().equals(confirm_password) == false) 
+		{
+			model.addAttribute("checkuser", "Nhập lại mật khẩu không đúng");
+		} 
+		else 
+		{
+			nguoiDungService.luuNguoiDung(nguoidung);
 
 			model.addAttribute("checkuser", "Đăng ký thành công");
 			model.addAttribute("formnguoidung", nguoidung);
@@ -99,27 +123,70 @@ public class TrangNguoiDung {
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.POST)
-	public String doimatkhau(Model model, @ModelAttribute("formdoimatkhau") NguoiDung nguoidung,
+	public String doimatkhau(Model model, @ModelAttribute("formdoimatkhau") NguoiDung nguoiDung,
 			BindingResult theBindingResult, HttpServletRequest req,
 			@RequestParam(value = "userName", defaultValue = "") String userName) {
-		String mkc = req.getParameter("matKhauhientai");
-		String mkm_nl = req.getParameter("nhaplaimatkhaumoi");
+		
+		String mkc = req.getParameter("matKhauHienTai");
+		String mkm_nl = req.getParameter("nhapLaiMatKhauMoi");
 
-		boolean kq = nguoiDungService.checkuserdoimatkhau(mkc);
-		if (kq == false) {
-			req.setAttribute("checkuser", "Mật khẫu hiện tại không đúng");
-		} else if (nguoidung.getMatKhau().equals(mkm_nl) == false) {
-			req.setAttribute("checkuser", "Mật khẫu nhập lại không trùng với mật khẩu mới");
-		} else {
-			boolean doimatkhau = nguoiDungService.doimatkhau(nguoidung.getMatKhau(), userName);
+		boolean kq = nguoiDungService.checkUserDoiMatKhau(mkc);
+		if (kq == false) 
+		{
+			req.setAttribute("checkuser", "Mật khẩu hiện tại không đúng");
+		} 
+		else if (nguoiDung.getMatKhau().equals(mkm_nl) == false) 
+		{
+			req.setAttribute("checkuser", "Mật khẩu nhập lại không trùng với mật khẩu mới");
+		} 
+		else 
+		{
+			boolean doimatkhau = nguoiDungService.doiMatKhau(nguoiDung.getMatKhau(), userName);
+			
 			if (doimatkhau == true)
 				req.setAttribute("checkuser", "Đổi mật khẩu thành công");
-			else {
+			else 
+			{
 				req.setAttribute("checkuser", "Đổi mật khẩu thất bại");
 			}
 //			nguoiDungService.doimatkhau1(nguoidung);
 //			req.setAttribute("checkuser", "Đổi mật khẩu thành công");
 		}
 		return "doimatkhau";
+	}
+	
+	@RequestMapping(value= {"/danhsachtaikhoan"}, method = RequestMethod.GET)
+	public String dsTaiKhoan(Model model) {
+		
+		List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
+		
+		model.addAttribute("ds", ds);
+		
+		return "danhsachtaikhoan";
+	}
+	
+	@RequestMapping(value = {"/chitiettaikhoan"}, method = RequestMethod.GET)
+	public String chiTietTaiKhoan(Model model, @RequestParam("ma") String ma) {
+		
+		List<TaiKhoanModel> chitiet = taiKhoanService.chiTietTaiKhoan(ma);
+		
+		model.addAttribute("chitiettaikhoan", chitiet);
+		
+		return "chitiettaikhoan";
+	}
+	
+	@RequestMapping(value= {"/hinhAnhTaiKhoan"}, method = RequestMethod.GET)
+	public void hinhAnhTaiKhoan(@RequestParam("maHinhAnh") String maHinhAnh,
+			HttpServletResponse res) throws IOException{
+		
+		HinhAnh hinhAnh;
+		hinhAnh = hinhAnhService.layHinhAnhTheoMa(maHinhAnh);
+
+		if(hinhAnh.getHinhAnh() != null)
+		{
+			res.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+			res.getOutputStream().write(hinhAnh.getHinhAnh());
+		}
+		res.getOutputStream().close();
 	}
 }

@@ -121,7 +121,7 @@
                     <div class="col-md-4">
                     	<div class="c-container c-last">
                             <p style="margin-top: -7px;">
-                            	<span style="color:#f1c40f">
+                            	<span style="color:#ffff00">
                             		<span style="font-size:36px">
                             			<u><strong>SHOP CHÍNH THỨC CỦA NHÓM 100 HOTLINE: 0123456789</strong></u>
                             		</span>
@@ -135,7 +135,7 @@
         <div class="c-postfooter">
             <div class="container">
                 <div class="row">
-                   <p class="c-copyright c-font-grey">2019 © vận hành bởi <a style="color: #32c5d2 !important" href="">Nhóm 100</a> <span class="c-font-grey-3"> </span>
+                   <p class="c-copyright c-font-white">2019 © vận hành bởi <a style="color: #ffff00" href="">Nhóm 100</a> <span class="c-font-grey-3"> </span>
                    </p>
                 </div>
             </div>
