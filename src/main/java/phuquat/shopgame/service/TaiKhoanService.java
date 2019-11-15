@@ -24,6 +24,7 @@ public class TaiKhoanService {
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanDAO.luuTaiKhoan(taiKhoan);
 	}
+<<<<<<< HEAD
 
 	public int demtaikhoan() {
 		int count = taiKhoanDAO.demtaikhoan();
@@ -33,6 +34,8 @@ public class TaiKhoanService {
 		int countmua = taiKhoanDAO.demtaikhoanmua();
 		return countmua;
 	}
+=======
+>>>>>>> origin
 	
 	public void suaTaiKhoan(TaiKhoan taiKhoan) {
 		hinhAnhDAO.xoaHinhAnhTheoTaiKhoan(taiKhoan);

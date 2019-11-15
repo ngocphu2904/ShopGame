@@ -61,7 +61,10 @@ public class TrangNguoiDung {
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.GET)
 	public String doimatkhau(Model model) {
 		model.addAttribute("formdoimatkhau", new NguoiDung());
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 		return "doimatkhau";
 	}
 
