@@ -7,10 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
-<<<<<<< HEAD
-=======
+
 import phuquat.shopgame.entity.HinhAnh;
->>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;

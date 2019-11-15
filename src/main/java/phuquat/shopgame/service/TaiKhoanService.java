@@ -24,7 +24,7 @@ public class TaiKhoanService {
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanDAO.luuTaiKhoan(taiKhoan);
 	}
-<<<<<<< HEAD
+
 	public int demtaikhoan() {
 		int count = taiKhoanDAO.demtaikhoan();
 		return count;
@@ -32,7 +32,7 @@ public class TaiKhoanService {
 	public int demtaikhoanmua() {
 		int countmua = taiKhoanDAO.demtaikhoanmua();
 		return countmua;
-=======
+	}
 	
 	public void suaTaiKhoan(TaiKhoan taiKhoan) {
 		hinhAnhDAO.xoaHinhAnhTheoTaiKhoan(taiKhoan);
@@ -53,6 +53,5 @@ public class TaiKhoanService {
 	
 	public void xoaTaiKhoan(String ma) {
 		taiKhoanDAO.xoaTaiKhoan(ma);
->>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
 	}
 }

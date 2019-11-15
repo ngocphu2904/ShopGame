@@ -32,21 +32,17 @@ public class TrangNguoiDung {
 	private NguoiDungService nguoiDungService;
 	
 	@Autowired
-<<<<<<< HEAD
-	private TaiKhoanService taikhoanservice;
-=======
 	private TaiKhoanService taiKhoanService;
 	
 	@Autowired
 	private HinhAnhService hinhAnhService;
->>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
 
 	@RequestMapping("/")
 	public String home(Model model) {
 		
-		int demtaikhoan = taikhoanservice.demtaikhoan();
+		int demtaikhoan = taiKhoanService.demtaikhoan();
 		model.addAttribute("sotaikhoan", demtaikhoan);
-		int mua = taikhoanservice.demtaikhoanmua();
+		int mua = taiKhoanService.demtaikhoanmua();
 		model.addAttribute("mua", mua);
 		return "index";
 	}
@@ -63,14 +59,9 @@ public class TrangNguoiDung {
 	}
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.GET)
-<<<<<<< HEAD
-	public String doimatkhau(Model model,@RequestParam(value = "userName", defaultValue = "") String tenDangNhap) {
-		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDangNhap);
-		model.addAttribute("formdoimatkhau", nguoidung);
-=======
 	public String doimatkhau(Model model) {
 		model.addAttribute("formdoimatkhau", new NguoiDung());
->>>>>>> 33e8c449df019bcc52a0e6da4d3b50519f9aa3a3
+
 		return "doimatkhau";
 	}
 
