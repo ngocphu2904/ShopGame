@@ -41,6 +41,11 @@ public class TrangNguoiDung {
 	@Autowired
 	private DonMuaService donMuaService;
 
+	@RequestMapping("/403")
+	public String truyCapBiTuChoi() {
+		return "/403";
+	}
+	
 	@RequestMapping("/")
 	public String home(Model model) {
 		
