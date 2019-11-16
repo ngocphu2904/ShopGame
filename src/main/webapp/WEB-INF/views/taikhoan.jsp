@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Mật khẩu tài khoản:</label>
                             <div class="col-md-6">
-                                <form:input path="matKhauTaiKhoan" class="form-control c-square c-theme"
+                                <form:input type="password" path="matKhauTaiKhoan" class="form-control c-square c-theme"
                                 required="true" placeholder="Nhập mật khẩu của tài khoản"/>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                             <div class="col-md-6">
                                 <form:select path="cauHoiBaoMat" class="form-control c-square c-theme">
                                 	<option value="Con vật mà bạn yêu thích?">Con vật mà bạn yêu thích?</option>
-                                	<option value="Con vật mà bạn ghét thích?">Con vật mà bạn ghét thích?</option>
+                                	<option value="Con vật mà bạn ghét thích?">Con vật mà bạn ghét nhất?</option>
                                 	<option value="Bộ phim mà bạn yêu thích?">Bộ phim mà bạn yêu thích?</option>
                                 	<option value="Đội bóng bạn thích nhất?">Đội bóng bạn thích nhất?</option>
                                 	<option value="Người bạn yêu quý nhất tên là gì?">Người bạn yêu quý nhất tên là gì?</option>

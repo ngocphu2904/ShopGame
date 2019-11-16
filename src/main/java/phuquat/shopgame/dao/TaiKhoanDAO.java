@@ -1,5 +1,6 @@
 package phuquat.shopgame.dao;
 
+import java.nio.charset.Charset;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,6 +16,7 @@ public class TaiKhoanDAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
+
 	
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		Session session = this.sessionFactory.getCurrentSession();

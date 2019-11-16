@@ -67,7 +67,7 @@
 			
 			            <div class="social-auth-links text-center c-font-white">
 			                <p style="margin-top: 10px">- HOẶC -</p>  
-			                <a href="${pageContext.request.contextPath}/login" 
+			                <a href="${pageContext.request.contextPath}/dangnhap" 
 			                class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i>
 			                Đăng nhập</a>
 			            </div>
