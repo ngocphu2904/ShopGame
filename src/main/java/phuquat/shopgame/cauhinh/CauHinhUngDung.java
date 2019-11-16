@@ -19,9 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import phuquat.shopgame.dao.DonMuaDAO;
 import phuquat.shopgame.dao.HinhAnhDAO;
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.dao.TaiKhoanDAO;
+import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
@@ -136,4 +138,13 @@ public class CauHinhUngDung {
 		   return new HinhAnhService();
 	   }
    
+	   @Bean(name="donMuaDAO")
+	   public DonMuaDAO getDonMuaDAO() {
+		   return new DonMuaDAO();
+	   }
+	   
+	   @Bean(name="donMuaService")
+	   public DonMuaService getDonMuaService() {
+		   return new DonMuaService();
+	   }
 }

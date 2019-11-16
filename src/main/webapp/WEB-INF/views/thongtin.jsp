@@ -8,7 +8,7 @@
 <head>
 	<jsp:include page="_headercss.jsp"/>
 </head>
-<body class=" c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
  
    <jsp:include page="_header.jsp" />
    
@@ -39,7 +39,7 @@
                             </div>
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
-                                    <li><a href="thongtin" class="active c-font-white"><b>Thông tin tài khoản</b></a></li>
+                                    <li><a href="thongtin" class="active c-font-white"><b>Thông tin người dùng</b></a></li>
                                     <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
                                     <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
                                     	<li><a href="themtaikhoan" class="c-font-white">Thêm nick</a></li>
@@ -55,7 +55,8 @@
                             </div>
                             <div class="c-content-ver-nav m-b-20">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
-                                    <li><a class="load-modal c-font-white" href="#">Chuyển tiền từ ATM - Ví Điện Tử</a></li>
+                                    <li><a href="#" class="c-font-white load-modal">Chuyển tiền từ ATM - Ví Điện Tử</a>
+                                   	</li>
                                 </ul>
                             </div>
                         </div>

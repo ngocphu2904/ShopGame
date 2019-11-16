@@ -1,12 +1,12 @@
 package phuquat.shopgame.dao;
 
-import java.nio.charset.Charset;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
@@ -79,4 +79,14 @@ public class TaiKhoanDAO {
 		query.setParameter("ma", ma);
 		query.executeUpdate();
 	}
+
+	public void capNhatTaiKhoanDaMua(String maTK) {
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		TaiKhoan taiKhoan = this.timTaiKhoan(maTK);
+		
+		taiKhoan.setMua(true);
+		session.update(taiKhoan);
+	}
+
 }

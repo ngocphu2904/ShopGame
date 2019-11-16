@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
-import phuquat.shopgame.entity.TaiKhoan;
+import phuquat.shopgame.model.DonMuaModel;
 import phuquat.shopgame.model.TaiKhoanModel;
+import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
@@ -36,6 +37,9 @@ public class TrangNguoiDung {
 	
 	@Autowired
 	private HinhAnhService hinhAnhService;
+	
+	@Autowired
+	private DonMuaService donMuaService;
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -180,4 +184,25 @@ public class TrangNguoiDung {
 		}
 		res.getOutputStream().close();
 	}
+	
+	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.GET)
+	public String muaTaiKhoan(Model model, @RequestParam("ma") String maTK,
+			@RequestParam("tdn") String tenDN) {
+		
+		List<DonMuaModel> donMuaModel = donMuaService.kiemTraTien(maTK, tenDN);
+		model.addAttribute("muataikhoan", donMuaModel);
+		return "muataikhoan";
+	}
+	
+	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.POST)
+	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK,
+			@RequestParam("tdn") String tenDN) {
+		
+		donMuaService.luuDonMua(maTK, tenDN);
+		taiKhoanService.capNhatTaiKhoanDaMua(maTK);
+		nguoiDungService.capNhatTienSauMua(maTK, tenDN);
+		
+		return "redirect:/thongtin";
+	}
+	
 }

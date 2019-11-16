@@ -6,11 +6,15 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.entity.TaiKhoan;
 
 public class NguoiDungDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	private TaiKhoanDAO taiKhoanDAO;
 	
 
 	public NguoiDung timNguoiDung(String tenDangNhap) {
@@ -52,7 +56,7 @@ public class NguoiDungDAO {
 	
 	public boolean doiMatKhau(String pass, String userName) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "UPDATE "+NguoiDung.class.getName()+ " e set e.matKhau = :matKhau where e.tenDangNhap = :tendangnhap";
+		String hql = "UPDATE "+NguoiDung.class.getName()+ " e SET e.matKhau = :matKhau WHERE e.tenDangNhap = :tendangnhap";
 		Query<?> query = session.createQuery(hql);
 		query.setParameter("matKhau", pass);
 		query.setParameter("tendangnhap", userName);
@@ -62,8 +66,18 @@ public class NguoiDungDAO {
 		}
 		return false;
 	}
-	/*public void doimatkhau1(NguoiDung nguoidung) {
-		Session session = sessionFactory.getCurrentSession();
-		session.update(nguoidung);
-	}*/
+	
+	public void capNhatTienSauMua(String maTK, String tenDN) {
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		TaiKhoan taiKhoan = taiKhoanDAO.timTaiKhoan(maTK);
+		NguoiDung nguoiDung = this.timNguoiDung(tenDN);
+		
+		double gia = taiKhoan.getGia();
+		double tien = nguoiDung.getTien();
+		double tienConLai = tien - gia;
+		
+		nguoiDung.setTien(tienConLai);
+		session.update(nguoiDung);
+	}
 }

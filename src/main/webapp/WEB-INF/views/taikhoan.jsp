@@ -130,13 +130,7 @@
                                  placeholder="Nhập câu trả lời của câu hỏi bảo mật" required="true"/>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="col-md-3 control-label c-font-white">Hình ảnh:</label>
-                            <div class="col-md-6">
-                                <img src="#" width="100"/>
-                            </div>
-                        </div>
+                       
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Tải ảnh lên:</label>
                             <div class="col-md-6">
@@ -145,8 +139,6 @@
 	                                <label class="custom-file-label" for="customFile" >Nhấn chọn hình ảnh...</label>
                             </div>
                         </div>
-
-						
 						
 						<style type="text/css">
 							.custom-file {

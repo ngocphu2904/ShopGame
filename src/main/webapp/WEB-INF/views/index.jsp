@@ -50,14 +50,14 @@
 					<div class="item">
 						<a href="danhsachtaikhoan"><img src="images/slide1.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
-							<p><b>GIÁ RẺ NHẤT</b></p>
+							<p><b>ĐA DẠNG NHẤT</b></p>
 						</div>
 					</div>
 					
 					<div class="item">
 						<a href="danhsachtaikhoan"><img src="images/slide5.jpg" title="Xem nhiều tài khoản hơn" style="width: 100%;"></a>
 						<div class="carousel-caption">
-							<p><b>ĐA DẠNG NHẤT</b></p>
+							<p><b>GIÁ RẺ NHẤT</b></p>
 						</div>
 					</div>
 
@@ -90,8 +90,8 @@
 						<div class="col-sm-3 p-5">
 							<div class="classWithPad" style="height: 275px">
 								<div class="news_image">
-									<a href="https://www.facebook.com"> <img
-										src="images/chushop.png" title="FB Chủ Shop">
+									<a href="https://www.facebook.com" target="_blank">
+										<img src="images/chushop.png" title="FB Chủ Shop">
 									</a>
 								</div>
 							</div>
@@ -99,7 +99,7 @@
 						<div class="col-sm-3 p-5">
 							<div class="classWithPad" style="height: 275px">
 								<div class="news_image">
-									<a href="accountInfo"> <img src="images/taikhoancuaban.jpg"
+									<a href="thongtin"> <img src="images/taikhoancuaban.jpg"
 										title="Trang Cá Nhân">
 									</a>
 								</div>
@@ -137,7 +137,7 @@
 										<a href="danhsachtaikhoan" class="c-font-yellow" title="Đột Kích (CF)">Đột Kích (CF)</a>
 									</h2>
 								</div>
-								<div class="news_description">
+								<div class="news_description c-font-white">
                                     <p>
                                         Số tài khoản: ${sotaikhoan }
                                     </p>
@@ -168,12 +168,12 @@
 										<a href="#" class="c-font-yellow" title="Liên Quân Mobile">Liên Quân Mobile</a>
 									</h2>
 								</div>
-								<div class="news_description">
+								<div class="news_description c-font-white">
                                     <p>
-                                        Số tài khoản: 710
+                                        Số tài khoản: 20
                                     </p>
                                     <p>
-                                        Đã bán: 515
+                                        Đã bán: 5
                                     </p>
                                 </div>
 								<div class="a-more">

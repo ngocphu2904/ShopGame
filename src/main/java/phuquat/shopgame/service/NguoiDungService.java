@@ -34,7 +34,7 @@ public class NguoiDungService {
 		if(kq==true) return true;
 		return false;
 	}
-	/*public void doimatkhau1(NguoiDung nguoidung) {
-		nguoiDungDAO.doimatkhau1(nguoidung);
-	}*/
+	public void capNhatTienSauMua(String maTK, String tenDN) {
+		nguoiDungDAO.capNhatTienSauMua(maTK, tenDN);
+	}
 }

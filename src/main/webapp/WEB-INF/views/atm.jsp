@@ -3,19 +3,19 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 <!-- BẤM NÚT VÀ HIỆN THÔNG BÁO -->
-<div class="modal fade" id="LoadModal" role="dialog" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="LoadModal" role="dialog" aria-labelledby="exampleModalCenterTitle"aria-hidden="true" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Nạp tiền từ ATM hoặc Ví điện tử</h4>
+                <h4 class="modal-title">Xác nhận mua tài khoản</h4>
             </div>
             <div class="modal-body">
                 <div class="c-content-tab-4 c-opt-3" role="tabpanel">
-                    <div class="text-center" style="text-transform: uppercase;margin: 20px 0;">
-	                    <p style="color: #f31700 !important;font-size: 15px">
+                    <div class="text-center" style="text-transform: uppercase;margin: 5px 0 20px 0;">
+	                    <p style="color: #c0392b ;font-size: 17px">
 	                    	<b>Hướng dẫn chi tiết chuyển tiền từ ATM - VÍ điện tử</b>
 	                    </p>
                     </div>
@@ -60,14 +60,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p class="c-font-black"><strong>Nội dung thanh toán: <span style="color:#c0392b">
-                                    	{ID tài khoản muốn mua và tên tài khoản đăng nhập vào shop}</strong>
-                                    	</span>
-                                   	</p>
-                                   	<p class="c-font-black">Chuyển xong liên hệ fb: <span style="color:#c0392b"><strong>
-                                   		https://www.facebook.com/abc</strong></span> hoặc Hotline <span style="color:#c0392b">
-                                   		<strong> 0123456789 </strong></span> để được xử lý.
-                                   	</p>
                                 </li>
                             </ul>
                         </div>
@@ -99,19 +91,20 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p class="c-font-black"><strong>Nội dung thanh toán: <span style="color:#c0392b">
-                                    	{ID tài khoản muốn mua và tên tài khoản đăng nhập vào shop}</strong>
-                                    	</span>
-                                   	</p>
-                                   	<p class="c-font-black">Chuyển xong liên hệ fb: <span style="color:#c0392b"><strong>
-                                   		https://www.facebook.com/abc</strong></span> hoặc Hotline <span style="color:#c0392b">
-                                   		<strong> 0123456789 </strong></span> để được xử lý.
-                                   	</p>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <div class="form-group" style="margin-bottom: -10px">
+                    <p class="c-font-black c-font-bold">Nội dung thanh toán: <span style="color:#c0392b">
+                    	{ID tài khoản muốn mua và tên tài khoản đăng nhập vào shop}</span>
+                   	</p>
+                   	<p class="c-font-black">Chuyển xong liên hệ fb: <span style="color:#c0392b"><strong>
+                   		https://www.facebook.com/abc</strong></span> hoặc Hotline <span style="color:#c0392b">
+                   		<strong> 0123456789 </strong></span> để được xử lý.
+                   	</p>   
+			    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn c-theme-btn c-btn-border-2x c-btn-square c-btn-bold c-btn-uppercase" data-dismiss="modal">Đóng</button>

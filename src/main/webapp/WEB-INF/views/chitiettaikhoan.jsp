@@ -15,7 +15,7 @@
 	<jsp:include page="_header.jsp" />
 
 	<fmt:setLocale value="vi_VN" scope="session" />
-
+	
 	<div class="c-layout-page">
 		<!-- BEGIN: PAGE CONTENT -->
 		<div class="c-content-box c-size-md c-bg-white">
@@ -51,12 +51,12 @@
 											</a> 
 										</security:authorize>
 										<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
-											<a href="shoppingCart"
-												class="btn c-btn btn-lg c-theme-btn c-font-uppercase c-font-bold c-btn-square m-t-20 load-modal">
+											<a href="muataikhoan?ma=${chitiet.ma}&tdn=${pageContext.request.userPrincipal.name}"
+												class="btn c-btn btn-lg c-theme-btn c-font-uppercase c-font-bold c-btn-square m-t-20">
 												Mua ngay
 											</a> 
 										</security:authorize>
-										<a href=""
+										<a href=""  
 											class="btn c-btn btn-lg btn-danger c-font-uppercase c-font-bold c-btn-square m-t-20 load-modal">
 											 ATM - Ví điện tử
 										</a>
@@ -64,40 +64,39 @@
 								</div>
 							</div>
 						</div>
-					</c:forEach>
-					<div class="c-product-meta visible-md visible-lg">
-						<div class="c-content-divider c-font-white" style="margin-bottom: 31px">
-							<i class="icon-dot"></i>
-						</div>
-
-						<div class="row">
-							<c:forEach items="${chitiettaikhoan}" begin="0" end="0" var="chitiet">
+					
+						<div class="c-product-meta visible-md visible-lg">
+							<div class="c-content-divider c-font-white" style="margin-bottom: 31px">
+								<i class="icon-dot"></i>
+							</div>
+	
+							<div class="row">
 								<div class="col-sm-4 c-font-white">
 									<p
 										class="c-font-uppercase c-font-bold c-font-center">
 										Chuyên: <span style="color: #ffff00">${chitiet.loai}</span>
 									</p>
-
+	
 								</div>
 								<div class="col-sm-4 c-font-white">
 									<p
 										class="c-font-uppercase c-font-bold c-font-center">
-										Đăng ký: <span style="color: #ffff00">${chitiet.thongTin} </span>
+										Thông tin: <span style="color: #ffff00">${chitiet.thongTin} </span>
 									</p>
 								</div>
-
+	
 								<div class="col-sm-4 c-font-white">
 									<p
 										class="c-font-uppercase c-font-bold c-font-center">
 										VIP: <span style="color: #ffff00"> ${chitiet.vip} </span>
 									</p>
 								</div>
-							</c:forEach>
+							</div>
+							<div class="c-content-divider c-font-white">
+								<i class="icon-dot"></i>
+							</div>
 						</div>
-						<div class="c-content-divider c-font-white">
-							<i class="icon-dot"></i>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			
 			<div class="content_post" style="margin-top:50px">
@@ -115,7 +114,7 @@
 							</a> 
 						</security:authorize>
 						<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
-							<a href="shoppingCart"
+							<a href="muataikhoan?ma=${chitiet.ma}&tdn=${pageContext.request.userPrincipal.name}"
 								class="btn c-btn btn-lg c-theme-btn c-font-uppercase c-font-bold c-btn-square m-t-20 load-modal">
 								Mua ngay
 							</a> 

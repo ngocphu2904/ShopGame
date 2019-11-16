@@ -170,17 +170,17 @@
                             <li class="c-menu-type-classic">
                             	<a href="${pageContext.request.contextPath}" class="c-font-white c-link dropdown-toggle ">TRANG CHỦ</a>
                             </li>
-                            <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
+                            <li class="c-menu-type-classic">
+                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-font-white c-link dropdown-toggle" >ĐỘT KÍCH</a>
+                            </li>
+                            <security:authorize  access="!hasRole('ROLE_QUAN_TRI')">
 	                            <li class="c-menu-type-classic">
 	                            	<a href="#" class="c-font-white c-link dropdown-toggle load-modal" >CHUYỂN TIỀN</a>
 	                            </li>
                             </security:authorize>
-                            <li class="c-menu-type-classic">
-                            	<a href="${pageContext.request.contextPath}/danhsachtaikhoan" class="c-font-white c-link dropdown-toggle" >ĐỘT KÍCH</a>
-                            </li>
                             <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
 	                            <li class="c-menu-type-classic">
-	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-font-white c-link dropdown-toggle " >GIỎ NICK</a>
+	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-font-white c-link dropdown-toggle " >TÀI KHOẢN ĐÃ MUA</a>
 	                            </li>
                             </security:authorize>
                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">

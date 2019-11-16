@@ -1,6 +1,7 @@
 package phuquat.shopgame.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import phuquat.shopgame.entity.TaiKhoan;
+import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.TaiKhoanService;
 
@@ -101,4 +103,5 @@ public class TrangQuanTri {
     	return "redirect:/danhsachtaikhoan";
     	
     }
+    
 }

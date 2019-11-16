@@ -54,4 +54,8 @@ public class TaiKhoanService {
 	public void xoaTaiKhoan(String ma) {
 		taiKhoanDAO.xoaTaiKhoan(ma);
 	}
+	
+	public void capNhatTaiKhoanDaMua(String maTK) {
+		taiKhoanDAO.capNhatTaiKhoanDaMua(maTK);
+	}
 }

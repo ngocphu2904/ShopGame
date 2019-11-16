@@ -80,7 +80,7 @@
 														title="Sửa tài khoản CF-${ds.ma}">Sửa</a>
 													</security:authorize>
 													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
-														<a href="buyProduct?code=${ds.ma}" 
+														<a href="muataikhoan?ma=${ds.ma}&tdn=${pageContext.request.userPrincipal.name}" 
 														title="Mua tài khoản CF-${ds.ma}">Mua</a>
 													</security:authorize>
 												</div>
