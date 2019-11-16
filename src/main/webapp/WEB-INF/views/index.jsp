@@ -126,7 +126,7 @@
 					<div class="row row-flex-safari game-list item-list">
 						<div class="col-sm-3 p-5"></div>
 						<div class="col-sm-3 p-5">
-							<div class="classWithPad" style="height: 300px;">
+							<div class="classWithPad" style="height: 345px;">
 								<div class="news_image">
 									<a href="danhsachtaikhoan" title="Đột Kích (CF)"> <img
 										src="images/gifdotkich.gif">
@@ -157,7 +157,7 @@
 							</div>
 						</div>
 						<div class="col-sm-3 p-5">
-							<div class="classWithPad" style="height: 300px;">
+							<div class="classWithPad" style="height: 345px;">
 								<div class="news_image">
 									<a href="#" title="Liên Quân Mobile" class=""> <img
 										src="images/giflienquan.gif">

@@ -26,7 +26,7 @@
 	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Tài khoản đột kích</h3>
 	                   <div class="c-line-center c-theme-bg"></div>
 	               </div>
-	               
+	              
 	               <div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
 	               		<c:forEach items="${ds}" var="ds">
@@ -64,7 +64,7 @@
 											<div class="col-xs-6 ">
 												<div class="view">
 													<security:authorize access="hasRole('ROLE_QUAN_TRI')">
-														<a href="xoataikhoan?ma=${ds.ma}" 
+														<a href="xoataikhoan?ma=${ds.ma}" onclick="return confirm('Bạn có muốn xóa tài khoản CF-${ds.ma}?');" 
 														title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
 													</security:authorize>
 													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
@@ -84,7 +84,7 @@
 														title="Mua tài khoản CF-${ds.ma}">Mua</a>
 													</security:authorize>
 												</div>
-											</div>
+											</div>		
 										</div>
 									</div>
 								</div>

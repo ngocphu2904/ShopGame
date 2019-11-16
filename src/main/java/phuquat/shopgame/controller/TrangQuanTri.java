@@ -1,7 +1,6 @@
 package phuquat.shopgame.controller;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -98,6 +97,7 @@ public class TrangQuanTri {
     public String xoaTaiKhoan(@RequestParam(value="ma") String ma) {
     	
     	taiKhoanService.xoaTaiKhoan(ma);
+
     	return "redirect:/danhsachtaikhoan";
     	
     }
