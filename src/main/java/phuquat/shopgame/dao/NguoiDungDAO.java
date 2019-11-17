@@ -54,17 +54,11 @@ public class NguoiDungDAO {
 		return false;
 	}
 	
-	public boolean doiMatKhau(String pass, String userName) {
+	public void doiMatKhau(String pass, String userName) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "UPDATE "+NguoiDung.class.getName()+ " e SET e.matKhau = :matKhau WHERE e.tenDangNhap = :tendangnhap";
-		Query<?> query = session.createQuery(hql);
-		query.setParameter("matKhau", pass);
-		query.setParameter("tendangnhap", userName);
-		int result = query.executeUpdate();
-		if (result >=1) {
-			return true;
-		}
-		return false;
+		NguoiDung nguoiDung = this.timNguoiDung(userName);
+		nguoiDung.setMatKhau(pass);
+		session.update(nguoiDung);
 	}
 	
 	public void capNhatTienSauMua(String maTK, String tenDN) {

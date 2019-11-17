@@ -29,10 +29,8 @@ public class NguoiDungService {
 		if(kq==true) return true;
 		return false;
 	}
-	public boolean doiMatKhau(String pass,String userName) {
-		boolean kq = nguoiDungDAO.doiMatKhau(pass, userName);
-		if(kq==true) return true;
-		return false;
+	public void doiMatKhau(String pass,String userName) {
+		nguoiDungDAO.doiMatKhau(pass, userName);
 	}
 	public void capNhatTienSauMua(String maTK, String tenDN) {
 		nguoiDungDAO.capNhatTienSauMua(maTK, tenDN);

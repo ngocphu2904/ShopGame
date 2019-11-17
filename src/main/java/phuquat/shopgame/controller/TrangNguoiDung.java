@@ -141,16 +141,8 @@ public class TrangNguoiDung {
 		} 
 		else 
 		{
-			boolean doimatkhau = nguoiDungService.doiMatKhau(nguoiDung.getMatKhau(), userName);
-			
-			if (doimatkhau == true)
-				req.setAttribute("checkuser", "Đổi mật khẩu thành công");
-			else 
-			{
-				req.setAttribute("checkuser", "Đổi mật khẩu thất bại");
-			}
-//			nguoiDungService.doimatkhau1(nguoidung);
-//			req.setAttribute("checkuser", "Đổi mật khẩu thành công");
+			nguoiDungService.doiMatKhau(nguoiDung.getMatKhau(), userName);
+			req.setAttribute("checkuser", "Đổi mật khẩu thành công");
 		}
 		return "doimatkhau";
 	}
