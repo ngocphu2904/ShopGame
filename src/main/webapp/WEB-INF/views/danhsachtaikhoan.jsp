@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
  
 <!DOCTYPE html>
 <html>
@@ -26,8 +27,53 @@
 	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Tài khoản đột kích</h3>
 	                   <div class="c-line-center c-theme-bg"></div>
 	               </div>
-	              
-	               <div class="row row-flex item-list">
+					<div class="row" style="margin-bottom: 15px">
+						<div class="m-l-10 m-r-10">
+							<form class="form-inline m-b-10" role="form" method="get">
+								<div class="col-md-3 col-sm-4 p-5 field-search">
+									<div class="input-group c-square">
+										<span class="input-group-addon">Mã số</span> <input
+											type="" class="form-control c-square" value=""
+											placeholder="Mã số" name="id">
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
+									<div class="input-group c-square">
+										<span class="input-group-addon">Giá tiền</span> <select
+											style="" class="form-control c-square" name="gia" >
+											<option value="">-- Không chọn --</option>
+											<option value="duoi-1-trieu">Dưới 1 Triệu</option>
+											<option value="tu-1-3-trieu">Từ 1 triệu - 3 triệu</option>
+											<option value="tren-3-trieu">Trên 3 Triệu</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
+									<div class="input-group c-square">
+										<span class="input-group-addon">Chuyên</span> <select
+											name="chuyen" class="form-control c-square"
+											title="-- Không chọn --">
+											<option value="">-- Không chọn --</option>
+											<option value="T%">All</option>
+											<option value="%Z%">ZOMBIE</option>
+											<option value="%C4">C4</option>
+											<option value="%S%">SNIPER</option>
+											<option value="%N">CẬN CHIẾN</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-4 p-5 no-radius">
+									<button type="submit" formaction="timkiem" class="btn c-square c-theme c-btn-green">Tìm
+										kiếm </button>
+									<a class="btn c-square m-l-0 btn-danger"
+										href="http://localhost:8088/ShopGame/danhsachtaikhoan">Tất
+										cả</a>
+										<p style="color: red">${kq }
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
 	               		<c:forEach items="${ds}" var="ds">
 

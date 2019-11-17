@@ -58,4 +58,16 @@ public class TaiKhoanService {
 	public void capNhatTaiKhoanDaMua(String maTK) {
 		taiKhoanDAO.capNhatTaiKhoanDaMua(maTK);
 	}
+	public List<TaiKhoanModel> tkTaiKhoanTheoMa(String ma){
+		return taiKhoanDAO.tkTaiKhoanTheoMa(ma);
+	}
+	public List<TaiKhoanModel> tkTaiKhoanTheoloai(String loai){
+		return taiKhoanDAO.tkTaiKhoanTheoLoai(loai);
+	}
+	public List<TaiKhoanModel> tkTaiKhoanTheoGia(String gia){
+		return taiKhoanDAO.tkTaiKhoanTheoGia(gia);
+	}
+	public List<TaiKhoanModel> tkTaiKhoanTheoGiaLoai(String gia, String loai){
+		return taiKhoanDAO.tkTaiKhoanTheoGiaLoai(gia, loai);
+	}
 }

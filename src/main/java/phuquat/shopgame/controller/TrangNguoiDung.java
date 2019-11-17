@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javassist.expr.NewArray;
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
 import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.service.DonMuaService;
@@ -148,14 +150,52 @@ public class TrangNguoiDung {
 	}
 	
 	@RequestMapping(value= {"/danhsachtaikhoan"}, method = RequestMethod.GET)
-	public String dsTaiKhoan(Model model) {
+	public String dsTaiKhoan(Model model, HttpServletRequest req) {
 		
-		List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
-		
-		model.addAttribute("ds", ds);
-		
+			List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
+			model.addAttribute("ds", ds);
 		return "danhsachtaikhoan";
 	}
+	
+	@RequestMapping(value= {"/timkiem"}, method = RequestMethod.GET)
+	public String timkiem(Model model, HttpServletRequest req) {
+		String ma =req.getParameter("id");
+		String chuyen = req.getParameter("chuyen");
+		String gia = req.getParameter("gia");
+		if(ma.isEmpty()==true) {
+			if(chuyen.isEmpty()==false && gia.isEmpty()==false) {
+				List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoGiaLoai(gia, chuyen);
+				model.addAttribute("ds", ds);
+			}
+			else if(chuyen.isEmpty()==false) {
+				List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoloai(chuyen);
+				model.addAttribute("ds", ds);
+			}
+			else if(gia.isEmpty()==false) {
+					List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoGia(gia);
+					model.addAttribute("ds", ds);
+				}
+			else{
+					List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
+					model.addAttribute("ds", ds);
+				}
+		}
+		else {
+			if(chuyen.isEmpty()==false || gia.isEmpty()==false) {
+				model.addAttribute("kq","Không tìm thấy tài khoản ");
+			}
+			else {
+			List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoMa(ma);
+			if(ds != null){
+			model.addAttribute("ds", ds);
+			}
+			else {
+				model.addAttribute("kq","Không tìm thấy tài khoản ");
+				}
+			}
+		}
+		return "danhsachtaikhoan";
+		}
 	
 	@RequestMapping(value = {"/chitiettaikhoan"}, method = RequestMethod.GET)
 	public String chiTietTaiKhoan(Model model, @RequestParam("ma") String ma) {
