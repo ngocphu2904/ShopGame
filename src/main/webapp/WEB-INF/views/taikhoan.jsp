@@ -130,6 +130,22 @@
                                  placeholder="Nhập câu trả lời của câu hỏi bảo mật" required="true"/>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">Email tài khoản:</label>
+                            <div class="col-md-6">
+                                <form:input type="email" path="emailTaiKhoan" class="form-control c-square c-theme"
+                                required="true" placeholder="Nhập email của tài khoản"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-md-3 control-label c-font-white">CMND tài khoản:</label>
+                            <div class="col-md-6">
+                                <form:input path="CMND" class="form-control c-square c-theme"
+                                required="true" placeholder="Nhập CMND của tài khoản"/>
+                            </div>
+                        </div>
                        
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">Tải ảnh lên:</label>
