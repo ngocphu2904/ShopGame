@@ -49,8 +49,9 @@
 			                    <span class="fa fa-envelope-o form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			                <div class="form-group has-feedback">
-			                    <form:input type="text" class="form-control" path="soDienThoai" required="true"
-			                    	id="phone" placeholder="Nhập số điện thoại"/>
+			                    <form:input class="form-control" path="soDienThoai" required="true"
+			                    	id="phone" type = "number" min="10" maxlength = "10" placeholder="Nhập số điện thoại"
+			                    	oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
 			                    <span class="fa fa-phone form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			                 <p style="margin: 0px 0px 14px 0px;color: red;" id="message" 

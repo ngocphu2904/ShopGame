@@ -80,8 +80,9 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">VIP:</label>
                             <div class="col-md-6">
-                                <form:input path="vip" class="form-control c-square c-theme"
-                                type="number" required="true" placeholder="Nhập số lượng vip của tài khoản"/>
+                                <form:input path="vip" type = "number" maxlength = "3" class="form-control c-square c-theme"
+                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                required="true" placeholder="Nhập số lượng vip của tài khoản"/>
                             </div>
                         </div>
                         
@@ -142,7 +143,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">CMND tài khoản:</label>
                             <div class="col-md-6">
-                                <form:input path="CMND" class="form-control c-square c-theme"
+                                <form:input path="CMND" type = "number" min="9" maxlength = "9" class="form-control c-square c-theme"
+                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                 required="true" placeholder="Nhập CMND của tài khoản"/>
                             </div>
                         </div>
