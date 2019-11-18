@@ -1,6 +1,7 @@
 package phuquat.shopgame.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ public class DonMua implements Serializable{
 	private String maDonMua;
 	private TaiKhoan taiKhoan;
 	private NguoiDung nguoiDung;
+	private String ngayMua;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,6 +54,18 @@ public class DonMua implements Serializable{
 	public void setNguoiDung(NguoiDung nguoiDung) {
 		this.nguoiDung = nguoiDung;
 	}
+	
+	 @Column(name = "Ngaymua")
+	public String getNgayMua() {
+		return ngayMua;
+	}
+	public void setNgayMua(String ngayMua) {
+		this.ngayMua = ngayMua;
+	}
+
+	
+	
+	
 
 	
 }

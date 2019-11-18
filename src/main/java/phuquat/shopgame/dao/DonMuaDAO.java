@@ -44,6 +44,7 @@ public class DonMuaDAO {
 		DonMua donMua = new DonMua();
 		donMua.setNguoiDung(nguoiDung);
 		donMua.setTaiKhoan(taiKhoan);
+		donMua.setNgayMua(java.time.LocalDateTime.now().toString().replace("T", "  ").substring(0,20));
 		
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(donMua);

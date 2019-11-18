@@ -185,7 +185,7 @@
                             </security:authorize>
                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">
 	                            <li class="c-menu-type-classic">
-	                           		<a href="${pageContext.request.contextPath}/orderList" class="c-font-white c-link dropdown-toggle " >DANH SÁCH MUA</a>
+	                           		<a href="${pageContext.request.contextPath}/danhsachmua" class="c-font-white c-link dropdown-toggle " >DANH SÁCH MUA</a>
 	                            </li>
                             </security:authorize>
                             <security:authorize  access="hasRole('ROLE_QUAN_TRI')">

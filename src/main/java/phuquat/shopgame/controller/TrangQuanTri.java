@@ -57,6 +57,11 @@ public class TrangQuanTri {
     	return "taikhoan";
     }
     
+    @RequestMapping(value = {"/danhsachmua"}, method = RequestMethod.GET)
+    public String danhSachMua() {
+    	return "danhsachmua";
+    }
+    
     @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.POST)
 	public String luuTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
 			@RequestParam(value = "files") MultipartFile[] files, HttpServletRequest req, HttpServletResponse resp) throws IOException {
