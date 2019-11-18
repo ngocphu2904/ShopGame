@@ -25,6 +25,8 @@ public class TaiKhoan implements Serializable{
     private String matKhauTaiKhoan;
     private String cauHoiBaoMat;
     private String cauTraLoiBaoMat;
+    private String emailTaiKhoan;
+    private String CMND;
     
     public TaiKhoan() {}
     
@@ -102,7 +104,7 @@ public class TaiKhoan implements Serializable{
 		this.matKhauTaiKhoan = matKhauTaiKhoan;
 	}
 
-	@Column(name = "Cauhoibaomat", length = 255, nullable = true)
+	@Column(name = "Cauhoibaomat", length = 255, nullable = false)
 	public String getCauHoiBaoMat() {
 		return cauHoiBaoMat;
 	}
@@ -111,13 +113,31 @@ public class TaiKhoan implements Serializable{
 		this.cauHoiBaoMat = cauHoiBaoMat;
 	}
 
-	@Column(name = "Cautraloibaomat", length = 255, nullable = true)
+	@Column(name = "Cautraloibaomat", length = 255, nullable = false)
 	public String getCauTraLoiBaoMat() {
 		return cauTraLoiBaoMat;
 	}
 
 	public void setCauTraLoiBaoMat(String cauTraLoiBaoMat) {
 		this.cauTraLoiBaoMat = cauTraLoiBaoMat;
+	}
+	
+	@Column(name = "Emailtaikhoan", length = 50, nullable = false)
+	public String getEmailTaiKhoan() {
+		return emailTaiKhoan;
+	}
+
+	public void setEmailTaiKhoan(String emailTaiKhoan) {
+		this.emailTaiKhoan = emailTaiKhoan;
+	}
+
+	@Column(name = "CMND", length = 50, nullable = false)
+	public String getCMND() {
+		return CMND;
+	}
+
+	public void setCMND(String cMND) {
+		CMND = cMND;
 	}
 	
 	
