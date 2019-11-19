@@ -8,9 +8,18 @@ public class TaiKhoanModel {
     private double gia;
     private int vip;
     private String thongTin;
+    private String tenTaiKhoan;
+    private String mkTaiKhoan;
+    
+    
     
     /* Khai bao cac truong cua HinhAnh */
     private String maHinhAnh;
+    
+    /*Khai bao cac truong nguoidung*/
+    private String soDienThoai;
+    private String tenDangNhap;
+    private String Email;
     
     public TaiKhoanModel(String ma, String loai, double gia, String thongTin, int vip, String maHinhAnh) {
 		this.ma = ma;
@@ -20,9 +29,62 @@ public class TaiKhoanModel {
 		this.thongTin = thongTin;
 		this.maHinhAnh = maHinhAnh;
 	}
-
+    
+   
+	
 	public String getMa() {
 		return ma;
+	}
+
+	public String getTenTaiKhoan() {
+		return tenTaiKhoan;
+	}
+
+	public void setTenTaiKhoan(String tenTaiKhoan) {
+		this.tenTaiKhoan = tenTaiKhoan;
+	}
+
+	public String getMkTaiKhoan() {
+		return mkTaiKhoan;
+	}
+
+	public void setMkTaiKhoan(String mkTaiKhoan) {
+		this.mkTaiKhoan = mkTaiKhoan;
+	}
+
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+	public String getTenDangNhap() {
+		return tenDangNhap;
+	}
+
+	public void setTenDangNhap(String tenDangNhap) {
+		this.tenDangNhap = tenDangNhap;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public TaiKhoanModel(double gia, String tenTaiKhoan, String mkTaiKhoan, String soDienThoai, String tenDangNhap,
+			String email) {
+		super();
+		this.gia = gia;
+		this.tenTaiKhoan = tenTaiKhoan;
+		this.mkTaiKhoan = mkTaiKhoan;
+		this.soDienThoai = soDienThoai;
+		this.tenDangNhap = tenDangNhap;
+		Email = email;
 	}
 
 	public void setMa(String ma) {

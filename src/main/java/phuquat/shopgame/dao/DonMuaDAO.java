@@ -15,6 +15,7 @@ import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
+import phuquat.shopgame.model.ThongTinMuaHangModel;
 
 public class DonMuaDAO {
 	
@@ -52,5 +53,18 @@ public class DonMuaDAO {
 		
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(donMua);
+	}
+	
+	public List<ThongTinMuaHangModel> thongTinMuaHang(){
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = "SELECT NEW "+ ThongTinMuaHangModel.class.getName()
+					+"( n.tenDangNhap, n.email, n.soDienThoai, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua)"
+					+" FROM "+NguoiDung.class.getName()+" n, " 
+					+TaiKhoan.class.getName()+" t, "
+					+DonMua.class.getName()+" d "
+					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap";
+		
+		Query<ThongTinMuaHangModel> query = session.createQuery(hql);
+		return query.getResultList();
 	}
 }

@@ -11,6 +11,7 @@ import phuquat.shopgame.dao.DonMuaDAO;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
+import phuquat.shopgame.model.ThongTinMuaHangModel;
 
 @Transactional
 public class DonMuaService {
@@ -33,5 +34,8 @@ public class DonMuaService {
 	
 	public void luuDonMua(String maTK, String tenDN) {
 		donMuaDAO.luuDonMua(maTK, tenDN);
+	}
+	public List<ThongTinMuaHangModel> thongTinMuaHang(){
+		return donMuaDAO.thongTinMuaHang();
 	}
 }

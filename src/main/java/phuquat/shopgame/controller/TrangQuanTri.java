@@ -20,6 +20,8 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;
+import phuquat.shopgame.model.ThongTinMuaHangModel;
+import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.TaiKhoanService;
 
@@ -32,6 +34,9 @@ public class TrangQuanTri {
 	
 	@Autowired
 	private HinhAnhService hinhAnhService;
+	
+	@Autowired
+	private DonMuaService donMuaService;
 	
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
@@ -58,7 +63,9 @@ public class TrangQuanTri {
     }
     
     @RequestMapping(value = {"/danhsachmua"}, method = RequestMethod.GET)
-    public String danhSachMua() {
+    public String danhSachMua(Model model) {
+    	List<ThongTinMuaHangModel> ds = donMuaService.thongTinMuaHang();
+    	model.addAttribute("ds", ds);
     	return "danhsachmua";
     }
     

@@ -39,15 +39,17 @@
 									<th>Mật khẩu</th>
 									<th>Giá tiền</th>
 								</tr>
+								<c:forEach items="${ds}" var="ds">
 								<tr>
-									<td>01-01-2019</td>
-									<td>Quat</td>
-									<td>hongocquat0412@gmail.com</td>
-									<td>0365255375</td>
-									<td> quatps2</td>
-									<td>12345</td>
-									<td>20000000</td>
+									<td>${ds.ngayMua}</td>
+									<td>${ds.tenDangNhap}</td>
+									<td>${ds.email}</td>
+									<td>${ds.soDienThoai}</td>
+									<td> ${ds.tenTaiKhoan}</td>
+									<td>${ds.matKhauTaiKhoan}</td>
+									<td>${ds.gia}</td>
 								</tr>
+								</c:forEach>
 							</table>
 	           </div>
 	           <!-- End-->
