@@ -1,5 +1,9 @@
 package phuquat.shopgame.dao;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -37,14 +41,14 @@ public class DonMuaDAO {
 		return query.getResultList();
 	}
 	
-	public void luuDonMua(String maTK, String tenDN) {
+	public void luuDonMua(String maTK, String tenDN)  {
 		NguoiDung nguoiDung = nguoiDungDAO.timNguoiDung(tenDN);
 		TaiKhoan taiKhoan = taiKhoanDAO.timTaiKhoan(maTK);
 		
 		DonMua donMua = new DonMua();
 		donMua.setNguoiDung(nguoiDung);
 		donMua.setTaiKhoan(taiKhoan);
-		donMua.setNgayMua(java.time.LocalDateTime.now().toString().replace("T", "  ").substring(0,20));
+		donMua.setNgayMua(new Date());
 		
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(donMua);

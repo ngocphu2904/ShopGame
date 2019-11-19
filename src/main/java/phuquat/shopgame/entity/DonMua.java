@@ -1,7 +1,7 @@
 package phuquat.shopgame.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="Donmua")
@@ -23,7 +25,7 @@ public class DonMua implements Serializable{
 	private String maDonMua;
 	private TaiKhoan taiKhoan;
 	private NguoiDung nguoiDung;
-	private String ngayMua;
+	private Date ngayMua;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,11 +57,12 @@ public class DonMua implements Serializable{
 		this.nguoiDung = nguoiDung;
 	}
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	 @Column(name = "Ngaymua")
-	public String getNgayMua() {
+	public Date getNgayMua() {
 		return ngayMua;
 	}
-	public void setNgayMua(String ngayMua) {
+	public void setNgayMua(Date ngayMua) {
 		this.ngayMua = ngayMua;
 	}
 
