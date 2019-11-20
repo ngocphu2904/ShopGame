@@ -45,6 +45,7 @@ public class HinhAnh implements Serializable{
 	public void setTaiKhoan(TaiKhoan taiKhoan) {
 		this.taiKhoan = taiKhoan;
 	}
+
 	
 	@Lob
     @Column(name = "Hinhanh", length = Integer.MAX_VALUE, nullable = true)
@@ -55,5 +56,4 @@ public class HinhAnh implements Serializable{
 		this.hinhAnh = hinhAnh;
 	}
 	
-    
 }

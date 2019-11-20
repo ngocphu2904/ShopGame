@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
+import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;
@@ -58,16 +59,6 @@ public class TrangQuanTri {
         }
     }
     
-	@RequestMapping("thongke")
-	public String thongke(Model model) {
-		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
-		model.addAttribute("dsnguoidung",dsnguoidung);
-		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
-		model.addAttribute("dstaikhoan", dstaikhoan);
-		
-		return "thongke";
-	}
-    
     @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.GET)
     public String luuTaiKhoan(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {
     	
@@ -78,12 +69,6 @@ public class TrangQuanTri {
     	return "taikhoan";
     }
     
-    @RequestMapping(value = {"/danhsachmua"}, method = RequestMethod.GET)
-    public String danhSachMua(Model model) {
-    	List<ThongTinMuaHangModel> ds = donMuaService.thongTinMuaHang();
-    	model.addAttribute("ds", ds);
-    	return "danhsachmua";
-    }
     
     @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.POST)
 	public String luuTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
@@ -131,5 +116,37 @@ public class TrangQuanTri {
     	return "redirect:/danhsachtaikhoan";
     	
     }
+    
+    @RequestMapping(value = {"/danhsachmua"}, method = RequestMethod.GET)
+    public String danhSachMua(Model model) {
+    	List<ThongTinMuaHangModel> ds = donMuaService.thongTinMuaHang();
+    	model.addAttribute("ds", ds);
+    	return "danhsachmua";
+    }
+    
+	@RequestMapping("thongke")
+	public String thongKe(Model model) {
+		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
+		model.addAttribute("dsnguoidung",dsnguoidung);
+		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
+		model.addAttribute("dstaikhoan", dstaikhoan);
+		return "thongke";
+	}
+	
+	@RequestMapping(value= {"thongke"}, method = RequestMethod.POST)
+	public String xuLyThongKe(HttpServletRequest req, Model model) {
+		String tenDangNhap =req.getParameter("tendangnhap");
+		String maTaiKhoan = req.getParameter("mataikhoan");
+		
+		donMuaService.luuDonMua(maTaiKhoan, tenDangNhap);
+		taiKhoanService.capNhatTaiKhoanDaMua(maTaiKhoan);
+		
+		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
+		model.addAttribute("dsnguoidung",dsnguoidung);
+		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
+		model.addAttribute("dstaikhoan", dstaikhoan);
+				
+		return "thongke";
+	}
     
 }

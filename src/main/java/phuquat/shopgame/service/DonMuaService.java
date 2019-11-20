@@ -38,4 +38,7 @@ public class DonMuaService {
 	public List<ThongTinMuaHangModel> thongTinMuaHang(){
 		return donMuaDAO.thongTinMuaHang();
 	}
+	public List<ThongTinMuaHangModel> taiKhoandaMua(String ten){
+		return donMuaDAO.taiKhoanDaMua(ten);
+	}
 }

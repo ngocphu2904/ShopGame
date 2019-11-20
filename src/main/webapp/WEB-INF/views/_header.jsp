@@ -180,7 +180,7 @@
                             </security:authorize>
                             <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
 	                            <li class="c-menu-type-classic">
-	                           		<a href="${pageContext.request.contextPath}/shoppingCart" class="c-font-white c-link dropdown-toggle " >TÀI KHOẢN ĐÃ MUA</a>
+	                           		<a href="${pageContext.request.contextPath}/taikhoandamua?ten=${pageContext.request.userPrincipal.name}" class="c-font-white c-link dropdown-toggle " >TÀI KHOẢN ĐÃ MUA</a>
 	                            </li>
                             </security:authorize>
                            	<security:authorize  access="hasRole('ROLE_QUAN_TRI')">

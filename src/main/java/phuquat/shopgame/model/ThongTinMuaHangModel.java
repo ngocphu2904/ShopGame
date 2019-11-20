@@ -3,13 +3,17 @@ package phuquat.shopgame.model;
 import java.util.Date;
 
 public class ThongTinMuaHangModel {
-	
+	//nguoi dung
 	private String tenDangNhap;
 	private String email;
 	private String soDienThoai;
+	
+	//tai khoan
 	private String tenTaiKhoan;
 	private String matKhauTaiKhoan;
 	private double gia;
+	
+	//donmua
 	private Date ngayMua;
 	
 	public ThongTinMuaHangModel(String tenDangNhap, String email, String soDienThoai, String tenTaiKhoan,

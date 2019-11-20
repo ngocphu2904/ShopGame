@@ -23,6 +23,7 @@ import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
 import phuquat.shopgame.model.TaiKhoanModel;
+import phuquat.shopgame.model.ThongTinMuaHangModel;
 import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
@@ -241,6 +242,14 @@ public class TrangNguoiDung {
 		nguoiDungService.capNhatTienSauMua(maTK, tenDN);
 		
 		return "redirect:/thongtin";
+	}
+	
+	@RequestMapping(value = {"/taikhoandamua"})
+	public String taiKhoanDaMua(Model model, @RequestParam("ten") String ten) {
+		
+		List<ThongTinMuaHangModel> ds = donMuaService.taiKhoandaMua(ten);
+    	model.addAttribute("ds", ds);
+		return "taikhoandamua";
 	}
 	
 }

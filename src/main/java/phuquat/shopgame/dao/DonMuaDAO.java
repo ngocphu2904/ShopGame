@@ -67,4 +67,18 @@ public class DonMuaDAO {
 		Query<ThongTinMuaHangModel> query = session.createQuery(hql);
 		return query.getResultList();
 	}
+	
+	public List<ThongTinMuaHangModel> taiKhoanDaMua(String ten){
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = "SELECT NEW "+ ThongTinMuaHangModel.class.getName()
+					+"( n.tenDangNhap, n.email, n.soDienThoai, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua)"
+					+" FROM "+NguoiDung.class.getName()+" n, " 
+					+TaiKhoan.class.getName()+" t, "
+					+DonMua.class.getName()+" d "
+					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap "
+					+ "and n.tenDangNhap like '"+ten+"'";
+		
+		Query<ThongTinMuaHangModel> query = session.createQuery(hql);
+		return query.getResultList();
+	}
 }

@@ -29,33 +29,34 @@
 	               </div>
 	              	<div class="row" style="margin-bottom: 15px">
 						<div class="m-l-10 m-r-10">
-							<form class="form-inline m-b-10" role="form" method="get">
+							<form  action="thongke" class="form-inline m-b-10" role="form" method="POST">
 								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
 									<div class="input-group c-square" style="width: 300px;" >
-										<span class="input-group-addon" style="">Tài khoản người dùng </span> <select
-											style="" class="form-control c-square" name=""  >
+										<span class="input-group-addon" style="">Tài khoản người dùng </span> 
+										<select style="" class="form-control c-square" name="tendangnhap"  >
 											<option value="">-- Không chọn --</option>
 											<c:forEach items="${dsnguoidung}" var="dsnguoidung">
-											<option value=""> ${dsnguoidung.tenDangNhap }</option>
+											<option value="${dsnguoidung.tenDangNhap }"> ${dsnguoidung.tenDangNhap }</option>
 											</c:forEach>
 										</select>
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
 									<div class="input-group c-square" style="margin-left: 50px; width: 300px;">
-										<span class="input-group-addon">Tài khoản chưa bán</span> <select
-											name="chuyen" class="form-control c-square"
+										<span class="input-group-addon">Tài khoản chưa bán</span> 
+										<select name="mataikhoan" class="form-control c-square"
 											title="-- Không chọn --">
 											<option value="">-- Không chọn --</option>
 											<c:forEach items="${dstaikhoan}" var="dstaikhoan">
-											<option value=""> ${dstaikhoan.ma }</option>
+											<option value="${dstaikhoan.ma }"> ${dstaikhoan.ma }</option>
 											</c:forEach>
 										</select>
 									</div>
 								</div>
 								<div class="col-md-3 col-sm-4 p-5 no-radius">
-									<button type="submit" formaction="timkiem" style="margin-left: 100px;width: 100px;" class="btn c-square c-theme c-btn-green">
-										Gửi </button>
+									<button type="submit"  style="margin-left: 100px;width: 100px;" class="btn c-square c-theme c-btn-green">
+										Gửi </button> <p style="color: red">${kq}</p>
+										
 								</div>
 							</form>
 						</div>

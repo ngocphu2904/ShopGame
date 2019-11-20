@@ -28,7 +28,7 @@ public class NguoiDungDAO {
 	public List<NguoiDung> xemnguoidung(){
 		
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = " from "+NguoiDung.class.getName();
+		String hql = " from "+NguoiDung.class.getName()+" n where n.kieuNguoiDung like 'NGUOI_DUNG'";
 		Query<NguoiDung> query = session.createQuery(hql);
 		
 		return query.getResultList();
