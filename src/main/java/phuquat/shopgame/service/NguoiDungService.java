@@ -1,5 +1,7 @@
 package phuquat.shopgame.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class NguoiDungService {
 	
 	public NguoiDung timNguoiDung(String tenDangNhap) {
 		return nguoiDungDAO.timNguoiDung(tenDangNhap);
+	}
+	public List<NguoiDung> xemnguoidung(){
+		return nguoiDungDAO.xemnguoidung();
 	}
 	public void luuNguoiDung(NguoiDung nguoidung) {
 		nguoiDungDAO.luuNguoiDung(nguoidung);

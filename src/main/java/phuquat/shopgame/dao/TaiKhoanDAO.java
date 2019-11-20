@@ -22,6 +22,12 @@ public class TaiKhoanDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(taiKhoan);
 	}
+	public List<TaiKhoan> xemTaiKhoanChuaMua(){
+		Session session = sessionFactory.getCurrentSession();//
+		String sql = "FROM "+TaiKhoan.class.getName()+" t where t.mua = 0 ";
+		Query<TaiKhoan> query = session.createQuery(sql);
+		return query.getResultList();
+	}
 	public int demtaikhoan() {
 		
 		Session session = sessionFactory.getCurrentSession();//

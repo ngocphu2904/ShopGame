@@ -1,5 +1,7 @@
 package phuquat.shopgame.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
+import phuquat.shopgame.model.DonMuaModel;
 
 public class NguoiDungDAO {
 	
@@ -20,6 +23,15 @@ public class NguoiDungDAO {
 	public NguoiDung timNguoiDung(String tenDangNhap) {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.get(NguoiDung.class, tenDangNhap);
+	}
+	
+	public List<NguoiDung> xemnguoidung(){
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = " from "+NguoiDung.class.getName();
+		Query<NguoiDung> query = session.createQuery(hql);
+		
+		return query.getResultList();
 	}
 	
 	public void luuNguoiDung(NguoiDung nguoiDung) {

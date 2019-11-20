@@ -193,6 +193,11 @@
 	                            	<a href="${pageContext.request.contextPath}/themtaikhoan" class="c-font-white c-link dropdown-toggle " >THÊM NICK</a>
 	                            </li>
                             </security:authorize>
+                             <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+	                            <li class="c-menu-type-classic">
+	                            	<a href="${pageContext.request.contextPath}/thongke" class="c-font-white c-link dropdown-toggle " >THỐNG KÊ</a>
+	                            </li>
+                            </security:authorize>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">
 	                        	<li class="float_right">
 	                            	<a href="${pageContext.request.contextPath}/dangnhap" class="c-font-white c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">

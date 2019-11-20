@@ -57,6 +57,7 @@ public class TrangNguoiDung {
 		model.addAttribute("mua", mua);
 		return "index";
 	}
+	
 
 	@RequestMapping(value = { "/dangnhap" }, method = RequestMethod.GET)
 	public String dangNhap(Model model) {

@@ -24,7 +24,9 @@ public class TaiKhoanService {
 	public void luuTaiKhoan(TaiKhoan taiKhoan) {
 		taiKhoanDAO.luuTaiKhoan(taiKhoan);
 	}
-
+	public List<TaiKhoan> xemtaikhoan(){
+		return taiKhoanDAO.xemTaiKhoanChuaMua();
+	}
 	public int demtaikhoan() {
 		int count = taiKhoanDAO.demtaikhoan();
 		return count;

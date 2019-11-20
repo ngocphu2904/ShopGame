@@ -3,6 +3,7 @@ package phuquat.shopgame.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,11 +19,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
+import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.model.ThongTinMuaHangModel;
 import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
+import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
 
 
@@ -31,6 +34,9 @@ public class TrangQuanTri {
 
 	@Autowired
 	private TaiKhoanService taiKhoanService;
+	
+	@Autowired
+	private NguoiDungService nguoiDungService;
 	
 	@Autowired
 	private HinhAnhService hinhAnhService;
@@ -51,6 +57,16 @@ public class TrangQuanTri {
             dataBinder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
         }
     }
+    
+	@RequestMapping("thongke")
+	public String thongke(Model model) {
+		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
+		model.addAttribute("dsnguoidung",dsnguoidung);
+		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
+		model.addAttribute("dstaikhoan", dstaikhoan);
+		
+		return "thongke";
+	}
     
     @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.GET)
     public String luuTaiKhoan(Model model, HttpServletRequest req, HttpServletResponse resp) throws IOException {

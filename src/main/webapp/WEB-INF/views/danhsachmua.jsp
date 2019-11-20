@@ -35,7 +35,7 @@
 									<th>Tên người mua</th>
 									<th>Email</th>
 									<th>Số điện thoại</th>
-									<th>Tên tài khoản đã mua</th>
+									<th>Tên tài khoản</th>
 									<th>Mật khẩu</th>
 									<th>Giá tiền</th>
 								</tr>
