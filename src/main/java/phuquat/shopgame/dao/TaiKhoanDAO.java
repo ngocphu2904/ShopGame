@@ -120,30 +120,22 @@ public class TaiKhoanDAO {
 	}
 	public List<TaiKhoanModel> tkTaiKhoanTheoGia(String gia){
 		Session session = this.sessionFactory.getCurrentSession();
-		String sql = null;
+		String sql = "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma";
 		switch (gia) {
 		case "duoi-1-trieu":
-			sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia < 1000000 group by h.taiKhoan.ma";
+			sql += " and t.gia < 1000000 group by h.taiKhoan.ma";
 			break;
 		
 		case "tu-1-3-trieu":
-			sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia > 1000000 and t.gia < 3000000 group by h.taiKhoan.ma";
+			sql +=" and t.gia > 1000000 and t.gia < 3000000 group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia > 3000000 group by h.taiKhoan.ma";
+			 sql += " and t.gia > 3000000 group by h.taiKhoan.ma";
 			break;
 		}
 		Query<TaiKhoanModel> query = session.createQuery(sql);
@@ -151,30 +143,22 @@ public class TaiKhoanDAO {
 	}
 	public List<TaiKhoanModel> tkTaiKhoanTheoGiaLoai(String gia, String loai){
 		Session session = this.sessionFactory.getCurrentSession();
-		String sql = null;
+		String sql =  "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma";
 		switch (gia) {
 		case "duoi-1-trieu":
-			sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		
 		case "tu-1-3-trieu":
-			sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia > 1000000 and t.gia < 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			sql += " and t.gia > 1000000 and t.gia < 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql = "SELECT NEW " + TaiKhoanModel.class.getName()
-			+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
-			+ " FROM " + TaiKhoan.class.getName() + " t, "
-			+ HinhAnh.class.getName() + " h "
-			+ " WHERE t.ma = h.taiKhoan.ma and t.gia > 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			 sql += " and t.gia > 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		}
 		Query<TaiKhoanModel> query = session.createQuery(sql);

@@ -2,6 +2,8 @@ package phuquat.shopgame.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -187,13 +189,17 @@ public class TrangNguoiDung {
 				model.addAttribute("kq","Không tìm thấy tài khoản ");
 			}
 			else {
-			List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoMa(ma);
-			if(ds != null){
-			model.addAttribute("ds", ds);
-			}
-			else {
-				model.addAttribute("kq","Không tìm thấy tài khoản ");
-				}
+				Pattern p = Pattern.compile("[0-9]",Pattern.CASE_INSENSITIVE);
+				Matcher m = p.matcher(ma);
+				boolean b =m.find();
+				if(b ==true){
+					List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoMa(ma);
+					if(ds == null)
+						model.addAttribute("ds", ds);
+					else model.addAttribute("kq","Không tìm thấy tài khoản ");
+				}else {
+					model.addAttribute("kq","Bạn nhập sai mời bạn nhập lại");
+					}
 			}
 		}
 		return "danhsachtaikhoan";
@@ -250,6 +256,7 @@ public class TrangNguoiDung {
 		List<ThongTinMuaHangModel> ds = donMuaService.taiKhoandaMua(ten);
     	model.addAttribute("ds", ds);
 		return "taikhoandamua";
+
 	}
 	
 }

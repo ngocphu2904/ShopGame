@@ -47,7 +47,7 @@
 									<td>${ds.soDienThoai}</td>
 									<td> ${ds.tenTaiKhoan}</td>
 									<td>${ds.matKhauTaiKhoan}</td>
-									<td>${ds.gia}</td>
+									<td><fmt:formatNumber value="${ds.gia}" type="currency"/></td>
 								</tr>
 								</c:forEach>
 							</table>

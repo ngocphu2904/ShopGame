@@ -62,13 +62,12 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-3 col-sm-4 p-5 no-radius">
+								<div class="col-md-3 col-sm-4 p-5 no-radius" style="">
 									<button type="submit" formaction="timkiem" class="btn c-square c-theme c-btn-green">Tìm
 										kiếm </button>
-									<a class="btn c-square m-l-0 btn-danger"
-										href="http://localhost:8088/ShopGame/danhsachtaikhoan">Tất
-										cả</a>
-										<p style="color: red">${kq }
+										<button type="submit" formaction="danhsachtaikhoan" class="btn c-square c-theme btn-danger " >Tất
+										cả </button>
+										<p style="color: red">${kq }</p>
 								</div>
 							</form>
 						</div>

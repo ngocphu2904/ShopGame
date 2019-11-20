@@ -55,7 +55,7 @@
 								</div>
 								<div class="col-md-3 col-sm-4 p-5 no-radius">
 									<button type="submit"  style="margin-left: 100px;width: 100px;" class="btn c-square c-theme c-btn-green">
-										Gửi </button> <p style="color: red">${kq}</p>
+										Gửi </button> <p style="color: blue"> ${kq }</p>
 										
 								</div>
 							</form>
