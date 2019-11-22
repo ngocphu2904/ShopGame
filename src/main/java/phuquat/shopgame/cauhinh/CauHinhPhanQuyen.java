@@ -37,11 +37,11 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 	  
 	       // Cau hinh trang dang nhap
-	       http.authorizeRequests().and().formLogin().loginProcessingUrl("/check")
-           .loginPage("/dangnhap").defaultSuccessUrl("/")//
-           .failureUrl("/dangnhap?loi=true")
-           .usernameParameter("tenDangNhap")
-           .passwordParameter("matKhau")
-           .and().logout().logoutUrl("/dangxuat").logoutSuccessUrl("/");
+	       http.authorizeRequests().and().formLogin().loginProcessingUrl("/check")//khi dang nhap no nhay vao
+           .loginPage("/dangnhap").defaultSuccessUrl("/")
+           .failureUrl("/dangnhap?loi=true")//khi dang nhap loi
+           .usernameParameter("tenDangNhap") //bien name trang jsp
+           .passwordParameter("matKhau") // bien name trang jsp
+           .and().logout().logoutUrl("/dangxuat").logoutSuccessUrl("/");//dang xuat
 	   }
 }

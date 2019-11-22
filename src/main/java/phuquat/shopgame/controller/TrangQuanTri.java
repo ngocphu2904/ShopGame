@@ -78,6 +78,7 @@ public class TrangQuanTri {
     	req.setCharacterEncoding("utf-8");
     	
 		taiKhoanService.luuTaiKhoan(taiKhoan);
+
 		
 		hinhAnhService.luuHinhAnh(taiKhoan,files);
 		
