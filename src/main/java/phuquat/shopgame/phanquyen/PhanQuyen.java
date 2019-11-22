@@ -21,6 +21,8 @@ public class PhanQuyen implements UserDetailsService{
 	@Autowired
 	private NguoiDungService nguoiDungService;
 	
+	//Tham số truyền vào chỉ gồm có username của người dùng. Ta sẽ tìm kiếm trong CSDL, record thỏa mãn username.
+	//Nếu không tìm thấy, ta sẽ ném ra ngoại lệ UsernameNotFoundException.
 	@Override
     public UserDetails loadUserByUsername(String tendangnhap) throws UsernameNotFoundException {
         NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tendangnhap);
@@ -31,14 +33,15 @@ public class PhanQuyen implements UserDetailsService{
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
  
         // ROLE_QUAN_TRI, ROLE_NGUOI_DUNG
+        //Một GrantedAuthority là một quyền được ban cho principal. Các quyền đều có tiền tố là ROLE_
         GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + quyen);
         
         grantList.add(authority);
  
-        boolean enabled = nguoiDung.isKichHoat();
-        boolean accountNonExpired = true;
-        boolean credentialsNonExpired = true;
-        boolean accountNonLocked = true;
+        boolean enabled = nguoiDung.isKichHoat();//tra ve truw neu nguoi dung da duoc kich hoat
+        boolean accountNonExpired = true;//tra ve true neu nguoi dung chua het han
+        boolean credentialsNonExpired = true;// tra ve true neu chung thuc (mat khau) nguoi dung chua het han
+        boolean accountNonLocked = true;//tra ve true neu nguoi dung chua bi khoa
  
         UserDetails thongtin = (UserDetails) new User(nguoiDung.getTenDangNhap(), //
                 nguoiDung.getMatKhau(), enabled, accountNonExpired, //
