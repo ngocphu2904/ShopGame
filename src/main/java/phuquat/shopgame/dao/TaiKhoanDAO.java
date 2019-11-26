@@ -118,6 +118,7 @@ public class TaiKhoanDAO {
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
+	
 	public List<TaiKhoanModel> tkTaiKhoanTheoGia(String gia){
 		Session session = this.sessionFactory.getCurrentSession();
 		String sql = "SELECT NEW " + TaiKhoanModel.class.getName()
@@ -131,7 +132,7 @@ public class TaiKhoanDAO {
 			break;
 		
 		case "tu-1-3-trieu":
-			sql +=" and t.gia > 1000000 and t.gia < 3000000 group by h.taiKhoan.ma";
+			sql +=" and t.gia >= 1000000 and t.gia <= 3000000 group by h.taiKhoan.ma";
 			break;
 			
 		default:
@@ -141,13 +142,73 @@ public class TaiKhoanDAO {
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
+	
+	public List<TaiKhoanModel> tkTaiKhoanTheoMaLoai(String ma, String loai){
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = '"+ma+"' and t.loai like '" +loai + "' group by h.taiKhoan.ma";
+		Query<TaiKhoanModel> query = session.createQuery(sql);
+		return query.getResultList();
+	}
+	
+	public List<TaiKhoanModel> tkTaiKhoanTheoMaGia(String ma, String gia){
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql =  "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
+		switch (gia) {
+		case "duoi-1-trieu":
+			sql +=" and t.gia < 1000000 group by h.taiKhoan.ma";
+			break;
+		
+		case "tu-1-3-trieu":
+			sql += " and t.gia > 1000000 and t.gia < 3000000 group by h.taiKhoan.ma";
+			break;
+			
+		default:
+			 sql += " and t.gia > 3000000 group by h.taiKhoan.ma";
+			break;
+		}
+		Query<TaiKhoanModel> query = session.createQuery(sql);
+		return query.getResultList();
+	}
+	
 	public List<TaiKhoanModel> tkTaiKhoanTheoGiaLoai(String gia, String loai){
 		Session session = this.sessionFactory.getCurrentSession();
 		String sql =  "SELECT NEW " + TaiKhoanModel.class.getName()
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma";
+				+ " WHERE t.ma = h.taiKhoan.ma ";
+		switch (gia) {
+		case "duoi-1-trieu":
+			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			break;
+		
+		case "tu-1-3-trieu":
+			sql += " and t.gia > 1000000 and t.gia < 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			break;
+			
+		default:
+			 sql += " and t.gia > 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			break;
+		}
+		Query<TaiKhoanModel> query = session.createQuery(sql);
+		return query.getResultList();
+	}
+	
+	public List<TaiKhoanModel> tkTaiKhoanTheoMaGiaLoai(String ma, String gia, String loai){
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql =  "SELECT NEW " + TaiKhoanModel.class.getName()
+				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
+				+ " FROM " + TaiKhoan.class.getName() + " t, "
+				+ HinhAnh.class.getName() + " h "
+				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
 		switch (gia) {
 		case "duoi-1-trieu":
 			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";

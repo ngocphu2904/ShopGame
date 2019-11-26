@@ -51,30 +51,31 @@
 								</tr>
 								</c:forEach>
 							</table>
-	           </div>
-	           <!-- End-->
-	       </div>
-	   </div>
+		           </div>
+		           <!-- End-->
+		       </div>
+		   </div>
+	   </div>	
    </div>
  
    <jsp:include page="_footer.jsp" />
  
 </body>
 </html>
-	<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: ;
-}
-</style>
+	<style tyle="text/css">
+		table {
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: ;
+		}
+	</style>

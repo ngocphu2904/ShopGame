@@ -22,60 +22,63 @@
 	       <div class="container">
 	           <!-- Begin: Testimonals 1 component -->
 	           <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
-	               <!-- Begin: Title 1 component -->
-	               <div class="c-content-title-1">
-	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Tài khoản đột kích</h3>
-	                   <div class="c-line-center c-theme-bg"></div>
-	               </div>
-					<div class="row" style="margin-bottom: 15px">
-						<div class="m-l-10 m-r-10">
-							<form class="form-inline m-b-10" role="form" method="get">
-								<div class="col-md-3 col-sm-4 p-5 field-search">
-									<div class="input-group c-square">
-										<span class="input-group-addon">Mã số</span> <input
-											type="" class="form-control c-square" value=""
-											placeholder="Mã số" name="id">
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
-									<div class="input-group c-square">
-										<span class="input-group-addon">Giá tiền</span> <select
-											style="" class="form-control c-square" name="gia" >
-											<option value="">-- Không chọn --</option>
-											<option value="duoi-1-trieu">Dưới 1 Triệu</option>
-											<option value="tu-1-3-trieu">Từ 1 triệu - 3 triệu</option>
-											<option value="tren-3-trieu">Trên 3 Triệu</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12  p-5 field-search">
-									<div class="input-group c-square">
-										<span class="input-group-addon">Chuyên</span> <select
-											name="chuyen" class="form-control c-square"
-											title="-- Không chọn --">
-											<option value="">-- Không chọn --</option>
-											<option value="T%">All</option>
-											<option value="%Z%">ZOMBIE</option>
-											<option value="%C4">C4</option>
-											<option value="%S%">SNIPER</option>
-											<option value="%N">CẬN CHIẾN</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-3 col-sm-4 p-5 no-radius" style="">
-									<button type="submit" formaction="timkiem" class="btn c-square c-theme c-btn-green">Tìm
-										kiếm </button>
-										<button type="submit" formaction="danhsachtaikhoan" class="btn c-square c-theme btn-danger " >Tất
-										cả </button>
-										<p style="color: red">${kq }</p>
-								</div>
-							</form>
-						</div>
+	                <!-- Begin: Title 1 component -->
+					<div class="c-content-title-1">
+					    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Tài khoản đột kích</h3>
+					    <div class="c-line-center c-theme-bg"></div>
 					</div>
+
+					<form role="form" method="get">
+						<div class="row row-flex item-list">
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="input-group c-square">
+									<span class="input-group-addon">Mã số</span> <input
+										type="number" class="form-control c-square"
+										placeholder="Nhập mã số" name="id">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="input-group c-square">
+									<span class="input-group-addon">Giá tiền</span>
+									<select class="form-control c-square" name="gia">
+										<option value="">-- Không chọn --</option>
+										<option value="duoi-1-trieu">Dưới 1 triệu</option>
+										<option value="tu-1-3-trieu">Từ 1 triệu - 3 triệu</option>
+										<option value="tren-3-trieu">Trên 3 Triệu</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="input-group c-square">
+									<span class="input-group-addon">Chuyên</span>
+									<select name="chuyen" class="form-control c-square">
+										<option value="">-- Không chọn --</option>
+										<option value="T%">TẤT CẢ</option>
+										<option value="%Z%">ZOMBIE</option>
+										<option value="%C4">ĐẶT BOOM C4</option>
+										<option value="%S%">SNIPER</option>
+										<option value="%N">CẬN CHIẾN</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 no-radius text-center">
+								<button type="submit" formaction="timkiem" class="btn c-square c-theme-btn">
+									Tìm kiếm
+								</button>
+								<a href="danhsachtaikhoan" style="width:100px" class="btn c-square btn-danger">
+									Tất cả 
+								</a>
+							</div>
+						</div>
+					</form>	
+					
+					<div class="form-group c-font-center">
+	                    <p class="c-font-yellow c-font-bold">${kq}</p>  
+				    </div>
+					
 					<div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
 	               		<c:forEach items="${ds}" var="ds">
-
 							<div class="col-sm-6 col-md-3" style="margin-bottom: 30px">
 								<div class="classWithPad">
 									<div class="image">
@@ -136,6 +139,7 @@
 							</div>
 	                   </c:forEach>
 	               </div>
+	          
 	               <!-- End-->
 	           </div>
 	           <!-- End-->

@@ -163,47 +163,58 @@ public class TrangNguoiDung {
 	
 	@RequestMapping(value= {"/timkiem"}, method = RequestMethod.GET)
 	public String timkiem(Model model, HttpServletRequest req) {
+		
 		String ma =req.getParameter("id");
 		String chuyen = req.getParameter("chuyen");
 		String gia = req.getParameter("gia");
-		if(ma.isEmpty()==true) {
-			if(chuyen.isEmpty()==false && gia.isEmpty()==false) {
-				List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoGiaLoai(gia, chuyen);
-				model.addAttribute("ds", ds);
-			}
-			else if(chuyen.isEmpty()==false) {
-				List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoloai(chuyen);
-				model.addAttribute("ds", ds);
-			}
-			else if(gia.isEmpty()==false) {
-					List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoGia(gia);
-					model.addAttribute("ds", ds);
-				}
-			else{
-					List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
-					model.addAttribute("ds", ds);
-				}
+		List<TaiKhoanModel> ds = null;
+		
+		if(ma.isEmpty() == false && chuyen.isEmpty() == false && gia.isEmpty() == false) 
+		{
+			ds = taiKhoanService.tkTaiKhoanTheoMaGiaLoai(ma, gia, chuyen);
+			model.addAttribute("ds", ds);
 		}
-		else {
-			if(chuyen.isEmpty()==false || gia.isEmpty()==false) {
-				model.addAttribute("kq","Không tìm thấy tài khoản ");
-			}
-			else {
-				Pattern p = Pattern.compile("[0-9]",Pattern.CASE_INSENSITIVE);
-				Matcher m = p.matcher(ma);
-				boolean b =m.find();
-				if(b ==true){
-					List<TaiKhoanModel> ds = taiKhoanService.tkTaiKhoanTheoMa(ma);
-					if(ds == null)
-						model.addAttribute("ds", ds);
-					else model.addAttribute("kq","Không tìm thấy tài khoản ");
-				}else {
-					model.addAttribute("kq","Bạn nhập sai mời bạn nhập lại");
-					}
-			}
-		}
+		else if(ma.isEmpty() == false && chuyen.isEmpty() == false) 
+			 {
+				ds = taiKhoanService.tkTaiKhoanTheoMaLoai(ma, chuyen);
+				model.addAttribute("ds", ds);
+			 }
+			 else if(ma.isEmpty() == false && gia.isEmpty() == false) 
+				  {
+			 		  ds = taiKhoanService.tkTaiKhoanTheoMaGia(ma, gia);
+					  model.addAttribute("ds", ds);
+				  }
+				  else if(gia.isEmpty() == false && chuyen.isEmpty() == false)
+					   {
+						   ds = taiKhoanService.tkTaiKhoanTheoGiaLoai(gia, chuyen);
+						   model.addAttribute("ds", ds);
+					   }
+					   else if(ma.isEmpty() == false)
+				  		    {
+						  		ds = taiKhoanService.tkTaiKhoanTheoMa(ma);
+								model.addAttribute("ds", ds);
+					        }
+						    else if(gia.isEmpty() == false)
+				   		    	 {
+									ds = taiKhoanService.tkTaiKhoanTheoGia(gia);
+									model.addAttribute("ds", ds);
+								 }
+								 else if(chuyen.isEmpty() == false)
+									  {
+										  ds = taiKhoanService.tkTaiKhoanTheoLoai(chuyen);
+										  model.addAttribute("ds", ds);
+									  }
+									  else 
+									  {
+										  model.addAttribute("kq","Không tìm thấy tài khoản.");
+										  return "danhsachtaikhoan";
+									  }
+	
+		if(ds.isEmpty() == true)
+			model.addAttribute("kq","Không tìm thấy tài khoản.");
+
 		return "danhsachtaikhoan";
-		}
+	}
 	
 	@RequestMapping(value = {"/chitiettaikhoan"}, method = RequestMethod.GET)
 	public String chiTietTaiKhoan(Model model, @RequestParam("ma") String ma) {

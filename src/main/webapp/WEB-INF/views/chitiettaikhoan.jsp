@@ -115,7 +115,7 @@
 						</security:authorize>
 						<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
 							<a href="muataikhoan?ma=${chitiet.ma}&tdn=${pageContext.request.userPrincipal.name}"
-								class="btn c-btn btn-lg c-theme-btn c-font-uppercase c-font-bold c-btn-square m-t-20 load-modal">
+								class="btn c-btn btn-lg c-theme-btn c-font-uppercase c-font-bold c-btn-square m-t-20">
 								Mua ngay
 							</a> 
 						</security:authorize>

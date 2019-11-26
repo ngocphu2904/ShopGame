@@ -136,7 +136,7 @@ body{
 }
 .item-list .image img {
 	width: 100%;
-	height: 180px;
+	height: 100%;
 }
 .ms {
 	background-color: #cc710d;	
