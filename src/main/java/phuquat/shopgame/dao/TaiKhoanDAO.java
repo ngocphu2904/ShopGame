@@ -75,7 +75,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma;
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -103,7 +103,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma + " group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma + " group by h.taiKhoan.ma";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -114,7 +114,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.loai like '" +loai + "' group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.loai like '" +loai + "' group by h.taiKhoan.ma";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -125,7 +125,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma";
 		switch (gia) {
 		case "duoi-1-trieu":
 			sql += " and t.gia < 1000000 group by h.taiKhoan.ma";
@@ -149,7 +149,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = '"+ma+"' and t.loai like '" +loai + "' group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = '"+ma+"' and t.loai like '" +loai + "' group by h.taiKhoan.ma";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -160,7 +160,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma;
 		switch (gia) {
 		case "duoi-1-trieu":
 			sql +=" and t.gia < 1000000 group by h.taiKhoan.ma";
@@ -184,7 +184,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma ";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma ";
 		switch (gia) {
 		case "duoi-1-trieu":
 			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
@@ -208,7 +208,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.ma = h.taiKhoan.ma and t.ma = " +ma;
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma;
 		switch (gia) {
 		case "duoi-1-trieu":
 			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
