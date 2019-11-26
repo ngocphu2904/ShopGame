@@ -38,7 +38,7 @@ public class PhanQuyen implements UserDetailsService{
         
         grantList.add(authority);
  
-        boolean enabled = nguoiDung.isKichHoat();//tra ve truw neu nguoi dung da duoc kich hoat
+        boolean enabled = nguoiDung.isKichHoat();//tra ve true neu nguoi dung da duoc kich hoat
         boolean accountNonExpired = true;//tra ve true neu nguoi dung chua het han
         boolean credentialsNonExpired = true;// tra ve true neu chung thuc (mat khau) nguoi dung chua het han
         boolean accountNonLocked = true;//tra ve true neu nguoi dung chua bi khoa
