@@ -147,7 +147,7 @@ public class TrangQuanTri {
 		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
 		model.addAttribute("dstaikhoan", dstaikhoan);
 		
-		model.addAttribute("kq", "Đã gửi tài khoản có mã: "+maTaiKhoan+" cho tài khoản "+tenDangNhap);
+		model.addAttribute("kq", "Đã gửi tài khoản có mã: "+maTaiKhoan+" cho người dùng có tên tài khoản: "+tenDangNhap);
 				
 		return "guitaikhoan";
 	}
