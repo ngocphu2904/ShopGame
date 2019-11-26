@@ -125,16 +125,16 @@ public class TrangQuanTri {
     	return "danhsachmua";
     }
     
-	@RequestMapping("thongke")
+	@RequestMapping("guitaikhoan")
 	public String thongKe(Model model) {
 		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
 		model.addAttribute("dsnguoidung",dsnguoidung);
 		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
 		model.addAttribute("dstaikhoan", dstaikhoan);
-		return "thongke";
+		return "guitaikhoan";
 	}
 	
-	@RequestMapping(value= {"thongke"}, method = RequestMethod.POST)
+	@RequestMapping(value= {"guitaikhoan"}, method = RequestMethod.POST)
 	public String xuLyThongKe(HttpServletRequest req, Model model) {
 		String tenDangNhap =req.getParameter("tendangnhap");
 		String maTaiKhoan = req.getParameter("mataikhoan");
@@ -149,7 +149,7 @@ public class TrangQuanTri {
 		
 		model.addAttribute("kq", "Đã gửi tài khoản có mã: "+maTaiKhoan+" cho tài khoản "+tenDangNhap);
 				
-		return "thongke";
+		return "guitaikhoan";
 	}
     
 }

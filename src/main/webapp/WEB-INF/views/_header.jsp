@@ -195,7 +195,7 @@
                             </security:authorize>
                              <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
 	                            <li class="c-menu-type-classic">
-	                            	<a href="${pageContext.request.contextPath}/thongke" class="c-font-white c-link dropdown-toggle " >THỐNG KÊ</a>
+	                            	<a href="${pageContext.request.contextPath}/guitaikhoan" class="c-font-white c-link dropdown-toggle " >GỬI NICK</a>
 	                            </li>
                             </security:authorize>
                            	<c:if test="${pageContext.request.userPrincipal.name == null}">
