@@ -27,10 +27,12 @@
 	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh sách mua hàng</h3>
 	                   <div class="c-line-center c-theme-bg"></div>
 	               </div>
+	             	<c:if test="${ds != null}">
 					<div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
 							<table>
 								<tr>
+						 			<th> STT </th> 
 									<th>Ngày Mua</th>
 									<th>Tên người mua</th>
 									<th>Email</th>
@@ -39,8 +41,10 @@
 									<th>Mật khẩu</th>
 									<th>Giá tiền</th>
 								</tr>
+								<% int stt=1; %>
 								<c:forEach items="${ds}" var="ds">
 								<tr>
+									<td><%=stt++  %></td>
 									<td>${ds.ngayMua}</td>
 									<td>${ds.tenDangNhap}</td>
 									<td>${ds.email}</td>
@@ -51,11 +55,17 @@
 								</tr>
 								</c:forEach>
 							</table>
-	           </div>
-	           <!-- End-->
-	       </div>
+	       				</div>
+	       			   </c:if>
+	       			</div>
+	       		<c:if test="${TongTienDaBan != 0 }">
+	           	<div style="float: right ; color: red ; margin-top: 20px; margin-right: -20px; font-size: 20px;"> 
+	           	Tổng tiền đã bán: <fmt:formatNumber value="${TongTienDaBan }" type="currency"/>
+	       		</div>
+	       	</c:if>
 	   </div>
    </div>
+   
  
    <jsp:include page="_footer.jsp" />
  

@@ -29,8 +29,10 @@
 	               </div>
 					<div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
+		                <c:if test="${ds != null}">
 							<table>
 								<tr>
+									<th> STT </th>
 									<th>Ngày Mua</th>
 									<th>Tên người mua</th>
 									<th>Email</th>
@@ -39,8 +41,10 @@
 									<th>Mật khẩu</th>
 									<th>Giá tiền</th>
 								</tr>
+								  <% int stt=1; %>
 								<c:forEach items="${ds}" var="ds">
 								<tr>
+									<td><%=stt++  %></td>
 									<td>${ds.ngayMua}</td>
 									<td>${ds.tenDangNhap}</td>
 									<td>${ds.email}</td>
@@ -51,9 +55,15 @@
 								</tr>
 								</c:forEach>
 							</table>
+						</c:if>
 		           </div>
 		           <!-- End-->
 		       </div>
+		       <c:if test="${TongTienDaMua != 0 }">
+		       <div style="float: right ; color: red ; margin-top: 20px; margin-right: -20px; font-size: 20px;"> 
+	           	Tổng tiền đã mua: <fmt:formatNumber value="${TongTienDaMua }" type="currency"/>
+	       		</div> 
+	       	</c:if>
 		   </div>
 	   </div>	
    </div>

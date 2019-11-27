@@ -15,7 +15,7 @@ import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
-import phuquat.shopgame.model.ThongTinMuaHangModel;
+
 
 public class DonMuaDAO {
 	
@@ -55,22 +55,22 @@ public class DonMuaDAO {
 		session.save(donMua);
 	}
 	
-	public List<ThongTinMuaHangModel> thongTinMuaHang(){
+	public List<DonMuaModel> thongTinMuaHang(){
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "SELECT NEW "+ ThongTinMuaHangModel.class.getName()
+		String hql = "SELECT NEW "+ DonMuaModel.class.getName()
 					+"( n.tenDangNhap, n.email, n.soDienThoai, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua)"
 					+" FROM "+NguoiDung.class.getName()+" n, " 
 					+TaiKhoan.class.getName()+" t, "
 					+DonMua.class.getName()+" d "
 					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap";
 		
-		Query<ThongTinMuaHangModel> query = session.createQuery(hql);
+		Query<DonMuaModel> query = session.createQuery(hql);
 		return query.getResultList();
 	}
 	
-	public List<ThongTinMuaHangModel> taiKhoanDaMua(String ten){
+	public List<DonMuaModel> taiKhoanDaMua(String ten){
 		Session session = this.sessionFactory.getCurrentSession();
-		String hql = "SELECT NEW "+ ThongTinMuaHangModel.class.getName()
+		String hql = "SELECT NEW "+ DonMuaModel.class.getName()
 					+"( n.tenDangNhap, n.email, n.soDienThoai, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua)"
 					+" FROM "+NguoiDung.class.getName()+" n, " 
 					+TaiKhoan.class.getName()+" t, "
@@ -78,7 +78,36 @@ public class DonMuaDAO {
 					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap "
 					+ "and n.tenDangNhap like '"+ten+"'";
 		
-		Query<ThongTinMuaHangModel> query = session.createQuery(hql);
+		Query<DonMuaModel> query = session.createQuery(hql);
 		return query.getResultList();
 	}
+	
+	public int tongTienDaBan() {
+		Session session = sessionFactory.getCurrentSession();//
+		String sql = "SELECT ( case when sum(t.gia) is null then 0 else sum(t.gia) end)"
+					+" FROM "+DonMua.class.getName()+" d"
+					+" , "+TaiKhoan.class.getName()+" t"
+					+" where t.ma = d.taiKhoan.ma";
+		Query countquery = session.createQuery(sql);
+		int count = ((Integer) countquery.list().get(0)).intValue();
+		if(count != 0) {
+			return count;
+		}else
+		return 0;
+	}
+	
+	public int tongTienDaMua(String name) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "SELECT ( case when sum(t.gia) is null then 0 else sum(t.gia) end) "
+					+" FROM "+DonMua.class.getName()+" d"
+					+" , "+TaiKhoan.class.getName()+" t"
+					+" where t.ma = d.taiKhoan.ma and d.nguoiDung.tenDangNhap like '"+name+"'";
+		Query countquery = session.createQuery(sql);
+		int count = ((Integer) countquery.list().get(0)).intValue();
+		if(count != 0) {
+			return count;
+		}else
+		return 0;
+	}
+	
 }

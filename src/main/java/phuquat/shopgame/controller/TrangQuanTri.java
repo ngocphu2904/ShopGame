@@ -22,8 +22,8 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
+import phuquat.shopgame.model.DonMuaModel;
 import phuquat.shopgame.model.TaiKhoanModel;
-import phuquat.shopgame.model.ThongTinMuaHangModel;
 import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
@@ -120,8 +120,10 @@ public class TrangQuanTri {
     
     @RequestMapping(value = {"/danhsachmua"}, method = RequestMethod.GET)
     public String danhSachMua(Model model) {
-    	List<ThongTinMuaHangModel> ds = donMuaService.thongTinMuaHang();
+    	List<DonMuaModel> ds = donMuaService.thongTinMuaHang();
     	model.addAttribute("ds", ds);
+    	int tongTienDaBan = donMuaService.tongTiendaBan();
+    	model.addAttribute("TongTienDaBan", tongTienDaBan);
     	return "danhsachmua";
     }
     

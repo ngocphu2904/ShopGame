@@ -1,5 +1,7 @@
 package phuquat.shopgame.model;
 
+import java.util.Date;
+
 public class DonMuaModel {
 
 	/* Khai bao cac truong cua TaiKhoan */
@@ -8,14 +10,23 @@ public class DonMuaModel {
     private double gia;
     private int vip;
     private String thongTin;
-
+    private String tenTaiKhoan;
+	private String matKhauTaiKhoan;
     
 	/* Khai bao cac truong cua NguoiDung */
     private String tenDangNhap;
     private double tien;
+    private String email;
+	private String soDienThoai;
     
-    private double tienConLai;
-    
+	//donmua
+	private Date ngayMua;
+	
+			
+	private double tienConLai;
+	
+	public DonMuaModel() {}
+     
 	public DonMuaModel(String ma, String loai, double gia, String thongTin, int vip,
 			String tenDangNhap, double tien) 
 	{
@@ -26,6 +37,65 @@ public class DonMuaModel {
 		this.vip = vip;
 		this.tien = tien;
 		this.tenDangNhap = tenDangNhap;
+	}
+	
+	public DonMuaModel(String tenDangNhap, String email, String soDienThoai, String tenTaiKhoan,
+			String matKhauTaiKhoan, double gia, Date ngayMua) {
+		this.tenDangNhap = tenDangNhap;
+		this.email = email;
+		this.soDienThoai = soDienThoai;
+		this.tenTaiKhoan = tenTaiKhoan;
+		this.matKhauTaiKhoan = matKhauTaiKhoan;
+		this.gia = gia;
+		this.ngayMua= ngayMua;
+	}
+	
+	
+
+	public String getTenTaiKhoan() {
+		return tenTaiKhoan;
+	}
+	public void setTenTaiKhoan(String tenTaiKhoan) {
+		this.tenTaiKhoan = tenTaiKhoan;
+	}
+
+	public String getMatKhauTaiKhoan() {
+		return matKhauTaiKhoan;
+	}
+	public void setMatKhauTaiKhoan(String matKhauTaiKhoan) {
+		this.matKhauTaiKhoan = matKhauTaiKhoan;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+
+	public Date getNgayMua() {
+		return ngayMua;
+	}
+	public void setNgayMua(Date ngayMua) {
+		this.ngayMua = ngayMua;
+	}
+
+
+	public double getTienConLai() {
+		return tienConLai;
+	}
+	public void setTienConLai(double tienConLai) {
+		this.tienConLai = tienConLai;
 	}
 	
 	
