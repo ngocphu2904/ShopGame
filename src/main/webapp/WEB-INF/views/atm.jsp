@@ -10,7 +10,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Xác nhận mua tài khoản</h4>
+                <h4 class="modal-title">Nạp tiền từ ATM hoặc ví điện tử</h4>
             </div>
             <div class="modal-body">
                 <div class="c-content-tab-4 c-opt-3" role="tabpanel">
