@@ -28,10 +28,17 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       http.csrf().disable();
 	       
 	       // Chuyen toi trang dang nhap khi muon vao trang duoi (neu chua dang nhap)
-	       http.authorizeRequests().antMatchers("/thongtin","/themtaikhoan","/guitaikhoan")
+	       http.authorizeRequests().antMatchers("/thongtin", "/doimatkhau")
 			  .access("hasAnyRole('ROLE_QUAN_TRI','ROLE_NGUOI_DUNG')");
 	       
-	       http.authorizeRequests().antMatchers("/taikhoan").access("hasRole('ROLE_QUAN_TRI')");
+	       http.authorizeRequests().antMatchers("/guitaikhoan").access("hasRole('ROLE_QUAN_TRI')");
+	       http.authorizeRequests().antMatchers("/themtaikhoan").access("hasRole('ROLE_QUAN_TRI')");
+	       http.authorizeRequests().antMatchers("/suataikhoan").access("hasRole('ROLE_QUAN_TRI')");
+	       http.authorizeRequests().antMatchers("/danhsachmua").access("hasRole('ROLE_QUAN_TRI')");
+	       
+	       http.authorizeRequests().antMatchers("/taikhoandamua").access("hasRole('ROLE_NGUOI_DUNG')");
+	       http.authorizeRequests().antMatchers("/muataikhoan").access("hasRole('ROLE_NGUOI_DUNG')");
+	       
 	       
 	       // Chuyen toi 403 neu co y vao trang khong dung quyen
 	       http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");

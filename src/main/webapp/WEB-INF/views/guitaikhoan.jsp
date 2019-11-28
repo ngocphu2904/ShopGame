@@ -20,18 +20,49 @@
     <!-- BEGIN: PAGE CONTENT -->
 	   <div class="c-content-box c-size-md c-bg-white">
 	       <div class="container">
-	           <!-- Begin: Testimonals 1 component -->
-	           <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
-	               <!-- Begin: Title 1 component -->
-	               <div class="c-content-title-1">
-	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Gửi tài khoản cho người dùng</h3>
+	       		<div class="c-layout-sidebar-menu c-theme" style="margin-top: 70px;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15 m-b-20">
+                            <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-DASHBOARD -->
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu tài khoản</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav c-content-title-1">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a href="thongtin" class="c-font-white">Thông tin tài khoản</a></li>
+                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
+                                    <li><a href="themtaikhoan" class=" c-font-white">Thêm tài khoản</a></li>
+                                    <li><a href="guitaikhoan" class="active c-font-white"><b>Gửi tài khoản</b></a></li>
+                                    <li><a href="danhsachmua" class=" c-font-white">Danh sách mua</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15">
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu nạp tiền</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav m-b-20">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a class="load-modal c-font-white" href="#">Chuyển tiền từ ATM - Ví Điện Tử</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	           <div class="c-layout-sidebar-content ">
+	               <!-- BEGIN: PAGE CONTENT -->
+	               <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
+	               <div class="c-content-title-1 c-font-center">
+	                   <h3 class="c-font-uppercase c-font-bold c-font-white">Gửi tài khoản cho người dùng</h3>
 	                   <div class="c-line-center c-theme-bg"></div>
 	               </div>
-	              	
+              	
 					<form action="guitaikhoan" role="form" method="POST">
 						<div class="row row-flex item-list">
-							<div class="col-md-2 col-sm-4 col-xs-12"></div>
-							<div class="col-md-4 col-sm-12 col-xs-12 text-center">
+							<div class="col-md-1 col-xs-12 text-center"></div>
+							<div class="col-md-5 col-xs-12 text-center">
 								<div class="input-group c-square">
 									<span class="input-group-addon" style="">Người dùng cần gửi</span> 
 									<select style="" class="form-control c-square" name="tendangnhap" required="true">
@@ -42,7 +73,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-12 col-xs-12 text-center">
+							<div class="col-md-5 col-xs-12 text-center">
 								<div class="input-group c-square">
 									<span class="input-group-addon">Tài khoản cần gửi</span> 
 									<select name="mataikhoan" class="form-control c-square" required="true">
@@ -53,7 +84,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="col-md-2 col-sm-4 col-xs-12 text-center"></div>
+							<div class="col-md-1 col-xs-12 text-center"></div>
 						</div>
 						
 						<div class="row" style="margin: 15px 0 30px 0;">
@@ -65,7 +96,7 @@
 						</div>
 						
 					</form>
-					
+				
 					<div class="form-group c-font-center">
 	                    <p class="c-font-yellow c-font-bold">${kq}</p>  
 				    </div>

@@ -58,7 +58,9 @@ public class DonMuaDAO {
 	public List<DonMuaModel> thongTinMuaHang(){
 		Session session = this.sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW "+ DonMuaModel.class.getName()
-					+"( n.tenDangNhap, n.email, n.soDienThoai, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua)"
+					+"( n.tenNguoiDung, n.email, n.soDienThoai, t.ma, t.loai, t.vip, t.thongTin,"
+					+ " t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua, t.cauHoiBaoMat, "
+					+ " t.cauTraLoiBaoMat, t.emailTaiKhoan, t.CMND)"
 					+" FROM "+NguoiDung.class.getName()+" n, " 
 					+TaiKhoan.class.getName()+" t, "
 					+DonMua.class.getName()+" d "
@@ -71,8 +73,9 @@ public class DonMuaDAO {
 	public List<DonMuaModel> taiKhoanDaMua(String ten){
 		Session session = this.sessionFactory.getCurrentSession();
 		String hql = "SELECT NEW "+ DonMuaModel.class.getName()
-					+"( n.tenNguoiDung, n.email, n.soDienThoai, t.ma, t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia,"
-					+ " d.ngayMua, t.cauHoiBaoMat, t.cauTraLoiBaoMat, t.emailTaiKhoan, t.CMND)"
+					+"( n.tenNguoiDung, n.email, n.soDienThoai, t.ma, t.loai, t.vip, t.thongTin, "
+					+ " t.tenTaiKhoan, t.matKhauTaiKhoan, t.gia, d.ngayMua, t.cauHoiBaoMat, "
+					+ " t.cauTraLoiBaoMat, t.emailTaiKhoan, t.CMND)"
 					+" FROM "+NguoiDung.class.getName()+" n, " 
 					+TaiKhoan.class.getName()+" t, "
 					+DonMua.class.getName()+" d "

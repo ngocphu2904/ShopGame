@@ -41,10 +41,18 @@
 	                            <div class="c-content-ver-nav c-content-title-1">
 	                                <ul class="c-menu c-arrow-dot c-square c-theme">
 	                                    <li><a href="thongtin" class=" c-font-white">Thông tin người dùng</a></li>
-	                                    <li><a href="${pageContext.request.contextPath}/taikhoandamua?ten=${pageContext.request.userPrincipal.name}" class="c-font-white">Tài khoản đã mua</a></li>
+	                                    <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
+	                                    	<li><a href="${pageContext.request.contextPath}/taikhoandamua?ten=${pageContext.request.userPrincipal.name}" class="c-font-white">Tài khoản đã mua</a></li>
+	                                    </security:authorize>
 	                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="active c-font-white"><b>Đổi mật khẩu</b></a></li>
 	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-	                                    	<li><a href="themtaikhoan" class="c-font-white">Thêm nick</a></li>
+	                                    	<li><a href="themtaikhoan" class="c-font-white">Thêm tài khoản</a></li>
+	                                    </security:authorize>
+	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+	                                    	<li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
+	                                    </security:authorize>
+	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+	                                    	<li><a href="danhsachmua" class="c-font-white">Danh sách mua</a></li>
 	                                    </security:authorize>
 	                                </ul>
 	                            </div>

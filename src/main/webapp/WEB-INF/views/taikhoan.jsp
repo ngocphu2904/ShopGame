@@ -29,8 +29,10 @@
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
                                     <li><a href="thongtin" class="c-font-white">Thông tin tài khoản</a></li>
-                                    <li><a href="doimatkhau" class="c-font-white">Đổi mật khẩu</b></a></li>
-                                    <li><a href="themtaikhoan" class="active c-font-white"><b>Thêm nick</b></a></li>
+                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
+                                    <li><a href="themtaikhoan" class="active c-font-white"><b>Thêm tài khoản</b></a></li>
+                                    <li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
+                                    <li><a href="danhsachmua" class=" c-font-white">Danh sách mua</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -50,8 +52,8 @@
                 <div class="c-layout-sidebar-content ">
                     <!-- BEGIN: PAGE CONTENT -->
                     <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
-                    <div class="c-content-title-1" style="margin-left: 180px;">
-                        <h3 class="c-font-uppercase c-font-bold c-font-white">Thêm nick</h3>
+                    <div class="c-content-title-1" style="margin-left: 145px;">
+                        <h3 class="c-font-uppercase c-font-bold c-font-white">Thêm tài khoản</h3>
                     </div>
 					
                     <form:form modelAttribute="formTaiKhoan" method="post" class="form-horizontal form-charge" enctype="multipart/form-data">

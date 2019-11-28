@@ -20,71 +20,100 @@
     <!-- BEGIN: PAGE CONTENT -->
 	   <div class="c-content-box c-size-md c-bg-white">
 	       <div class="container">
-	           <!-- Begin: Testimonals 1 component -->
-	           <div class="c-content-client-logos-slider-1  c-bordered" data-slider="owl">
-	               <!-- Begin: Title 1 component -->
-	               <div class="c-content-title-1">
-	                   <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh sách mua hàng</h3>
-	                   <div class="c-line-center c-theme-bg"></div>
-	               </div>
-	             	<c:if test="${ds != null}">
+	       		<div class="c-layout-sidebar-menu c-theme" style="margin-top: 70px;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15 m-b-20">
+                            <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-DASHBOARD -->
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu tài khoản</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav c-content-title-1">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a href="thongtin" class="c-font-white">Thông tin tài khoản</a></li>
+                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
+                                    <li><a href="themtaikhoan" class=" c-font-white">Thêm tài khoản</a></li>
+                                    <li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
+                                    <li><a href="danhsachmua" class="active c-font-white"><b>Danh sách mua</b></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15">
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu nạp tiền</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav m-b-20">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a class="load-modal c-font-white" href="#">Chuyển tiền từ ATM - Ví Điện Tử</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-layout-sidebar-content ">
+	           		<!-- Begin: Testimonals 1 component -->
+					<!-- Begin: Title 1 component -->
+					<div class="c-content-title-1">
+					    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh sách mua hàng</h3>
+					    <div class="c-line-center c-theme-bg"></div>
+					</div>
 					<div class="row row-flex item-list">
 		                <!-- Duyet danh sach -->
-							<table>
+						<table class="table c-font-white text-center">
+							<tbody>
 								<tr>
-						 			<th> STT </th> 
-									<th>Ngày Mua</th>
-									<th>Tên người mua</th>
-									<th>Email</th>
-									<th>Số điện thoại</th>
-									<th>Tên tài khoản</th>
-									<th>Mật khẩu</th>
-									<th>Giá tiền</th>
+									<th class="text-center">STT</th>
+									<th class="text-center">Thời gian</th>
+									<th class="text-center">Tên người mua</th>
+									<th class="text-center">Mã tài khoản</th>
+									<th class="text-center">Trị giá</th>
+									<th class="text-center"></th>
 								</tr>
 								<% int stt=1; %>
 								<c:forEach items="${ds}" var="ds">
 								<tr>
 									<td><%=stt++  %></td>
-									<td>${ds.ngayMua}</td>
-									<td>${ds.tenDangNhap}</td>
-									<td>${ds.email}</td>
-									<td>${ds.soDienThoai}</td>
-									<td> ${ds.tenTaiKhoan}</td>
-									<td>${ds.matKhauTaiKhoan}</td>
+									<td><fmt:formatDate type="both" dateStyle="medium"
+											timeStyle="medium" value="${ds.ngayMua}" />
+									</td>
+									<td>${ds.tenNguoiDung}</td>
+									<td>${ds.ma}</td>
 									<td><fmt:formatNumber value="${ds.gia}" type="currency"/></td>
+									<td><a href="" class="btn btn-xs btn-info c-btn-square"
+											data-toggle="modal" data-target="#chiTietTaiKhoan${ds.ma}">
+												Chi tiết </a></td>
 								</tr>
 								</c:forEach>
-							</table>
-	       				</div>
-	       			   </c:if>
-	       			</div>
-	       		<c:if test="${TongTienDaBan != 0 }">
-	           	<div style="float: right ; color: red ; margin-top: 20px; margin-right: -20px; font-size: 20px;"> 
-	           	Tổng tiền đã bán: <fmt:formatNumber value="${TongTienDaBan }" type="currency"/>
-	       		</div>
-	       	</c:if>
-	   </div>
-   </div>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>
+										<c:if test="${TongTienDaBan != 0 }">
+											<td class="c-font-yellow">Tổng: <fmt:formatNumber
+													value="${TongTienDaBan}" type="currency" />
+											</td>
+										</c:if> 
+										<c:if test="${TongTienDaBan == 0 }">
+											<td></td>
+										</c:if>
+									</td>
+									<td></td>
+								</tr>
+						</table>
+	   				</div>
+				</div>
+			</div>
+		</div>
+	</div>
    
  
-   <jsp:include page="_footer.jsp" />
+	<jsp:include page="_footer.jsp" />
+ 
+	<style>
+
+	</style>
  
 </body>
 </html>
-	<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: ;
-}
-</style>
