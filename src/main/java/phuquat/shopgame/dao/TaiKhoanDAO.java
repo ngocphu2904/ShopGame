@@ -28,20 +28,20 @@ public class TaiKhoanDAO {
 		Query<TaiKhoan> query = session.createQuery(sql);
 		return query.getResultList();
 	}
-	public int demtaikhoan() {
+	public int demTaiKhoan() {
 		
 		Session session = sessionFactory.getCurrentSession();//
 		String sql = "SELECT COUNT(*) FROM "+TaiKhoan.class.getName();
-		Query countquery = session.createQuery(sql);
+		Query<?> countquery = session.createQuery(sql);
 		int count = ((Long)countquery.list().get(0)).intValue();
 		return count;
 	}
 
-	public int demtaikhoanmua() {
+	public int demTaiKhoanMua() {
 
 		Session session = sessionFactory.getCurrentSession();//
 		String sql = "SELECT COUNT(*) FROM " + TaiKhoan.class.getName()+" where mua = 1";
-		Query countquery = session.createQuery(sql);
+		Query<?> countquery = session.createQuery(sql);
 		int countmua = ((Long) countquery.list().get(0)).intValue();
 		return countmua;
 	}
@@ -65,9 +65,7 @@ public class TaiKhoanDAO {
                 + " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma GROUP BY t.ma ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
-	}
-	
-	
+	}	
 	
 	public List<TaiKhoanModel> chiTietTaiKhoan(String ma){
 		Session session = this.sessionFactory.getCurrentSession();

@@ -27,12 +27,12 @@ public class TaiKhoanService {
 	public List<TaiKhoan> xemtaikhoan(){
 		return taiKhoanDAO.xemTaiKhoanChuaMua();
 	}
-	public int demtaikhoan() {
-		int count = taiKhoanDAO.demtaikhoan();
+	public int demTaiKhoan() {
+		int count = taiKhoanDAO.demTaiKhoan();
 		return count;
 	}
-	public int demtaikhoanmua() {
-		int countmua = taiKhoanDAO.demtaikhoanmua();
+	public int demTaiKhoanMua() {
+		int countmua = taiKhoanDAO.demTaiKhoanMua();
 		return countmua;
 	}
 	

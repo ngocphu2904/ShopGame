@@ -37,10 +37,10 @@ public class DonMuaService {
 	public List<DonMuaModel> thongTinMuaHang(){
 		return donMuaDAO.thongTinMuaHang();
 	}
-	public List<DonMuaModel> taiKhoandaMua(String ten){
+	public List<DonMuaModel> taiKhoanDaMua(String ten){
 		return donMuaDAO.taiKhoanDaMua(ten);
 	}
-	public int tongTiendaBan() {
+	public int tongTienDaBan() {
 		return donMuaDAO.tongTienDaBan();
 	}
 	public int tongTienDaMua(String name) {

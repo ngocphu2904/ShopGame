@@ -12,9 +12,14 @@ public class DonMuaModel {
     private String thongTin;
     private String tenTaiKhoan;
 	private String matKhauTaiKhoan;
+    private String cauHoiBaoMat;
+    private String cauTraLoiBaoMat;
+    private String emailTaiKhoan;
+    private String CMND;
     
 	/* Khai bao cac truong cua NguoiDung */
     private String tenDangNhap;
+    private String tenNguoiDung;
     private double tien;
     private String email;
 	private String soDienThoai;
@@ -39,15 +44,21 @@ public class DonMuaModel {
 		this.tenDangNhap = tenDangNhap;
 	}
 	
-	public DonMuaModel(String tenDangNhap, String email, String soDienThoai, String tenTaiKhoan,
-			String matKhauTaiKhoan, double gia, Date ngayMua) {
-		this.tenDangNhap = tenDangNhap;
+	public DonMuaModel(String tenNguoiDung, String email, String soDienThoai, String ma, 
+			String tenTaiKhoan, String matKhauTaiKhoan, double gia, Date ngayMua, String cauHoiBaoMat,
+			String cauTraLoiBaoMat, String emailTaiKhoan, String CMND) {
+		this.tenNguoiDung = tenNguoiDung;
 		this.email = email;
 		this.soDienThoai = soDienThoai;
+		this.ma = ma;
 		this.tenTaiKhoan = tenTaiKhoan;
 		this.matKhauTaiKhoan = matKhauTaiKhoan;
 		this.gia = gia;
 		this.ngayMua= ngayMua;
+		this.cauHoiBaoMat = cauHoiBaoMat;
+		this.cauTraLoiBaoMat = cauTraLoiBaoMat;
+		this.emailTaiKhoan = emailTaiKhoan;
+		this.CMND = CMND;
 	}
 	
 	
@@ -141,6 +152,46 @@ public class DonMuaModel {
 	}
 	public void setTien(double tien) {
 		this.tien = tien;
+	}
+
+	public String getCauHoiBaoMat() {
+		return cauHoiBaoMat;
+	}
+
+	public void setCauHoiBaoMat(String cauHoiBaoMat) {
+		this.cauHoiBaoMat = cauHoiBaoMat;
+	}
+
+	public String getCauTraLoiBaoMat() {
+		return cauTraLoiBaoMat;
+	}
+
+	public void setCauTraLoiBaoMat(String cauTraLoiBaoMat) {
+		this.cauTraLoiBaoMat = cauTraLoiBaoMat;
+	}
+
+	public String getEmailTaiKhoan() {
+		return emailTaiKhoan;
+	}
+
+	public void setEmailTaiKhoan(String emailTaiKhoan) {
+		this.emailTaiKhoan = emailTaiKhoan;
+	}
+
+	public String getCMND() {
+		return CMND;
+	}
+
+	public void setCMND(String cMND) {
+		CMND = cMND;
+	}
+
+	public String getTenNguoiDung() {
+		return tenNguoiDung;
+	}
+
+	public void setTenNguoiDung(String tenNguoiDung) {
+		this.tenNguoiDung = tenNguoiDung;
 	}
     
     

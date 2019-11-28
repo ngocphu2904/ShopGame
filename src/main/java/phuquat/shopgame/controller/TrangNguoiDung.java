@@ -53,9 +53,9 @@ public class TrangNguoiDung {
 	@RequestMapping("/")
 	public String home(Model model) {
 		
-		int demtaikhoan = taiKhoanService.demtaikhoan();
+		int demtaikhoan = taiKhoanService.demTaiKhoan();
 		model.addAttribute("sotaikhoan", demtaikhoan);
-		int mua = taiKhoanService.demtaikhoanmua();
+		int mua = taiKhoanService.demTaiKhoanMua();
 		model.addAttribute("mua", mua);
 		return "index";
 	}
@@ -263,7 +263,7 @@ public class TrangNguoiDung {
 	@RequestMapping(value = {"/taikhoandamua"})
 	public String taiKhoanDaMua(Model model, @RequestParam("ten") String ten) {
 		
-		List<DonMuaModel> ds = donMuaService.taiKhoandaMua(ten);
+		List<DonMuaModel> ds = donMuaService.taiKhoanDaMua(ten);
     	model.addAttribute("ds", ds);
     	int tongTienDaMua = donMuaService.tongTienDaMua(ten);
     	model.addAttribute("TongTienDaMua", tongTienDaMua);

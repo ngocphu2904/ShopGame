@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
-<!-- BẤM NÚT VÀ HIỆN THÔNG BÁO -->
+<!-- BẤM NÚT VÀ HIỆN MODAL -->
 <div class="modal fade" id="LoadModal" role="dialog" aria-labelledby="exampleModalCenterTitle"aria-hidden="true" >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -113,7 +113,7 @@
     </div>
 </div>
 
-<!-- SCRIPT CỦA BẤM NÚT HIỆN THÔNG BÁO -->
+<!-- SCRIPT CỦA BẤM NÚT HIỆN MODAL -->
 <script>
     $(document).ready(function () {
         $('.load-modal').each(function (index, elem) {

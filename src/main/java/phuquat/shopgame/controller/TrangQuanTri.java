@@ -122,7 +122,7 @@ public class TrangQuanTri {
     public String danhSachMua(Model model) {
     	List<DonMuaModel> ds = donMuaService.thongTinMuaHang();
     	model.addAttribute("ds", ds);
-    	int tongTienDaBan = donMuaService.tongTiendaBan();
+    	int tongTienDaBan = donMuaService.tongTienDaBan();
     	model.addAttribute("TongTienDaBan", tongTienDaBan);
     	return "danhsachmua";
     }

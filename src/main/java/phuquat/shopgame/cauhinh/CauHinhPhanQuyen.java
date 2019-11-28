@@ -28,7 +28,7 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       http.csrf().disable();
 	       
 	       // Chuyen toi trang dang nhap khi muon vao trang duoi (neu chua dang nhap)
-	       http.authorizeRequests().antMatchers("/thongtin","/themtaikhoan","/guitaikhoan","taikhoandamua")
+	       http.authorizeRequests().antMatchers("/thongtin","/themtaikhoan","/guitaikhoan")
 			  .access("hasAnyRole('ROLE_QUAN_TRI','ROLE_NGUOI_DUNG')");
 	       
 	       http.authorizeRequests().antMatchers("/taikhoan").access("hasRole('ROLE_QUAN_TRI')");
