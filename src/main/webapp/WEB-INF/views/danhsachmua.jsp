@@ -81,7 +81,7 @@
 									<td>${ds.ma}</td>
 									<td><fmt:formatNumber value="${ds.gia}" type="currency"/></td>
 									<td><a href="" class="btn btn-xs btn-info c-btn-square"
-											data-toggle="modal" data-target="#chiTietTaiKhoan${ds.ma}">
+											data-toggle="modal" data-target="#chiTietDonMua${ds.ma}">
 												Chi tiết </a></td>
 								</tr>
 								</c:forEach>

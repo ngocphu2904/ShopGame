@@ -23,20 +23,27 @@
 		<!-- BEGIN: PAGE CONTENT -->
 		<div class="c-content-box c-size-md c-bg-white">
 			<div class="container">
-				
-				<c:if test="${pageContext.request.userPrincipal.name == null}">
+			
+				<!-- Kiểm tra param ten khi nhập trên url có trùng với name user đang đăng nhập -->
+				<c:if test="${pageContext.request.userPrincipal.name != param.ten}">
         			<div class="form-group c-font-center">
 	                    <p class="c-font-yellow c-font-bold">
-							Bạn chưa đăng nhập. Vui lòng đăng nhập và trở lại sau!
+							Bạn không thể truy cập tài khoản người khác.
 	                   	</p>  
 				    </div>
 				    <div class="c-content-title-1 c-font-center" style="margin: 25px 0 0 0">
-						<a href="dangnhap" class="btn c-btn c-theme-btn c-font-uppercase c-font-bold c-btn-square">
-							Đăng nhập
+						<a onclick="goBack()" class="btn c-square btn-danger c-font-uppercase c-font-bold">
+							Trở về
 						</a>
 					</div>
+					<script>
+					function goBack() {
+					  window.history.back();
+					}
+					</script>
         		</c:if>
-				<c:if test="${pageContext.request.userPrincipal.name != null}">
+        		
+				<c:if test="${pageContext.request.userPrincipal.name == param.ten}">
 					<div class="c-layout-sidebar-menu c-theme" style="margin-top: 70px;">
 						<div class="row">
 							<div class="col-md-12 col-sm-6 col-xs-6 m-t-15 m-b-20">
@@ -102,7 +109,7 @@
 										<td class=""><fmt:formatNumber value="${ds.gia}"
 												type="currency" /></td>
 										<td><a href="" class="btn btn-xs btn-info c-btn-square"
-											data-toggle="modal" data-target="#chiTietDonMua${ds.ma}">
+											data-toggle="modal" data-target="#chiTietTaiKhoan${ds.ma}">
 												Chi tiết </a></td>
 									</tr>
 

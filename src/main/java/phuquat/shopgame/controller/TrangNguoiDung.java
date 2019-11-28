@@ -257,7 +257,7 @@ public class TrangNguoiDung {
 		taiKhoanService.capNhatTaiKhoanDaMua(maTK);
 		nguoiDungService.capNhatTienSauMua(maTK, tenDN);
 		
-		return "redirect:/thongtin";
+		return "redirect:/taikhoandamua?ten="+tenDN;
 	}
 	
 	@RequestMapping(value = {"/taikhoandamua"})
