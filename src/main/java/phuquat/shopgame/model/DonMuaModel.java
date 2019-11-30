@@ -44,9 +44,10 @@ public class DonMuaModel {
 		this.tenDangNhap = tenDangNhap;
 	}
 	
-	public DonMuaModel(String tenNguoiDung, String email, String soDienThoai, String ma, String loai, 
+	public DonMuaModel(String tenDangNhap,String tenNguoiDung, String email, String soDienThoai, String ma, String loai, 
 			int vip, String thongTin, String tenTaiKhoan, String matKhauTaiKhoan, double gia, 
 			Date ngayMua, String cauHoiBaoMat, String cauTraLoiBaoMat, String emailTaiKhoan, String CMND) {
+		this.tenDangNhap = tenDangNhap;
 		this.tenNguoiDung = tenNguoiDung;
 		this.email = email;
 		this.soDienThoai = soDienThoai;
