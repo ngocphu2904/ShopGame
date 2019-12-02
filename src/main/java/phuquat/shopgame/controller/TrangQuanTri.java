@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
+import phuquat.shopgame.dao.EmailDao;
 import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
@@ -44,6 +45,9 @@ public class TrangQuanTri {
 	
 	@Autowired
 	private DonMuaService donMuaService;
+	
+	@Autowired
+	private EmailDao emaildao;
 	
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
@@ -141,9 +145,20 @@ public class TrangQuanTri {
 		String tenDangNhap =req.getParameter("tendangnhap");
 		String maTaiKhoan = req.getParameter("mataikhoan");
 		
+		//lay gmail va tai khoan da mua de guimail
+		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDangNhap);
+		TaiKhoan taikhoan = taiKhoanService.timTaiKhoan(maTaiKhoan);
+		emaildao.guiemail(nguoidung.getEmail(), nguoidung.getTenNguoiDung(), 
+				taikhoan.getMa(), taikhoan.getTenTaiKhoan(), taikhoan.getMatKhauTaiKhoan(),
+				taikhoan.getCauHoiBaoMat(), taikhoan.getCauTraLoiBaoMat(), 
+				taikhoan.getEmailTaiKhoan(), taikhoan.getCMND());
+		
+		
+		// luu don mua va cap nhat tai khoan da mua cho khach hang
 		donMuaService.luuDonMua(maTaiKhoan, tenDangNhap);
 		taiKhoanService.capNhatTaiKhoanDaMua(maTaiKhoan);
 		
+		// hien thi ten nguoi dung va id tai khoan tren combobox
 		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
 		model.addAttribute("dsnguoidung",dsnguoidung);
 		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javassist.expr.NewArray;
+import phuquat.shopgame.dao.EmailDao;
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
@@ -44,6 +45,9 @@ public class TrangNguoiDung {
 	
 	@Autowired
 	private DonMuaService donMuaService;
+	
+	@Autowired
+	private EmailDao emaildao;
 
 	@RequestMapping("/403")
 	public String truyCapBiTuChoi() {
@@ -252,6 +256,13 @@ public class TrangNguoiDung {
 	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.POST)
 	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK,
 			@RequestParam("tdn") String tenDN) {
+		
+		//lay gmail va tai khoan da mua de guimail
+		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDN);
+		TaiKhoan taikhoan = taiKhoanService.timTaiKhoan(maTK);
+		emaildao.guiemail(nguoidung.getEmail(), nguoidung.getTenNguoiDung(), taikhoan.getMa(),
+				taikhoan.getTenTaiKhoan(), taikhoan.getMatKhauTaiKhoan(), taikhoan.getCauHoiBaoMat(),
+				taikhoan.getCauTraLoiBaoMat(), taikhoan.getEmailTaiKhoan(), taikhoan.getCMND());
 		
 		donMuaService.luuDonMua(maTK, tenDN);
 		taiKhoanService.capNhatTaiKhoanDaMua(maTK);
