@@ -47,7 +47,7 @@ public class TrangQuanTri {
 	private DonMuaService donMuaService;
 	
 	@Autowired
-	private EmailDao emaildao;
+	private EmailDao emailDao;
 	
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
@@ -146,12 +146,9 @@ public class TrangQuanTri {
 		String maTaiKhoan = req.getParameter("mataikhoan");
 		
 		//lay gmail va tai khoan da mua de guimail
-		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDangNhap);
-		TaiKhoan taikhoan = taiKhoanService.timTaiKhoan(maTaiKhoan);
-		emaildao.guiemail(nguoidung.getEmail(), nguoidung.getTenNguoiDung(), 
-				taikhoan.getMa(), taikhoan.getTenTaiKhoan(), taikhoan.getMatKhauTaiKhoan(),
-				taikhoan.getCauHoiBaoMat(), taikhoan.getCauTraLoiBaoMat(), 
-				taikhoan.getEmailTaiKhoan(), taikhoan.getCMND());
+		NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tenDangNhap);
+		TaiKhoan taiKhoan = taiKhoanService.timTaiKhoan(maTaiKhoan);
+		emailDao.guiEmail(nguoiDung, taiKhoan);
 		
 		
 		// luu don mua va cap nhat tai khoan da mua cho khach hang

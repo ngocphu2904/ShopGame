@@ -47,7 +47,7 @@ public class TrangNguoiDung {
 	private DonMuaService donMuaService;
 	
 	@Autowired
-	private EmailDao emaildao;
+	private EmailDao emailDao;
 
 	@RequestMapping("/403")
 	public String truyCapBiTuChoi() {
@@ -258,11 +258,9 @@ public class TrangNguoiDung {
 			@RequestParam("tdn") String tenDN) {
 		
 		//lay gmail va tai khoan da mua de guimail
-		NguoiDung nguoidung = nguoiDungService.timNguoiDung(tenDN);
-		TaiKhoan taikhoan = taiKhoanService.timTaiKhoan(maTK);
-		emaildao.guiemail(nguoidung.getEmail(), nguoidung.getTenNguoiDung(), taikhoan.getMa(),
-				taikhoan.getTenTaiKhoan(), taikhoan.getMatKhauTaiKhoan(), taikhoan.getCauHoiBaoMat(),
-				taikhoan.getCauTraLoiBaoMat(), taikhoan.getEmailTaiKhoan(), taikhoan.getCMND());
+		NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tenDN);
+		TaiKhoan taiKhoan = taiKhoanService.timTaiKhoan(maTK);
+		emailDao.guiEmail(nguoiDung, taiKhoan);
 		
 		donMuaService.luuDonMua(maTK, tenDN);
 		taiKhoanService.capNhatTaiKhoanDaMua(maTK);

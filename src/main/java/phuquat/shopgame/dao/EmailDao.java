@@ -13,12 +13,13 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.stereotype.Repository;
 
 import phuquat.shopgame.cauhinh.MailConfig;
+import phuquat.shopgame.entity.NguoiDung;
+import phuquat.shopgame.entity.TaiKhoan;
 
 @Repository
 public class EmailDao {
 	
-	public void guiemail( String emailNguoiNhan, String tenNguoiMua,String id, String tk ,String mk,
-						String cauHoiBaoMat, String cauTraLoiBiMat, String emailtk, String CMND) {
+	public void guiEmail(NguoiDung nguoiDung, TaiKhoan taiKhoan) {
 		// Get properties object
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -36,17 +37,21 @@ public class EmailDao {
  
         // compose message
         try {
+        	
+        	String subject = "Mua tài khoản đột kích thành công tại Shop PhuQuat";
+        	String text = "Chúc mừng bạn "+nguoiDung.getTenNguoiDung()+" đã mua thành công tài khoản số "+taiKhoan.getMa()+"\n"
+            		+"Tài khoản: "+taiKhoan.getTenTaiKhoan()+"\n"+"Mật khẩu: "+taiKhoan.getMatKhauTaiKhoan()+"\n"+"Câu hỏi bảo mật: "+taiKhoan.getCauHoiBaoMat()+"\n"
+            		+"Câu trả lời bí mật: "+taiKhoan.getCauTraLoiBaoMat()+"\n"+"CMND: "+taiKhoan.getCMND()+"\n"+"Email tài khoản: "+taiKhoan.getEmailTaiKhoan();
+        	
             MimeMessage message = new MimeMessage(session);
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailNguoiNhan));
-            message.setSubject("Mua acc game thành công tại shopacc phuquat");
-            message.setText("Chúc mừng bạn "+tenNguoiMua+" đã mua thành công tài khoản số "+id+"\n"
-            		+"Tài khoản: "+tk+"\n"+"Mật khẩu: "+mk+"\n"+"Câu hỏi bảo mật: "+cauHoiBaoMat+"\n"
-            		+"câu trả lời bí mật: "+cauTraLoiBiMat+"\n"+"CMND: "+CMND+"\n"+"Email tài khoản: "+emailtk);
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(nguoiDung.getEmail()));
+            message.setSubject(subject, "UTF-8");
+            message.setText(text, "UTF-8");
  
             // send message
             Transport.send(message);
  
-            System.out.println("Đã gửi mail thành công cho"+emailNguoiNhan);
+            System.out.println("Da gui mail thanh cong cho "+nguoiDung.getEmail());
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
