@@ -133,8 +133,10 @@ public class TrangNguoiDung {
 
 	@RequestMapping(value = { "/doimatkhau" }, method = RequestMethod.POST)
 	public String doimatkhau(Model model, @ModelAttribute("formdoimatkhau") NguoiDung nguoiDung,
-			BindingResult theBindingResult, HttpServletRequest req,
-			@RequestParam(value = "userName", defaultValue = "") String userName) {
+			BindingResult theBindingResult, HttpServletRequest req) {
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = userDetails.getUsername();
 		
 		String mkc = req.getParameter("matKhauHienTai");
 		String mkm_nl = req.getParameter("nhapLaiMatKhauMoi");
@@ -245,8 +247,10 @@ public class TrangNguoiDung {
 	}
 	
 	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.GET)
-	public String muaTaiKhoan(Model model, @RequestParam("ma") String maTK,
-			@RequestParam("tdn") String tenDN) {
+	public String muaTaiKhoan(Model model, @RequestParam("ma") String maTK) {
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String tenDN = userDetails.getUsername();
 		
 		List<DonMuaModel> donMuaModel = donMuaService.kiemTraTien(maTK, tenDN);
 		model.addAttribute("muataikhoan", donMuaModel);
@@ -254,8 +258,10 @@ public class TrangNguoiDung {
 	}
 	
 	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.POST)
-	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK,
-			@RequestParam("tdn") String tenDN) {
+	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK) {
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String tenDN = userDetails.getUsername();
 		
 		//lay gmail va tai khoan da mua de guimail
 		NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tenDN);
@@ -266,11 +272,14 @@ public class TrangNguoiDung {
 		taiKhoanService.capNhatTaiKhoanDaMua(maTK);
 		nguoiDungService.capNhatTienSauMua(maTK, tenDN);
 		
-		return "redirect:/taikhoandamua?ten="+tenDN;
+		return "redirect:/taikhoandamua";
 	}
 	
 	@RequestMapping(value = {"/taikhoandamua"})
-	public String taiKhoanDaMua(Model model, @RequestParam("ten") String ten) {
+	public String taiKhoanDaMua(Model model) {
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String ten = userDetails.getUsername();
 		
 		List<DonMuaModel> ds = donMuaService.taiKhoanDaMua(ten);
     	model.addAttribute("ds", ds);

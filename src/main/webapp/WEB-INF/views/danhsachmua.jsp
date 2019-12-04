@@ -31,7 +31,7 @@
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
                                     <li><a href="thongtin" class="c-font-white">Thông tin tài khoản</a></li>
-                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="c-font-white">Đổi mật khẩu</a></li>
+                                    <li><a href="doimatkhau" class="c-font-white">Đổi mật khẩu</a></li>
                                     <li><a href="themtaikhoan" class=" c-font-white">Thêm tài khoản</a></li>
                                     <li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
                                     <li><a href="danhsachmua" class="active c-font-white"><b>Danh sách mua</b></a></li>

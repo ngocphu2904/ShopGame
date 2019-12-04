@@ -18,124 +18,102 @@
 	 	<div class="c-content-box c-size-md c-bg-white">
        		<div class="container" >
 				
-				<!-- Kiểm tra param ten khi nhập trên url có trùng với name user đang đăng nhập -->
-				<c:if test="${pageContext.request.userPrincipal.name != param.userName}">
-        			<div class="form-group c-font-center">
-	                    <p class="c-font-yellow c-font-bold">
-							Bạn không thể truy cập tài khoản người khác.
-	                   	</p>  
-				    </div>
-				    <div class="c-content-title-1 c-font-center" style="margin: 25px 0 0 0">
-						<a onclick="goBack()" class="btn c-square btn-danger c-font-uppercase c-font-bold">
-							Trở về
-						</a>
-					</div>
-					<script>
-					function goBack() {
-					  window.history.back();
-					}
-					</script>
-        		</c:if>
-        		
-				<c:if test="${pageContext.request.userPrincipal.name == param.userName}">
-					<div class="c-layout-sidebar-menu c-theme" style="margin-top: 70px;">
-	                    <div class="row">
-	                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15 m-b-20">
-	                            <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-DASHBOARD -->
-	                            <div class="c-content-title-3 c-title-md c-theme-border">
-	                                <h3 class="c-left c-font-uppercase c-font-white">Menu tài khoản</h3>
-	                                <div class="c-line c-dot c-dot-left "></div>
-	                            </div>
-	                            <div class="c-content-ver-nav c-content-title-1">
-	                                <ul class="c-menu c-arrow-dot c-square c-theme">
-	                                    <li><a href="thongtin" class=" c-font-white">Thông tin người dùng</a></li>
-	                                    <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
-	                                    	<li><a href="${pageContext.request.contextPath}/taikhoandamua" class="c-font-white">Tài khoản đã mua</a></li>
-	                                    </security:authorize>
-	                                    <li><a href="doimatkhau?userName=${pageContext.request.userPrincipal.name}" class="active c-font-white"><b>Đổi mật khẩu</b></a></li>
-	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-	                                    	<li><a href="themtaikhoan" class="c-font-white">Thêm tài khoản</a></li>
-	                                    </security:authorize>
-	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-	                                    	<li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
-	                                    </security:authorize>
-	                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
-	                                    	<li><a href="danhsachmua" class="c-font-white">Danh sách mua</a></li>
-	                                    </security:authorize>
-	                                </ul>
-	                            </div>
-	                        </div>
-	                        
-	                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15">
-	                            <div class="c-content-title-3 c-title-md c-theme-border">
-	                                <h3 class="c-left c-font-uppercase c-font-white">Menu nạp tiền</h3>
-	                                <div class="c-line c-dot c-dot-left "></div>
-	                            </div>
-	                            <div class="c-content-ver-nav m-b-20">
-	                                <ul class="c-menu c-arrow-dot c-square c-theme">
-	                                    <li><a class="c-font-white load-modal" href="#">Chuyển tiền từ ATM - Ví Điện Tử</a>
-	                                   	</li>
-	                                </ul>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	       		
-				 	<div class="c-layout-sidebar-content ">
-	                    <!-- BEGIN: PAGE CONTENT -->
-	                    <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
-	                    <div class="c-content-title-1" style="margin-left: 160px;">
-	                        <h3 class="c-font-uppercase c-font-bold c-font-white">Đổi mật khẩu</h3>
-	                    </div>
-				            
-				            <form:form modelAttribute="formdoimatkhau" method="POST" class="form-horizontal form-charge">
-				            	
-				            	<div class="form-group">
-				            		<label class="col-md-3 control-label c-font-white">Mật khẩu cũ:</label>
-			                     	<div class="col-md-6">
-					                     <input type="password" class="form-control" name="matKhauHienTai" required="true"
-					                     	id="matkhau" placeholder="Nhập mật khẩu hiện tại" />
-				                    </div>
-				                </div>
-				                
-				                <div class="form-group">
-				                	<label class="col-md-3 control-label c-font-white">Mật khẩu mới:</label>
-			                     	<div class="col-md-6">
-			                     		<form:input type="password" class="form-control" path="matKhau" required="true"
-				                     	id="password" placeholder="Nhập mật khẩu mới" onkeyup='check();'/>
-			                     	</div>
-				                </div>
-				                
-				                <div class="form-group">
-				                	<label class="col-md-3 control-label c-font-white">Nhập lại mật khẩu mới:</label>
-				                    <div class="col-md-6">
-					                    <input type="password" class="form-control" name="nhapLaiMatKhauMoi" required="true"
-					                    	id="confirm_password" placeholder="Nhập lại mật khẩu mới" onkeyup='check();' />
-				                  		<p id='message' style="margin: -30px 10px 0 0;float: right;"/>
-				                  	</div>
-				                </div>
-				                
-				                <div class="form-group">
-				                	<label class="col-md-3"></label>
-					                <div class="col-md-6">
-				                 		<p style="margin: 0px 0px 0px 0px;color: red;" id="message" 
-					                	onkeyup='dangky();' >  ${checkuser } </p>
-				                	</div>
+				<div class="c-layout-sidebar-menu c-theme" style="margin-top: 70px;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15 m-b-20">
+                            <!-- BEGIN: LAYOUT/SIDEBARS/SHOP-SIDEBAR-DASHBOARD -->
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu tài khoản</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav c-content-title-1">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a href="thongtin" class=" c-font-white">Thông tin người dùng</a></li>
+                                    <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
+                                    	<li><a href="${pageContext.request.contextPath}/taikhoandamua" class="c-font-white">Tài khoản đã mua</a></li>
+                                    </security:authorize>
+                                    <li><a href="doimatkhau" class="active c-font-white"><b>Đổi mật khẩu</b></a></li>
+                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+                                    	<li><a href="themtaikhoan" class="c-font-white">Thêm tài khoản</a></li>
+                                    </security:authorize>
+                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+                                    	<li><a href="guitaikhoan" class="c-font-white">Gửi tài khoản</a></li>
+                                    </security:authorize>
+                                    <security:authorize  access="hasRole('ROLE_QUAN_TRI')">
+                                    	<li><a href="danhsachmua" class="c-font-white">Danh sách mua</a></li>
+                                    </security:authorize>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 col-sm-6 col-xs-6 m-t-15">
+                            <div class="c-content-title-3 c-title-md c-theme-border">
+                                <h3 class="c-left c-font-uppercase c-font-white">Menu nạp tiền</h3>
+                                <div class="c-line c-dot c-dot-left "></div>
+                            </div>
+                            <div class="c-content-ver-nav m-b-20">
+                                <ul class="c-menu c-arrow-dot c-square c-theme">
+                                    <li><a class="c-font-white load-modal" href="#">Chuyển tiền từ ATM - Ví Điện Tử</a>
+                                   	</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       		
+			 	<div class="c-layout-sidebar-content ">
+                    <!-- BEGIN: PAGE CONTENT -->
+                    <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
+                    <div class="c-content-title-1" style="margin-left: 160px;">
+                        <h3 class="c-font-uppercase c-font-bold c-font-white">Đổi mật khẩu</h3>
+                    </div>
+			            
+			            <form:form modelAttribute="formdoimatkhau" method="POST" class="form-horizontal form-charge">
+			            	
+			            	<div class="form-group">
+			            		<label class="col-md-3 control-label c-font-white">Mật khẩu cũ:</label>
+		                     	<div class="col-md-6">
+				                     <input type="password" class="form-control" name="matKhauHienTai" required="true"
+				                     	id="matkhau" placeholder="Nhập mật khẩu hiện tại" />
+			                    </div>
+			                </div>
+			                
+			                <div class="form-group">
+			                	<label class="col-md-3 control-label c-font-white">Mật khẩu mới:</label>
+		                     	<div class="col-md-6">
+		                     		<form:input type="password" class="form-control" path="matKhau" required="true"
+			                     	id="password" placeholder="Nhập mật khẩu mới" onkeyup='check();'/>
+		                     	</div>
+			                </div>
+			                
+			                <div class="form-group">
+			                	<label class="col-md-3 control-label c-font-white">Nhập lại mật khẩu mới:</label>
+			                    <div class="col-md-6">
+				                    <input type="password" class="form-control" name="nhapLaiMatKhauMoi" required="true"
+				                    	id="confirm_password" placeholder="Nhập lại mật khẩu mới" onkeyup='check();' />
+			                  		<p id='message' style="margin: -30px 10px 0 0;float: right;"/>
+			                  	</div>
+			                </div>
+			                
+			                <div class="form-group">
+			                	<label class="col-md-3"></label>
+				                <div class="col-md-6">
+			                 		<p style="margin: 0px 0px 0px 0px;color: red;" id="message" 
+				                	onkeyup='dangky();' >  ${checkuser } </p>
 			                	</div>
-				                
-				                <div class="form-group c-margin-t-40">
-				                	<div class="col-md-offset-3 col-md-6">
-				                        <button type="submit" value="update" style="margin-top:-25px"
-					                        class="btn btn-primary btn-block btn-flat" 
-					                        style="margin: 0px 0 0 0;"><i class="fa fa-key"></i>Đổi mật khẩu
-				                        </button>
-				                    </div>
-				                </div>
-				            </form:form>
-				            <!-- /.social-auth-links -->
-				        </div>
-			        <!-- /.login-box-body -->
-			        </c:if>
+		                	</div>
+			                
+			                <div class="form-group c-margin-t-40">
+			                	<div class="col-md-offset-3 col-md-6">
+			                        <button type="submit" value="update" style="margin-top:-25px"
+				                        class="btn btn-primary btn-block btn-flat" 
+				                        style="margin: 0px 0 0 0;"><i class="fa fa-key"></i>Đổi mật khẩu
+			                        </button>
+			                    </div>
+			                </div>
+			            </form:form>
+			            <!-- /.social-auth-links -->
+			        </div>
 		    	</div>
 	    	</div>
     	</div>
