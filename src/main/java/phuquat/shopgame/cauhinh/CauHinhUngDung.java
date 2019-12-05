@@ -24,6 +24,7 @@ import phuquat.shopgame.dao.HinhAnhDAO;
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.dao.TaiKhoanDAO;
 import phuquat.shopgame.service.DonMuaService;
+import phuquat.shopgame.service.EmailService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
@@ -146,5 +147,10 @@ public class CauHinhUngDung {
 	   @Bean(name="donMuaService")
 	   public DonMuaService getDonMuaService() {
 		   return new DonMuaService();
+	   }
+	   
+	   @Bean(name="emaiService")
+	   public EmailService getEmailService() {
+		   return new EmailService();
 	   }
 }

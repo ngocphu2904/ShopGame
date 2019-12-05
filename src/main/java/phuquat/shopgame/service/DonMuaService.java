@@ -8,9 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.dao.DonMuaDAO;
-import phuquat.shopgame.dao.EmailDao;
-import phuquat.shopgame.entity.NguoiDung;
-import phuquat.shopgame.entity.TaiKhoan;
+
 import phuquat.shopgame.model.DonMuaModel;
 
 @Transactional

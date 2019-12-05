@@ -26,6 +26,7 @@ import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
 import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.service.DonMuaService;
+import phuquat.shopgame.service.EmailService;
 import phuquat.shopgame.service.HinhAnhService;
 import phuquat.shopgame.service.NguoiDungService;
 import phuquat.shopgame.service.TaiKhoanService;
@@ -47,7 +48,7 @@ public class TrangQuanTri {
 	private DonMuaService donMuaService;
 	
 	@Autowired
-	private EmailDao emailDao;
+	private EmailService emailService;
 	
     @InitBinder
     public void myInitBinder(WebDataBinder dataBinder) {
@@ -148,7 +149,7 @@ public class TrangQuanTri {
 		//lay gmail va tai khoan da mua de guimail
 		NguoiDung nguoiDung = nguoiDungService.timNguoiDung(tenDangNhap);
 		TaiKhoan taiKhoan = taiKhoanService.timTaiKhoan(maTaiKhoan);
-		emailDao.guiEmail(nguoiDung, taiKhoan);
+		emailService.guiEmail(nguoiDung, taiKhoan);
 		
 		
 		// luu don mua va cap nhat tai khoan da mua cho khach hang
