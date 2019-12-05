@@ -2,8 +2,6 @@ package phuquat.shopgame.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import phuquat.shopgame.dao.EmailDao;
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
@@ -161,9 +158,10 @@ public class TrangNguoiDung {
 	@RequestMapping(value= {"/danhsachtaikhoan"}, method = RequestMethod.GET)
 	public String dsTaiKhoan(Model model, HttpServletRequest req) {
 		
-			List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
-			model.addAttribute("ds", ds);
+		List<TaiKhoanModel> ds = taiKhoanService.dsTaiKhoan();
+		model.addAttribute("ds", ds);
 		return "danhsachtaikhoan";
+		
 	}
 	
 	@RequestMapping(value= {"/timkiem"}, method = RequestMethod.GET)
@@ -224,6 +222,18 @@ public class TrangNguoiDung {
 	@RequestMapping(value = {"/chitiettaikhoan"}, method = RequestMethod.GET)
 	public String chiTietTaiKhoan(Model model, @RequestParam("ma") String ma) {
 		
+		// Phai login moi dung UserDetails duoc, nen phai try catch khi chua login		
+		try
+		{ 
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			String tenDN = userDetails.getUsername();
+			
+			List<DonMuaModel> donMua = donMuaService.kiemTraTien(ma, tenDN);
+			
+			model.addAttribute("donMua", donMua);
+		}
+		catch(Exception e) {}
+		
 		List<TaiKhoanModel> chitiet = taiKhoanService.chiTietTaiKhoan(ma);
 		
 		model.addAttribute("chitiettaikhoan", chitiet);
@@ -246,18 +256,7 @@ public class TrangNguoiDung {
 		res.getOutputStream().close();
 	}
 	
-	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.GET)
-	public String muaTaiKhoan(Model model, @RequestParam("ma") String maTK) {
-		
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String tenDN = userDetails.getUsername();
-		
-		List<DonMuaModel> donMuaModel = donMuaService.kiemTraTien(maTK, tenDN);
-		model.addAttribute("muataikhoan", donMuaModel);
-		return "muataikhoan";
-	}
-	
-	@RequestMapping(value={"/muataikhoan"}, method = RequestMethod.POST)
+	@RequestMapping(value={"/chitiettaikhoan"}, method = RequestMethod.POST)
 	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK) {
 		
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -99,14 +99,6 @@
 												</div>
 												
 												<div class="modal-body">
-									                <div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>Tên đăng nhập:</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square c-font-bold c-font-red">${ds.tenDangNhap}</p>
-														</div>
-													</div>
 													<div class="form-group">
 														<label class="col-md-5 control-label">
 															<b>Tên người dùng:</b>
@@ -131,46 +123,7 @@
 															<p class="form-control c-square c-font-slim c-font-black">${ds.soDienThoai}</p>
 														</div>
 													</div>
-													<div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>Mã tài khoản đã mua:</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square c-font-slim c-font-black">${ds.ma}</p>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>Tên đăng nhập:</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square c-font-slim c-font-black">${ds.tenTaiKhoan}</p>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>Mật khẩu tài khoản</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square c-font-slim c-font-black">${ds.matKhauTaiKhoan}</p>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>Email tài khoản:</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square  c-font-slim c-font-black">${ds.emailTaiKhoan}</p>
-														</div>
-													</div>
-													<div class="form-group">
-														<label class="col-md-5 control-label">
-															<b>CMND:</b>
-														</label>
-														<div class="col-md-7">
-															<p class="form-control c-square c-font-slim c-font-black">${ds.CMND}</p>
-														</div>
-													</div>
+													<div style="clear: both"></div>
 									            </div>
 												<div class="modal-footer">
 													<button type="button" class="btn c-theme-btn c-btn-border-2x c-btn-square c-btn-bold c-btn-uppercase" data-dismiss="modal">Đóng</button>

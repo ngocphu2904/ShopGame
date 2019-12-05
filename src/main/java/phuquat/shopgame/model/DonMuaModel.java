@@ -32,16 +32,10 @@ public class DonMuaModel {
 	
 	public DonMuaModel() {}
      
-	public DonMuaModel(String ma, String loai, double gia, String thongTin, int vip,
-			String tenDangNhap, double tien) 
-	{
-		this.ma= ma;
-		this.loai = loai;
+	public DonMuaModel(double gia, double tien) 
+	{	
 		this.gia = gia;
-		this.thongTin = thongTin;
-		this.vip = vip;
-		this.tien = tien;
-		this.tenDangNhap = tenDangNhap;
+		this.tien = tien;	
 	}
 	
 	public DonMuaModel(String tenDangNhap,String tenNguoiDung, String email, String soDienThoai, String ma, String loai, 

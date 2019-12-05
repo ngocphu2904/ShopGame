@@ -20,6 +20,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import phuquat.shopgame.dao.DonMuaDAO;
+import phuquat.shopgame.dao.EmailDao;
 import phuquat.shopgame.dao.HinhAnhDAO;
 import phuquat.shopgame.dao.NguoiDungDAO;
 import phuquat.shopgame.dao.TaiKhoanDAO;
@@ -147,6 +148,11 @@ public class CauHinhUngDung {
 	   @Bean(name="donMuaService")
 	   public DonMuaService getDonMuaService() {
 		   return new DonMuaService();
+	   }
+	   
+	   @Bean(name="emailDAO")
+	   public EmailDao getEmailDAO() {
+		   return new EmailDao();
 	   }
 	   
 	   @Bean(name="emaiService")

@@ -37,7 +37,6 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       http.authorizeRequests().antMatchers("/danhsachmua").access("hasRole('ROLE_QUAN_TRI')");
 	       
 	       http.authorizeRequests().antMatchers("/taikhoandamua").access("hasRole('ROLE_NGUOI_DUNG')");
-	       http.authorizeRequests().antMatchers("/muataikhoan").access("hasRole('ROLE_NGUOI_DUNG')");
 	       
 	       
 	       // Chuyen toi 403 neu co y vao trang khong dung quyen

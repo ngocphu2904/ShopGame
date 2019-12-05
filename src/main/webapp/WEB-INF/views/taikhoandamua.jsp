@@ -180,6 +180,7 @@
 														<p class="form-control c-square c-font-slim c-font-black">${ds.CMND}</p>
 													</div>
 												</div>
+												<div style="clear: both"></div>
 								            </div>
 											<div class="modal-footer">
 												<button type="button" class="btn c-theme-btn c-btn-border-2x c-btn-square c-btn-bold c-btn-uppercase" data-dismiss="modal">Đóng</button>

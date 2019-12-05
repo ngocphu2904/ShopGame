@@ -31,7 +31,7 @@ public class DonMuaDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		String hql = "SELECT NEW " + DonMuaModel.class.getName()
-                + "( t.ma, t.loai, t.gia, t.thongTin, t.vip, n.tenDangNhap, n.tien)"
+                + "( t.gia, n.tien)"
                 + " FROM " + TaiKhoan.class.getName() + " t, " + NguoiDung.class.getName() + " n "
                 + " WHERE t.ma = "+maTK+" and t.mua = 0 and n.tenDangNhap like '"+tenDN+"'";
 		

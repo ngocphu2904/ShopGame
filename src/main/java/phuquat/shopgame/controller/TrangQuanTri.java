@@ -3,7 +3,6 @@ package phuquat.shopgame.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,12 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
-import phuquat.shopgame.dao.EmailDao;
-import phuquat.shopgame.entity.DonMua;
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.DonMuaModel;
-import phuquat.shopgame.model.TaiKhoanModel;
 import phuquat.shopgame.service.DonMuaService;
 import phuquat.shopgame.service.EmailService;
 import phuquat.shopgame.service.HinhAnhService;
@@ -142,7 +138,7 @@ public class TrangQuanTri {
 	}
 	
 	@RequestMapping(value= {"guitaikhoan"}, method = RequestMethod.POST)
-	public String xuLyThongKe(HttpServletRequest req, Model model) {
+	public String guiTaiKhoan(HttpServletRequest req, Model model) {
 		String tenDangNhap =req.getParameter("tendangnhap");
 		String maTaiKhoan = req.getParameter("mataikhoan");
 		

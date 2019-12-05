@@ -38,7 +38,7 @@ public class NguoiDungDAO {
 		
 		nguoiDung.setKichHoat(true);
 		nguoiDung.setKieuNguoiDung("NGUOI_DUNG");
-		nguoiDung.setTien(0);
+		nguoiDung.setTien(20000000);
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(nguoiDung);
 	}

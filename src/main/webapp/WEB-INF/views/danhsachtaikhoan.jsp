@@ -73,7 +73,7 @@
 					</form>	
 					
 					<div class="form-group c-font-center">
-	                    <p class="c-font-yellow c-font-bold">${kq}</p>  
+	                    <p class="c-font-yellow c-font-bold"><%-- ${a} --%></p>  
 				    </div>
 					
 					<div class="row row-flex item-list">
@@ -109,30 +109,26 @@
 									</div>
 									<div class="a-more" style="margin-top: -30px;">
 										<div class="row">
-											<div class="col-xs-6 ">
-												<div class="view">
-													<security:authorize access="hasRole('ROLE_QUAN_TRI')">
-														<a href="xoataikhoan?ma=${ds.ma}" onclick="return confirm('Bạn có muốn xóa tài khoản CF-${ds.ma}?');" 
-														title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
-													</security:authorize>
-													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
+											<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
+												<div class="col-xs-12 ">
+													<div class="view">
 														<a href="chitiettaikhoan?ma=${ds.ma}" 
 														title="Chi tiết tài khoản CF-${ds.ma}">Chi tiết</a>
-													</security:authorize>
+													</div>
 												</div>
-											</div>
-											<div class="col-xs-6 ">
-												<div class="view">
-													<security:authorize access="hasRole('ROLE_QUAN_TRI')">
+											</security:authorize>
+											<security:authorize access="hasRole('ROLE_QUAN_TRI')">
+												<div class="col-xs-6 ">
+													<div class="view">
+														<a href="xoataikhoan?ma=${ds.ma}" onclick="return confirm('Bạn có muốn xóa tài khoản CF-${ds.ma}?');" 
+															title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
+													</div>
+													<div class="view">
 														<a href="suataikhoan?ma=${ds.ma}" 
 														title="Sửa tài khoản CF-${ds.ma}">Sửa</a>
-													</security:authorize>
-													<security:authorize access="!hasRole('ROLE_QUAN_TRI')">
-														<a href="muataikhoan?ma=${ds.ma}" 
-														title="Mua tài khoản CF-${ds.ma}">Mua</a>
-													</security:authorize>
-												</div>
-											</div>		
+													</div>
+												</div>	
+											</security:authorize>
 										</div>
 									</div>
 								</div>
