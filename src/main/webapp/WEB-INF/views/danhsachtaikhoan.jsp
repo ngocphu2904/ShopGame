@@ -113,7 +113,7 @@
 												<div class="col-xs-12 ">
 													<div class="view">
 														<a href="chitiettaikhoan?ma=${ds.ma}" 
-														title="Chi tiết tài khoản CF-${ds.ma}">Chi tiết</a>
+														title="Chi tiết tài khoản CF-${ds.ma}">Chi tiết tài khoản</a>
 													</div>
 												</div>
 											</security:authorize>
