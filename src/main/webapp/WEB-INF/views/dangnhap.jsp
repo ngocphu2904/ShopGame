@@ -25,7 +25,7 @@
 			                	<c:if
 									test="${param.loi == 'true'}">
 									<div>
-										Tài khoản hoặc mật khẩu không đúng!!!
+										Tên đăng nhập hoặc mật khẩu không đúng!!!
 									</div>
 								</c:if>
 						</strong>
