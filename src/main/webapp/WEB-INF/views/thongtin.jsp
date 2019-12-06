@@ -41,7 +41,7 @@
                             </div>
                             <div class="c-content-ver-nav c-content-title-1">
                                 <ul class="c-menu c-arrow-dot c-square c-theme">
-                                    <li><a href="thongtin" class="active c-font-white"><b>Thông tin người dùng</b></a></li>
+                                    <li><a href="thongtin" class="active c-font-white"><b>Thông tin cá nhân</b></a></li>
                                     <security:authorize  access="hasRole('ROLE_NGUOI_DUNG')">
                                     	<li><a href="${pageContext.request.contextPath}/taikhoandamua" class="c-font-white">Tài khoản đã mua</a></li>
                                     </security:authorize>
@@ -77,8 +77,8 @@
                 <div class="c-layout-sidebar-content ">
                     <!-- BEGIN: PAGE CONTENT -->
                     <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
-                    <div class="c-content-title-1" style="margin-left: 110px;">
-                        <h3 class="c-font-uppercase c-font-bold c-font-white">Thông tin tài khoản</h3>
+                    <div class="c-content-title-1" style="margin-left: 123px;">
+                        <h3 class="c-font-uppercase c-font-bold c-font-white">Thông tin cá nhân</h3>
                     </div>
                     <table class="table c-font-white">
                         <tbody>
