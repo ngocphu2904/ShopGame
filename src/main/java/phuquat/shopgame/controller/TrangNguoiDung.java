@@ -215,10 +215,11 @@ public class TrangNguoiDung {
 									  }
 									  else 
 									  {
+										  //Khong tieu chi tim kiem nao ton tai
 										  model.addAttribute("kq","Không tìm thấy tài khoản.");
 										  return "danhsachtaikhoan";
 									  }
-	
+		//tim kiem theo cả 3 tieu chi nhung khong co
 		if(ds.isEmpty() == true)
 			model.addAttribute("kq","Không tìm thấy tài khoản.");
 

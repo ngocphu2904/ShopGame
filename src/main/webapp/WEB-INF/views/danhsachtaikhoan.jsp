@@ -73,7 +73,7 @@
 					</form>	
 					
 					<div class="form-group c-font-center">
-	                    <p class="c-font-yellow c-font-bold"><%-- ${a} --%></p>  
+	                    <p class="c-font-yellow c-font-bold">${kq}</p>  
 				    </div>
 					
 					<div class="row row-flex item-list">
