@@ -89,7 +89,7 @@
 						
 						<div class="row" style="margin: 15px 0 30px 0;">
 							<div class="col-md-12 col-sm-12 no-radius text-center">
-								<button type="submit" class="btn c-square c-theme-btn">
+								<button type="submit" class="btn c-square c-theme-btn c-font-uppercase c-font-bold">
 									Gửi tài khoản
 								</button>
 							</div>
