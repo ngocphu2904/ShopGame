@@ -29,7 +29,7 @@
 			                </div>
 			                <div class="form-group has-feedback">
 			                    <form:input type="text" class="form-control" path="tenDangNhap" required="true"
-			                    	id="username" placeholder="Nhập tên tài khoản"/>
+			                    	id="username" placeholder="Nhập tên đăng nhập"/>
 			                    <span class="fa fa-users form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			                <div class="form-group has-feedback">
