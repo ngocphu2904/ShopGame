@@ -101,7 +101,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma + " group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = " +ma + " group by h.taiKhoan.ma ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -112,7 +112,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.loai like '" +loai + "' group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.loai like '" +loai + "' group by h.taiKhoan.ma ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -129,14 +129,15 @@ public class TaiKhoanDAO {
 			sql += " and t.gia < 1000000 group by h.taiKhoan.ma";
 			break;
 		
-		case "tu-1-3-trieu":
-			sql +=" and t.gia >= 1000000 and t.gia <= 3000000 group by h.taiKhoan.ma";
+		case "tu-1-2-trieu":
+			sql +=" and t.gia >= 1000000 and t.gia <= 2000000 group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql += " and t.gia > 3000000 group by h.taiKhoan.ma";
+			 sql += " and t.gia > 2000000 group by h.taiKhoan.ma";
 			break;
 		}
+		sql+= " ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -147,7 +148,7 @@ public class TaiKhoanDAO {
 				+ " (t.ma, t.loai, t.gia, t.thongTin, t.vip, h.maHinhAnh) "
 				+ " FROM " + TaiKhoan.class.getName() + " t, "
 				+ HinhAnh.class.getName() + " h "
-				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = '"+ma+"' and t.loai like '" +loai + "' group by h.taiKhoan.ma";
+				+ " WHERE t.mua = 0 and t.ma = h.taiKhoan.ma and t.ma = '"+ma+"' and t.loai like '" +loai + "' group by h.taiKhoan.ma ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -164,14 +165,15 @@ public class TaiKhoanDAO {
 			sql +=" and t.gia < 1000000 group by h.taiKhoan.ma";
 			break;
 		
-		case "tu-1-3-trieu":
-			sql += " and t.gia > 1000000 and t.gia < 3000000 group by h.taiKhoan.ma";
+		case "tu-1-2-trieu":
+			sql += " and t.gia > 1000000 and t.gia < 2000000 group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql += " and t.gia > 3000000 group by h.taiKhoan.ma";
+			 sql += " and t.gia > 2000000 group by h.taiKhoan.ma";
 			break;
 		}
+		sql+= " ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -188,14 +190,15 @@ public class TaiKhoanDAO {
 			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		
-		case "tu-1-3-trieu":
-			sql += " and t.gia > 1000000 and t.gia < 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+		case "tu-1-2-trieu":
+			sql += " and t.gia > 1000000 and t.gia < 2000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql += " and t.gia > 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			 sql += " and t.gia > 2000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		}
+		sql+= " ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}
@@ -212,14 +215,15 @@ public class TaiKhoanDAO {
 			sql +=" and t.gia < 1000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		
-		case "tu-1-3-trieu":
-			sql += " and t.gia > 1000000 and t.gia < 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+		case "tu-1-2-trieu":
+			sql += " and t.gia > 1000000 and t.gia < 2000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 			
 		default:
-			 sql += " and t.gia > 3000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
+			 sql += " and t.gia > 2000000 and t.loai like '"+loai+"' group by h.taiKhoan.ma";
 			break;
 		}
+		sql+= " ORDER BY t.gia DESC";
 		Query<TaiKhoanModel> query = session.createQuery(sql);
 		return query.getResultList();
 	}

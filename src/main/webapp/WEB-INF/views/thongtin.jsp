@@ -23,9 +23,11 @@
 				<div class="c-content-title-1" style="margin-top: 30px;">
 					<h2 class="c-center c-font-bold c-font-28 c-font-white">${thongtin.tenNguoiDung}</h2>
 					<h2 class="c-center c-font-22 c-font-white">${thongtin.kieuNguoiDung}</h2>
-					<h2 class="c-center c-font-22 c-font-yellow">
-						<fmt:formatNumber value="${thongtin.tien}" type="currency"/>
-                    </h2>
+					<security:authorize  access="!hasRole('ROLE_QUAN_TRI')">
+						<h2 class="c-center c-font-22 c-font-yellow">
+							<fmt:formatNumber value="${thongtin.tien}" type="currency"/>
+	                    </h2>
+                    </security:authorize>
 					<div class="c-line-center c-theme-bg"></div>
 				</div>
 
@@ -88,13 +90,15 @@
                                 <th scope="row">Tên của bạn:</th>
                                 <td>${thongtin.tenNguoiDung}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Số dư của bạn:</th>
-                                <th style="color:yellow">
-                                	<fmt:formatNumber value="${thongtin.tien}" 
-                                	type="currency"/>     	
-                                </th>
-                            </tr>
+                            <security:authorize  access="!hasRole('ROLE_QUAN_TRI')">
+	                            <tr>
+	                                <th scope="row">Số dư của bạn:</th>
+	                                <th style="color:yellow">
+	                                	<fmt:formatNumber value="${thongtin.tien}" 
+	                                	type="currency"/>     	
+	                                </th>
+	                            </tr>
+                            </security:authorize>
                             <tr>
                                 <th scope="row">Địa chỉ Email:</th>
                                 <td>${thongtin.email}</td>

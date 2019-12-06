@@ -43,8 +43,8 @@
 									<select class="form-control c-square" name="gia">
 										<option value="">-- Không chọn --</option>
 										<option value="duoi-1-trieu">Dưới 1 triệu</option>
-										<option value="tu-1-3-trieu">Từ 1 triệu - 3 triệu</option>
-										<option value="tren-3-trieu">Trên 3 Triệu</option>
+										<option value="tu-1-2-trieu">Từ 1 triệu - 2 triệu</option>
+										<option value="tren-2-trieu">Trên 2 triệu</option>
 									</select>
 								</div>
 							</div>
@@ -119,10 +119,12 @@
 											</security:authorize>
 											<security:authorize access="hasRole('ROLE_QUAN_TRI')">
 												<div class="col-xs-6 ">
-													<div class="view">
+													<div class="view" style="background: #e7505a;">
 														<a href="xoataikhoan?ma=${ds.ma}" onclick="return confirm('Bạn có muốn xóa tài khoản CF-${ds.ma}?');" 
 															title="Xóa tài khoản CF-${ds.ma}">Xóa</a>
 													</div>
+												</div>
+												<div class="col-xs-6 ">
 													<div class="view">
 														<a href="suataikhoan?ma=${ds.ma}" 
 														title="Sửa tài khoản CF-${ds.ma}">Sửa</a>
