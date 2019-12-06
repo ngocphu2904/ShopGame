@@ -103,6 +103,7 @@ public class TrangNguoiDung {
 			BindingResult theBindingResult, HttpServletRequest req) {
 		
 		String confirm_password = req.getParameter("confirm_password");
+		String sdt = req.getParameter("sdt");
 		
 		if (theBindingResult.hasErrors()) 
 		{
@@ -118,8 +119,13 @@ public class TrangNguoiDung {
 		{
 			model.addAttribute("checkuser", "Nhập lại mật khẩu không đúng");
 		} 
-		else 
+		else if (sdt.length() != 10)
 		{
+			model.addAttribute("checkuser", "Số điện thoại phải đủ 10 số");
+		}
+		else
+		{
+			nguoidung.setSoDienThoai(sdt);
 			nguoiDungService.luuNguoiDung(nguoidung);
 
 			model.addAttribute("checkuser", "Đăng ký thành công");

@@ -38,7 +38,7 @@
 			                    <span class="fa fa-key form-control-feedback"  style="color:#000000;"></span>
 			                </div>
 			                <div class="form-group has-feedback" style="width: 320px;">
-			                    <input type="password" class="form-control" name="confirm_password" required="true"
+			                    <input type="password" class="form-control" name="confirm_password" required
 			                    	id="confirm_password" placeholder="Nhập lại mật khẩu" onkeyup='check();'/>
 			                    <span class="fa fa-key form-control-feedback"  style="color:#000000"></span>
 			                  	<p id='message' style="margin: -30px 33px 0 0;float: right;"/>
@@ -49,8 +49,8 @@
 			                    <span class="fa fa-envelope-o form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			                <div class="form-group has-feedback">
-			                    <form:input class="form-control" path="soDienThoai" required="true"
-			                    	id="phone" type = "number" min="10" maxlength = "10" placeholder="Nhập số điện thoại"
+			                    <input class="form-control" required name="sdt"
+			                    	id="phone" type="number" maxlength="10" placeholder="Nhập số điện thoại"
 			                    	oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
 			                    <span class="fa fa-phone form-control-feedback" style="color:#000000;"></span>
 			                </div>
