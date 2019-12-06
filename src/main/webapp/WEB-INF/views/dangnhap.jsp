@@ -33,11 +33,11 @@
 			            
 			            <form method="POST" action="check">
 			                <div class="form-group has-feedback">
-			                    <input type="text" class="form-control" required="true" name="tenDangNhap" value="" placeholder="Tài khoản">
+			                    <input type="text" class="form-control" required name="tenDangNhap" value="" placeholder="Tên đăng nhập">
 			                    <span class="fa fa-user-o form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			                <div class="form-group has-feedback">
-			                    <input type="password" class="form-control" required="true" name="matKhau" placeholder="Mật khẩu">
+			                    <input type="password" class="form-control" required name="matKhau" placeholder="Mật khẩu">
 			                    <span class="fa fa-key form-control-feedback" style="color:#000000;"></span>
 			                </div>
 			
