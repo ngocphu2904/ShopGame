@@ -145,9 +145,9 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label c-font-white">CMND tài khoản:</label>
                             <div class="col-md-6">
-                                <form:input path="CMND" type = "number" min="9" maxlength = "9" class="form-control c-square c-theme"
+                                <input type="number" maxlength="9" class="form-control c-square c-theme" name="CMND"
                                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                required="true" placeholder="Nhập CMND của tài khoản"/>
+                                required placeholder="Nhập CMND của tài khoản"/>
                             </div>
                         </div>
                        
@@ -215,8 +215,12 @@
 								  $(this).siblings(".custom-file-label").addClass("selected").html(fileName+",...");}
 							});
 						</script>
-
-						<div class="form-group c-margin-t-40">
+						<div class="form-group">
+                            <div class="col-md-offset-3 col-md-6">
+								<p style="color: yellow; margin-bottom: 0px;"> ${messageThem} </p>
+							</div>
+						</div>
+						<div class="form-group">
                             <div class="col-md-offset-3 col-md-6">
                             	<c:if test="${formTaiKhoan.ma == null}">
 	                                <button type="submit" value="Submit" class="btn btn-submit 

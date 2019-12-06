@@ -72,18 +72,26 @@ public class TrangQuanTri {
     
     
     @RequestMapping(value = {"/themtaikhoan"}, method = RequestMethod.POST)
-	public String luuTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
+	public String luuTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan, Model model,
 			@RequestParam(value = "files") MultipartFile[] files, HttpServletRequest req, HttpServletResponse resp) throws IOException {
  
     	resp.setContentType("text/html;charset=UTF-8");
     	req.setCharacterEncoding("utf-8");
     	
-		taiKhoanService.luuTaiKhoan(taiKhoan);
-
-		
-		hinhAnhService.luuHinhAnh(taiKhoan,files);
-		
-		return "redirect:/danhsachtaikhoan";
+    	String cmnd = req.getParameter("CMND");
+    	
+    	if (cmnd.length() != 9)
+		{
+			model.addAttribute("messageThem", "Số CMND phải đủ 9 số");
+		}
+    	else
+    	{
+	    	taiKhoan.setCMND(cmnd);
+			taiKhoanService.luuTaiKhoan(taiKhoan);
+			hinhAnhService.luuHinhAnh(taiKhoan,files);
+			model.addAttribute("messageThem", "Thêm tài khoản thành công");
+    	}
+		return "taikhoan";
     }
     
     @RequestMapping(value = {"/suataikhoan"}, method = RequestMethod.GET)

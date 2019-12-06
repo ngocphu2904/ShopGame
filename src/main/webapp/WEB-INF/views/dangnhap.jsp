@@ -20,7 +20,7 @@
 		        <!-- /.login-logo -->
 			        <div class="login-box-body box-custom">
 			            <p class="login-box-msg c-font-white">Đăng nhập hệ thống</p>
-						<span class="help-block" style="text-align: center;color: #ff2c12">
+						<span class="help-block" style="text-align: center;color: yellow">
 			                <strong> 
 			                	<c:if
 									test="${param.loi == 'true'}">

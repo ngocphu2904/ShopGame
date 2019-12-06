@@ -54,7 +54,7 @@
 			                    	oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
 			                    <span class="fa fa-phone form-control-feedback" style="color:#000000;"></span>
 			                </div>
-			                 <p style="margin: 0px 0px 14px 0px;color: red;" id="message" 
+			                 <p style="margin: 0px 0px 14px 0px;color: yellow;" id="message" 
 			                	onkeyup='dangky();' >  ${checkuser } </p>
 			                <div class="row">
 			                    <div class="col-xs-12">
