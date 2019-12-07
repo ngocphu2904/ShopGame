@@ -147,7 +147,7 @@
                             <div class="col-md-6">
                                 <input type="number" maxlength="9" class="form-control c-square c-theme" name="CMND"
                                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                required placeholder="Nhập CMND của tài khoản"/>
+                                required placeholder="Nhập CMND của tài khoản" value="${formTaiKhoan.CMND}"/>
                             </div>
                         </div>
                        
