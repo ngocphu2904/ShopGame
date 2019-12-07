@@ -35,7 +35,7 @@
 							</div>
 							<div class="c-content-ver-nav c-content-title-1">
 								<ul class="c-menu c-arrow-dot c-square c-theme">
-									<li><a href="thongtin" class="c-font-white">Thông tin cá nhâns</a></li>
+									<li><a href="thongtin" class="c-font-white">Thông tin cá nhân</a></li>
 									<li><a href="${pageContext.request.contextPath}/taikhoandamua" class="active c-font-white"><b>Tài khoản đã mua</b></a></li>
 									<li><a href="doimatkhau" class="c-font-white">Đổi mật khẩu</a></li>
 								</ul>
