@@ -64,7 +64,7 @@
 							<div class="col-md-1 col-xs-12 text-center"></div>
 							<div class="col-md-5 col-xs-12 text-center">
 								<div class="input-group c-square">
-									<span class="input-group-addon" style="">Người dùng cần gửi</span> 
+									<span class="input-group-addon" style="">Khách hàng cần gửi</span> 
 									<select style="" class="form-control c-square" name="tendangnhap" required="true">
 										<option value="">-- Không chọn --</option>
 										<c:forEach items="${dsnguoidung}" var="dsnguoidung">
