@@ -52,8 +52,15 @@
                 <div class="c-layout-sidebar-content ">
                     <!-- BEGIN: PAGE CONTENT -->
                     <!-- BEGIN: CONTENT/SHOPS/SHOP-CUSTOMER-DASHBOARD-1 -->
+                    <div class="c-content-title-1" style="margin-left: 120px;">
+                    	<c:if test="${formTaiKhoan.ma != null}">
+                        	<h3 class="c-font-uppercase c-font-bold c-font-white">Cập nhật tài khoản</h3>
+                        </c:if>
+                    </div>
                     <div class="c-content-title-1" style="margin-left: 145px;">
-                        <h3 class="c-font-uppercase c-font-bold c-font-white">Thêm tài khoản</h3>
+                        <c:if test="${formTaiKhoan.ma == null}">
+                        	<h3 class="c-font-uppercase c-font-bold c-font-white">Thêm tài khoản</h3>
+                        </c:if>
                     </div>
 					
                     <form:form modelAttribute="formTaiKhoan" method="post" class="form-horizontal form-charge" enctype="multipart/form-data">
