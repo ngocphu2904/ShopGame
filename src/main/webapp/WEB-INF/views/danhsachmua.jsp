@@ -55,7 +55,7 @@
 	           		<!-- Begin: Testimonals 1 component -->
 					<!-- Begin: Title 1 component -->
 					<div class="c-content-title-1">
-					    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh sách mua hàng</h3>
+					    <h3 class="c-center c-font-uppercase c-font-bold c-font-white">Danh sách mua tài khoản</h3>
 					    <div class="c-line-center c-theme-bg"></div>
 					</div>
 					<div class="row row-flex item-list">
