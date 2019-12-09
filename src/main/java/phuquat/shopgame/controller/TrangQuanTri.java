@@ -107,14 +107,24 @@ public class TrangQuanTri {
     }
     
     @RequestMapping(value = {"/suataikhoan"}, method = RequestMethod.POST)
-    public String suaTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan,
-    		@RequestParam(value = "files") MultipartFile[] files) {
+    public String suaTaiKhoan(@ModelAttribute("formTaiKhoan") TaiKhoan taiKhoan, Model model,
+    		@RequestParam(value = "files") MultipartFile[] files, HttpServletRequest req) {
   
-    	taiKhoanService.suaTaiKhoan(taiKhoan);
+    	String cmnd = req.getParameter("CMND");
     	
-    	hinhAnhService.luuHinhAnh(taiKhoan, files);
+    	if (cmnd.length() != 9)
+		{
+			model.addAttribute("messageThem", "Số CMND phải đủ 9 số");
+		}
+    	else
+    	{
+	    	taiKhoan.setCMND(cmnd);
+	    	taiKhoanService.suaTaiKhoan(taiKhoan);
+	    	hinhAnhService.luuHinhAnh(taiKhoan, files);
+	    	model.addAttribute("messageThem", "Cập nhật tài khoản thành công");
+    	}
     	
-    	return "redirect:/danhsachtaikhoan";
+    	return "taikhoan";
     	
     }
     
