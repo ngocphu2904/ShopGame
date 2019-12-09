@@ -86,14 +86,6 @@ public class CauHinhUngDung {
 	       System.out.println("## getSessionFactory: " + sf);
 	       return sf;
 	   }
-	   
-	    @Autowired
-	    @Bean(name = "template")
-	    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-	        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-	        jdbcTemplate.setResultsMapCaseInsensitive(true);
-	        return jdbcTemplate;
-	    }
 	 
 	   @Autowired
 	   @Bean(name = "transactionManager")

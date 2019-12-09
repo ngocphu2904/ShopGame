@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.entity.HinhAnh;
-import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;
 
