@@ -85,13 +85,7 @@ public class TrangNguoiDung {
 
 		UserDetails nguoiDung = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-		NguoiDung thongtin = null;
-		if (nguoiDung.getUsername() != null) {
-			thongtin = nguoiDungService.timNguoiDung(nguoiDung.getUsername());
-		}
-		if (thongtin == null) {
-			return "redirect:/login";
-		}
+		NguoiDung thongtin =  nguoiDungService.timNguoiDung(nguoiDung.getUsername());
 
 		model.addAttribute("thongtin", thongtin);
 

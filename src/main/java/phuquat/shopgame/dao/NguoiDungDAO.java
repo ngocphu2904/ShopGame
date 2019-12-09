@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
-import phuquat.shopgame.model.DonMuaModel;
 
 public class NguoiDungDAO {
 	

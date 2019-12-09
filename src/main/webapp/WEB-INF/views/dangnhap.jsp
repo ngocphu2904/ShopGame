@@ -31,7 +31,7 @@
 						</strong>
 			            </span>
 			            
-			            <form method="POST" action="check">
+			            <form method="POST" action="dangnhap">
 			                <div class="form-group has-feedback">
 			                    <input type="text" class="form-control" required name="tenDangNhap" value="" placeholder="Tên đăng nhập">
 			                    <span class="fa fa-user-o form-control-feedback" style="color:#000000;"></span>

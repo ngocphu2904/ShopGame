@@ -9,8 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 import phuquat.shopgame.phanquyen.PhanQuyen;
 
-@Configuration
-@EnableWebSecurity /* @EnableWebSecurity = @EnableWebMVCSecurity + Extra features */
+@Configuration //xac dinh lop la mot lop dung de cau hinh.
+@EnableWebSecurity //se kich hoat viec tich hop Spring Security voi Spring MVC.
 public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	       http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 	  
 	       // Cau hinh trang dang nhap
-	       http.authorizeRequests().and().formLogin().loginProcessingUrl("/check")//khi dang nhap no nhay vao
+	       http.authorizeRequests().and().formLogin()
            .loginPage("/dangnhap").defaultSuccessUrl("/")
            .failureUrl("/dangnhap?loi=true")//khi dang nhap loi
            .usernameParameter("tenDangNhap") //bien name trang jsp
