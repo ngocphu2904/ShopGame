@@ -14,11 +14,6 @@
 						Xin lỗi bạn không có quyền truy cập trang này!
                    	</p>  
 			    </div>
-			    <div class="c-content-title-1 c-font-center" style="margin: 25px 0 0 0">
-					<a href="dangnhap" class="btn c-btn c-theme-btn c-font-uppercase c-font-bold c-btn-square">
-						Đăng nhập
-					</a>
-				</div>
    			</div>
    		</div>
    </div>
