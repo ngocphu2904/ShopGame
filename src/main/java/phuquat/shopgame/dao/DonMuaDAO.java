@@ -62,7 +62,7 @@ public class DonMuaDAO {
 					+" FROM "+NguoiDung.class.getName()+" n, " 
 					+TaiKhoan.class.getName()+" t, "
 					+DonMua.class.getName()+" d "
-					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap";
+					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap order by d.ngayMua desc";
 		
 		Query<DonMuaModel> query = session.createQuery(hql);
 		return query.getResultList();
@@ -78,7 +78,7 @@ public class DonMuaDAO {
 					+TaiKhoan.class.getName()+" t, "
 					+DonMua.class.getName()+" d "
 					+"where d.taiKhoan.ma=t.ma and d.nguoiDung.tenDangNhap=n.tenDangNhap "
-					+ "and n.tenDangNhap like '"+ten+"'";
+					+ "and n.tenDangNhap like '"+ten+"' order by d.ngayMua desc";
 		
 		Query<DonMuaModel> query = session.createQuery(hql);
 		return query.getResultList();
