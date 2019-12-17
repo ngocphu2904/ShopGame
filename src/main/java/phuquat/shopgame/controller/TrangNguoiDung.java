@@ -257,6 +257,7 @@ public class TrangNguoiDung {
 		res.getOutputStream().close();
 	}
 	
+	// mua tai khoan
 	@RequestMapping(value={"/chitiettaikhoan"}, method = RequestMethod.POST)
 	public String xacNhanMuaTaiKhoan(Model model, @RequestParam("ma") String maTK) {
 		

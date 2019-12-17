@@ -148,9 +148,9 @@ public class TrangQuanTri {
     
 	@RequestMapping("guitaikhoan")
 	public String thongKe(Model model) {
-		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
+		List<NguoiDung> dsnguoidung = nguoiDungService.layDSNguoiDung();
 		model.addAttribute("dsnguoidung",dsnguoidung);
-		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
+		List<TaiKhoan> dstaikhoan = taiKhoanService.xemTaiKhoanChuaMua();
 		model.addAttribute("dstaikhoan", dstaikhoan);
 		return "guitaikhoan";
 	}
@@ -171,9 +171,9 @@ public class TrangQuanTri {
 		taiKhoanService.capNhatTaiKhoanDaMua(maTaiKhoan);
 		
 		// hien thi ten nguoi dung va id tai khoan tren combobox
-		List<NguoiDung> dsnguoidung = nguoiDungService.xemnguoidung();
+		List<NguoiDung> dsnguoidung = nguoiDungService.layDSNguoiDung();
 		model.addAttribute("dsnguoidung",dsnguoidung);
-		List<TaiKhoan> dstaikhoan = taiKhoanService.xemtaikhoan();
+		List<TaiKhoan> dstaikhoan = taiKhoanService.xemTaiKhoanChuaMua();
 		model.addAttribute("dstaikhoan", dstaikhoan);
 		
 		model.addAttribute("kq", "Đã gửi tài khoản có mã: "+maTaiKhoan+" cho người dùng có tên tài khoản: "+tenDangNhap);

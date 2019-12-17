@@ -18,8 +18,8 @@ public class NguoiDungService {
 	public NguoiDung timNguoiDung(String tenDangNhap) {
 		return nguoiDungDAO.timNguoiDung(tenDangNhap);
 	}
-	public List<NguoiDung> xemnguoidung(){
-		return nguoiDungDAO.xemnguoidung();
+	public List<NguoiDung> layDSNguoiDung(){
+		return nguoiDungDAO.layDSNguoiDung();
 	}
 	public void luuNguoiDung(NguoiDung nguoidung) {
 		nguoiDungDAO.luuNguoiDung(nguoidung);
