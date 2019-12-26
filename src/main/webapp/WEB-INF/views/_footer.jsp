@@ -123,7 +123,7 @@
                             <p style="margin-top: -7px;">
                             	<span style="color:#ffff00">
                             		<span style="font-size:36px">
-                            			<u><strong>SHOP CHÍNH THỨC CỦA NHÓM 100 HOTLINE: 0123456789</strong></u>
+                            			<u><strong>SHOP CHÍNH THỨC CỦA NHÓM 14 HOTLINE: 0123456789</strong></u>
                             		</span>
                             	</span>
                             </p>
@@ -135,7 +135,7 @@
         <div class="c-postfooter">
             <div class="container">
                 <div class="row">
-                   <p class="c-copyright c-font-white">2019 © vận hành bởi <a style="color: #ffff00" href="">Nhóm 100</a> <span class="c-font-grey-3"> </span>
+                   <p class="c-copyright c-font-white">2019 © vận hành bởi <a style="color: #ffff00" href="">Nhóm 14</a> <span class="c-font-grey-3"> </span>
                    </p>
                 </div>
             </div>
