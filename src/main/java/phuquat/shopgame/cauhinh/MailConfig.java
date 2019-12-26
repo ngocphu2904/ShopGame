@@ -9,7 +9,7 @@ public class MailConfig {
  
     public static final String APP_EMAIL = "shopgame0412@gmail.com"; // your email
  
-    public static final String APP_PASSWORD = "shopgame123"; // your password
+    public static final String APP_PASSWORD = "shopgame04121998"; // your password
  
     public static final String RECEIVE_EMAIL = ""; 
 }
