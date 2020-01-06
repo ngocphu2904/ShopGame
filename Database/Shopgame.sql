@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `hinhanh` (
 CREATE TABLE IF NOT EXISTS `nguoidung` (
   `Tendangnhap` varchar(50) NOT NULL,
   `Kichhoat` bit(1) NOT NULL,
-  `Matkhau` varchar(50) NOT NULL,
+  `Matkhau` varchar(100) NOT NULL,
   `Kieunguoidung` varchar(50) NOT NULL,
   `Tennguoidung` varchar(255) NOT NULL,
   `Email` varchar(50) NOT NULL,
