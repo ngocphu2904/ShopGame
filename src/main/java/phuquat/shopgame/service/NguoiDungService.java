@@ -1,5 +1,7 @@
 package phuquat.shopgame.service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,7 +23,7 @@ public class NguoiDungService {
 	public List<NguoiDung> layDSNguoiDung(){
 		return nguoiDungDAO.layDSNguoiDung();
 	}
-	public void luuNguoiDung(NguoiDung nguoidung) {
+	public void luuNguoiDung(NguoiDung nguoidung) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		nguoiDungDAO.luuNguoiDung(nguoidung);
 	}
 	public boolean checkUser(NguoiDung nguoidung) {

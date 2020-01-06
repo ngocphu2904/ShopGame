@@ -21,6 +21,7 @@ public class PhanQuyen implements UserDetailsService{
 	@Autowired
 	private NguoiDungService nguoiDungService;
 	
+	
 	//Tham số truyền vào chỉ gồm có username của người dùng. Ta sẽ tìm kiếm trong CSDL, record thỏa mãn username.
 	//Nếu không tìm thấy, ta sẽ ném ra ngoại lệ UsernameNotFoundException.
 	@Override
@@ -29,6 +30,7 @@ public class PhanQuyen implements UserDetailsService{
         
         // QUAN_TRI, NGUOI_DUNG
         String quyen = nguoiDung.getKieuNguoiDung();
+        String matkhau = "" ;
  
         List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
  
@@ -42,12 +44,12 @@ public class PhanQuyen implements UserDetailsService{
         boolean accountNonExpired = true;//tra ve true neu nguoi dung chua het han
         boolean credentialsNonExpired = true;// tra ve true neu chung thuc (mat khau) nguoi dung chua het han
         boolean accountNonLocked = true;//tra ve true neu nguoi dung chua bi khoa
+
  
         UserDetails thongTin = (UserDetails) new User(nguoiDung.getTenDangNhap() //so sanh voi param username trang login
-                , nguoiDung.getMatKhau() //so sanh vs param password trang login
+                ,nguoiDung.getMatKhau()  //so sanh vs param password trang login
                 , enabled, accountNonExpired, //
                 credentialsNonExpired, accountNonLocked, grantList);
- 
         return thongTin;
     }
 }

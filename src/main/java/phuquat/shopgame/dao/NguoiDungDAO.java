@@ -6,6 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.security.*;
 
 import phuquat.shopgame.entity.NguoiDung;
 import phuquat.shopgame.entity.TaiKhoan;
@@ -15,10 +20,12 @@ public class NguoiDungDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@Autowired 
+	private PasswordEncoder passwordEncoder;
+	
 	@Autowired
 	private TaiKhoanDAO taiKhoanDAO;
 	
-
 	public NguoiDung timNguoiDung(String tenDangNhap) {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.get(NguoiDung.class, tenDangNhap);
@@ -33,11 +40,12 @@ public class NguoiDungDAO {
 		return query.getResultList();
 	}
 	
-	public void luuNguoiDung(NguoiDung nguoiDung) {
+	public void luuNguoiDung(NguoiDung nguoiDung) throws UnsupportedEncodingException, NoSuchAlgorithmException  {
 		
 		nguoiDung.setKichHoat(true);
 		nguoiDung.setKieuNguoiDung("NGUOI_DUNG");
 		nguoiDung.setTien(20000000);
+		nguoiDung.setMatKhau(passwordEncoder.encode(nguoiDung.getMatKhau().toString()));
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(nguoiDung);
 	}

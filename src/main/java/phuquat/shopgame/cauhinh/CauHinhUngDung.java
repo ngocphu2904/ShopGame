@@ -15,6 +15,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -40,6 +44,9 @@ public class CauHinhUngDung {
 	   // Luu cac gia tri o @PropertySource vao moitruong.
 	   @Autowired
 	   private Environment moitruong;
+	   @Autowired
+	   private UserDetailsService userDetailsService;
+	   
 	
 	   @Bean(name = "viewResolver")
 	   public InternalResourceViewResolver getViewResolver() {
@@ -150,5 +157,17 @@ public class CauHinhUngDung {
 	   @Bean(name="emaiService")
 	   public EmailService getEmailService() {
 		   return new EmailService();
+	   }
+	   @Bean
+	   public PasswordEncoder passwordEncoder() {
+	       return new BCryptPasswordEncoder();
+	   }
+	   
+	   @Bean
+	   public DaoAuthenticationProvider authProvider() {
+	       DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+	       authProvider.setUserDetailsService(userDetailsService);
+	       authProvider.setPasswordEncoder(passwordEncoder());
+	       return authProvider;
 	   }
 }

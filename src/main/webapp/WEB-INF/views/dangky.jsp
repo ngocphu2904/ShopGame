@@ -54,6 +54,14 @@
 			                    	oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"/>
 			                    <span class="fa fa-phone form-control-feedback" style="color:#000000;"></span>
 			                </div>
+			                <script type="text/javascript">
+			                window.onload = function() {
+			                	document.getElementById("name").value = '';
+			                	document.getElementById("username").value = '';
+			                	document.getElementById("password").value = '';
+			                	document.getElementById("email").value = '';
+			                }
+			                </script>
 			                 <p style="margin: 0px 0px 14px 0px;color: yellow;" id="message" 
 			                	onkeyup='dangky();' >  ${checkuser } </p>
 			                <div class="row">

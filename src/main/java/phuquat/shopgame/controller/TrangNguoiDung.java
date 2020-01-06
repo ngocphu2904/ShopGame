@@ -1,6 +1,8 @@
 package phuquat.shopgame.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,7 +70,7 @@ public class TrangNguoiDung {
 	}
 
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.GET)
-	public String dangky(Model model) {
+	public String dangky(Model model,HttpServletRequest req) {
 		model.addAttribute("formnguoidung", new NguoiDung());
 		return "dangky";
 	}
@@ -94,7 +96,7 @@ public class TrangNguoiDung {
 
 	@RequestMapping(value = { "/dangky" }, method = RequestMethod.POST)
 	public String luunguoidung(Model model, @ModelAttribute("formnguoidung") NguoiDung nguoidung,
-			BindingResult theBindingResult, HttpServletRequest req) {
+			BindingResult theBindingResult, HttpServletRequest req) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
 		String confirm_password = req.getParameter("confirm_password");
 		String sdt = req.getParameter("sdt");
@@ -123,7 +125,7 @@ public class TrangNguoiDung {
 			nguoiDungService.luuNguoiDung(nguoidung);
 
 			model.addAttribute("checkuser", "Đăng ký thành công");
-			model.addAttribute("formnguoidung", nguoidung);
+			//model.addAttribute("formnguoidung", nguoidung);
 		}
 		return "dangky";
 	}

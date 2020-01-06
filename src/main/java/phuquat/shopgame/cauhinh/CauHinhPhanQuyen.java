@@ -1,6 +1,7 @@
 package phuquat.shopgame.cauhinh;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import phuquat.shopgame.phanquyen.PhanQuyen;
+import phuquat.shopgame.service.NguoiDungService;
 
 @Configuration //xac dinh lop la mot lop dung de cau hinh.
 @EnableWebSecurity //se kich hoat viec tich hop Spring Security voi Spring MVC.
@@ -15,17 +17,23 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	PhanQuyen phanquyen;
+	@Autowired
+	NguoiDungService nguoiDungService;
+	@Autowired
+	CauHinhUngDung cauhinhungdung;
 	
 	   @Autowired
 	   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 	       // Cac nguoi dung trong Database
 	       auth.userDetailsService(phanquyen);
+	       auth.authenticationProvider(cauhinhungdung.authProvider());
 	   }
 	   
 	   @Override
 	   protected void configure(HttpSecurity http) throws Exception {
 	 
 	       http.csrf().disable();
+	       
 	       
 	       // Chuyen toi trang dang nhap khi muon vao trang duoi (neu chua dang nhap)
 	       http.authorizeRequests().antMatchers("/thongtin", "/doimatkhau")
@@ -49,5 +57,7 @@ public class CauHinhPhanQuyen extends WebSecurityConfigurerAdapter {
            .usernameParameter("tenDangNhap") //bien name trang jsp
            .passwordParameter("matKhau") // bien name trang jsp
            .and().logout().logoutUrl("/dangxuat").logoutSuccessUrl("/");//dang xuat
+	       
+	       
 	   }
 }

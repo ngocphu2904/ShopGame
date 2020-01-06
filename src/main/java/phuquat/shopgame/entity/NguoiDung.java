@@ -34,7 +34,7 @@ public class NguoiDung implements Serializable{
 		this.tenDangNhap = tenDangNhap;
 	}
 	
-	@Column(name = "Matkhau", length = 50, nullable = false)
+	@Column(name = "Matkhau", length = 100, nullable = false)
 	public String getMatKhau() {
 		return matKhau;
 	}
