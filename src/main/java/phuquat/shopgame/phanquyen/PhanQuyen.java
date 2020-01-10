@@ -46,7 +46,7 @@ public class PhanQuyen implements UserDetailsService{
         boolean accountNonLocked = true;//tra ve true neu nguoi dung chua bi khoa
 
  
-        UserDetails thongTin = (UserDetails) new User(nguoiDung.getTenDangNhap() //so sanh voi param username trang login
+        UserDetails thongTin = (UserDetails) new User(tendangnhap //so sanh voi param username trang login
                 ,nguoiDung.getMatKhau()  //so sanh vs param password trang login
                 , enabled, accountNonExpired, //
                 credentialsNonExpired, accountNonLocked, grantList);

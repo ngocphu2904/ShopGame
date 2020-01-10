@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -105,7 +104,7 @@ public class CauHinhUngDung {
 	   @Bean(name = "multipartResolver")
 	   public CommonsMultipartResolver multipartResolver() {
 		    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-	    	multipartResolver.setMaxUploadSize(20971520);
+	    	multipartResolver.setMaxUploadSize(20971520); //20MB
 		    return multipartResolver;
 	   }
 	   
@@ -119,15 +118,15 @@ public class CauHinhUngDung {
 		   return new NguoiDungService();
 	   }
 	   
-	   @Bean(name = "taiKhoanDAO")
-	   public TaiKhoanDAO getTaiKhoanDAO(){
-		   return new TaiKhoanDAO();
-	   }
+//	   @Bean(name = "taiKhoanDAO")
+//	   public TaiKhoanDAO getTaiKhoanDAO(){
+//		   return new TaiKhoanDAO();
+//	   }
 	   
-	   @Bean(name = "taiKhoanService")
-	   public TaiKhoanService getTaiKhoanService(){
-		   return new TaiKhoanService();
-	   }
+//	   @Bean(name = "taiKhoanService")
+//	   public TaiKhoanService getTaiKhoanService(){
+//		   return new TaiKhoanService();
+//	   }
 	   
 	   @Bean(name="hinhAnhDAO")
 	   public HinhAnhDAO getHinhAnhDAO() {

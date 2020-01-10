@@ -2,15 +2,20 @@ package phuquat.shopgame.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import phuquat.shopgame.entity.HinhAnh;
 import phuquat.shopgame.entity.TaiKhoan;
 import phuquat.shopgame.model.TaiKhoanModel;
 
+@Repository(value = "taiKhoanDAO")
+@Transactional
 public class TaiKhoanDAO {
 	
 	@Autowired
