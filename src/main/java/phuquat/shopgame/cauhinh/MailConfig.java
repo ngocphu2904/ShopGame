@@ -7,9 +7,9 @@ public class MailConfig {
  
     public static final int TSL_PORT = 587; // Port for TLS/STARTTLS
  
-    public static final String APP_EMAIL = "shopgame0412@gmail.com"; // your email
+    public static final String APP_EMAIL = "shopgamequat0412@gmail.com"; // your email
  
-    public static final String APP_PASSWORD = "shopgame04121998"; // your password
+    public static final String APP_PASSWORD = "quat04121998"; // your password
  
     public static final String RECEIVE_EMAIL = ""; 
 }
